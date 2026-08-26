@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #E5E5E5;
+  --paper: #F8F8F8;
   --ink: rgba(0, 0, 0, 0.85);
   --muted: rgba(0, 0, 0, 0.6);
   --line: rgba(0, 0, 0, 0.13);
@@ -101,14 +101,14 @@ img { display: block; max-width: 100%; }
 .work-section { padding: 58px 0 150px; }
 .work-intro { margin-bottom: 46px; }
 .feature-grid { width: min(100% - 48px, 1380px); margin: 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; }
-.work-tile { min-height: 470px; position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #E5E5E5; }
+.work-tile { min-height: 470px; position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #F8F8F8; }
 .feature-wide { grid-column: span 8; }
 .feature-tall { grid-column: span 4; }
 .tile-copy { position: relative; z-index: 2; padding: 30px 30px 0; }
 .feature-label { width: max-content; display: inline-flex; min-height: 35px; align-items: center; padding: 0 16px; border: 1px solid var(--line); border-radius: 20px; background: #fff; font-family: "Courier New", monospace; font-size: 13px; }
 .tile-copy h3 { max-width: 680px; margin: 20px 0 0; color: var(--muted); font-size: 18px; font-weight: 400; line-height: 1.5; }
 .tile-media { min-height: 220px; flex: 1; position: relative; display: flex; align-items: end; justify-content: center; margin-top: 18px; overflow: hidden; }
-.tile-media::before { content: ""; position: absolute; z-index: 1; inset: 0 0 auto; height: 52%; background: linear-gradient(#E5E5E5, transparent); pointer-events: none; }
+.tile-media::before { content: ""; position: absolute; z-index: 1; inset: 0 0 auto; height: 52%; background: linear-gradient(#F8F8F8, transparent); pointer-events: none; }
 .tile-media img, .tile-media .feature-video { width: 88%; height: auto; max-height: 340px; object-fit: cover; object-position: top center; border-radius: 12px 12px 0 0; box-shadow: 0 16px 38px rgba(0,0,0,.12); }
 .feature-tall .tile-copy h3 { font-size: 17px; }
 .feature-tall .tile-media img, .feature-tall .tile-media .feature-video { width: 86%; height: 298px; object-fit: cover; }
@@ -133,7 +133,7 @@ img { display: block; max-width: 100%; }
 .privacy-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 9px; border-bottom: 1px solid currentColor; padding-bottom: 4px; color: var(--ink); font-size: 16px; }
 .privacy-link:hover { color: rgba(0,0,0,.54); }
 
-.final-cta { min-height: 370px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 72px 24px; background: #E5E5E5; text-align: center; }
+.final-cta { min-height: 370px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 72px 24px; background: #F8F8F8; text-align: center; }
 .final-cta h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(54px, 5vw, 86px); font-weight: 400; }
 .cta-download { min-width: 184px; height: 56px; margin-top: 28px; color: #fff; background: #000; font-size: 17px; }
 .final-cta p { margin: 15px 0 0; color: var(--muted); font-size: 12px; }
@@ -187,7 +187,7 @@ img { display: block; max-width: 100%; }
   .menu-toggle span:last-child { transform: translateY(4px); }
   .site-nav.is-open .menu-toggle span:first-child { transform: rotate(45deg); }
   .site-nav.is-open .menu-toggle span:last-child { transform: rotate(-45deg); }
-  .mobile-menu { min-height: calc(100svh - 28px); position: absolute; top: 0; left: 0; right: 0; display: flex; visibility: hidden; flex-direction: column; justify-content: space-between; padding: 112px 24px 24px; border: 1px solid rgba(0,0,0,.08); border-radius: 30px; background: #E5E5E5; opacity: 0; transform: scale(.98); transition: opacity .25s ease, transform .25s ease, visibility .25s step-end; }
+  .mobile-menu { min-height: calc(100svh - 28px); position: absolute; top: 0; left: 0; right: 0; display: flex; visibility: hidden; flex-direction: column; justify-content: space-between; padding: 112px 24px 24px; border: 1px solid rgba(0,0,0,.08); border-radius: 30px; background: #F8F8F8; opacity: 0; transform: scale(.98); transition: opacity .25s ease, transform .25s ease, visibility .25s step-end; }
   .site-nav.is-open + .mobile-menu { visibility: visible; opacity: 1; transform: scale(1); transition: opacity .25s ease, transform .25s ease; }
   .mobile-menu-links { display: grid; gap: 26px; }
   .mobile-menu-links a { color: rgba(0,0,0,.22); font-size: clamp(40px, 13vw, 56px); line-height: 1.02; }
