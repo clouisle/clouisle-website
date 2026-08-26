@@ -90,7 +90,7 @@ img { display: block; max-width: 100%; }
 .case-description { display: block; max-width: 32ch; padding-top: 10px; color: rgba(0,0,0,.62); font-size: 14px; line-height: 20px; }
 .case-project-list { display: flex; min-width: 0; grid-column: span 8; flex-direction: column; gap: 20px; }
 .case-project { min-height: 60vh; display: flex; align-items: flex-start; padding-bottom: 40px; scroll-margin-top: 20vh; }
-.case-project-frame { width: 100%; overflow: hidden; border-radius: 20px; box-shadow: 0 22px 64px rgba(0,0,0,.1); }
+.case-project-frame { width: 100%; overflow: hidden; border-radius: 20px; }
 .case-project-frame img { width: 100%; height: auto; }
 .mobile-case-list { display: none; }
 
@@ -167,6 +167,7 @@ img { display: block; max-width: 100%; }
 
 @media (min-width: 800px) {
   .hero h1 { font-size: 96px; }
+  .case-project-frame { border-radius: 24px; }
 }
 
 @media (min-width: 1000px) {
@@ -209,7 +210,7 @@ img { display: block; max-width: 100%; }
   .section-intro h2, .privacy-panel h2 { font-size: clamp(39px, 11vw, 54px); }
   .read-tabs-shell { display: none; }
   .mobile-case-list { width: calc(100% - 40px); display: grid; gap: 54px; margin: 0 auto; }
-  .mobile-case img { overflow: hidden; border-radius: 18px; }
+  .mobile-case img { overflow: hidden; border-radius: 20px; }
   .mobile-case > span { display: block; margin-top: 19px; color: var(--muted); font-family: "Courier New", monospace; font-size: 12px; }
   .mobile-case h3 { margin: 9px 0; font-family: Georgia, "Times New Roman", serif; font-size: 26px; line-height: 1.1; }
   .mobile-case p { max-width: 600px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
