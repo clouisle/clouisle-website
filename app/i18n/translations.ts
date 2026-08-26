@@ -214,7 +214,7 @@ export const translations: Record<Locale, Translations> = {
     hero: {
       tagline: "想得到的，做得到的，都在这里。",
       download: "体验演示",
-      trialNote: "100% open source & free to use.",
+      trialNote: "100% 开源，免费使用。",
       watchScream: "观看尖叫视频",
     },
     reads: {
