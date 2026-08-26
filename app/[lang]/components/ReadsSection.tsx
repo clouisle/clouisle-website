@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import type { Translations } from "../../i18n/translations";
 
 const caseImages = [
-  "/dia-assets/morning-brief.png",
-  "/dia-assets/synthesis.png",
-  "/dia-assets/answer.png",
+  "/clouisle-assets/reads-1.png",
+  "/clouisle-assets/reads-2.png",
+  "/clouisle-assets/reads-3.png",
 ];
 
 export default function ReadsSection({ t }: { t: Translations }) {
