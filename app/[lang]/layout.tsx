@@ -17,9 +17,8 @@ export default async function RootLayout({
   params,
 }: LayoutProps<"/[lang]">) {
   const lang: Locale = (await params).lang === "zh" ? "zh" : "en";
-
   return (
-    <html lang={lang} className="h-full antialiased">
+    <html lang={lang} data-scroll-behavior="smooth" className="h-full antialiased">
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
