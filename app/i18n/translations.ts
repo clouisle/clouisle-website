@@ -99,7 +99,7 @@ export const translations: Record<Locale, Translations> = {
       watchScream: "Watch the scream",
     },
     reads: {
-      title: "Dia reads between the tabs",
+      title: "Clouisle knows what to do with what you know.",
       cases: [
         {
           title: "Start your day two steps ahead",
