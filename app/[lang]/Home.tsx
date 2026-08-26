@@ -303,7 +303,7 @@ export default function Home({ lang }: { lang: Locale }) {
       </header>
 
       <section className="hero" id="top">
-        <img className="hero-scream" src="/dia-assets/alex-scream.webp" alt="" aria-hidden="true" />
+        <img className="hero-scream" src="/clouisle-assets/hero.png" alt="" aria-hidden="true" />
         <div className="hero-content">
           <h1 aria-label="Clouisle">
             <span className="hero-word" aria-hidden="true">
