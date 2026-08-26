@@ -93,9 +93,9 @@ export const translations: Record<Locale, Translations> = {
       watchTrailer: "Watch the trailer video",
     },
     hero: {
-      tagline: "A browser you won't dread opening.",
-      download: "Download",
-      trialNote: "Includes 14 day free trial of Better Days",
+      tagline: "Your company's brain and hands, finally in one place.",
+      download: "Try Demo",
+      trialNote: "100% open source & free to use.",
       watchScream: "Watch the scream",
     },
     reads: {
@@ -212,9 +212,9 @@ export const translations: Record<Locale, Translations> = {
       watchTrailer: "观看预告片",
     },
     hero: {
-      tagline: "一款你不会害怕打开的浏览器。",
-      download: "下载",
-      trialNote: "包含 Better Days 14 天免费试用",
+      tagline: "想得到的，做得到的，都在这里。",
+      download: "体验演示",
+      trialNote: "100% open source & free to use.",
       watchScream: "观看尖叫视频",
     },
     reads: {

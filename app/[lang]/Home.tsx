@@ -305,11 +305,17 @@ export default function Home({ lang }: { lang: Locale }) {
       <section className="hero" id="top">
         <img className="hero-scream" src="/dia-assets/alex-scream.webp" alt="" aria-hidden="true" />
         <div className="hero-content">
-          <h1 aria-label="Dia">
+          <h1 aria-label="Clouisle">
             <span className="hero-word" aria-hidden="true">
-              <span className="hero-glyph hero-glyph-d">D</span>
-              <span className="hero-glyph hero-glyph-i">i</span>
-              <span className="hero-glyph hero-glyph-a">a</span>
+              {Array.from("Clouisle").map((letter, index) => (
+                <span
+                  key={index}
+                  className="hero-glyph"
+                  style={{ "--i": index } as React.CSSProperties}
+                >
+                  {letter}
+                </span>
+              ))}
             </span>
           </h1>
           <p className="hero-tagline">{t.hero.tagline}</p>
