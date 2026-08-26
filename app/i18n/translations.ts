@@ -102,19 +102,19 @@ export const translations: Record<Locale, Translations> = {
       title: "Know you. Know how.",
       cases: [
         {
-          title: "Start your day two steps ahead",
+          title: "Start with a sentence. Get to the next step.",
           description:
-            "Before the day kicks in, Dia's Morning Brief lays it all out (calendar, inbox, key links) so you know exactly what you're walking into.",
+            "Give an agent your goal. It understands the context, figures out what needs to happen, and uses the right tools to move the work forward.",
         },
         {
-          title: "Synthesis you'll actually use",
+          title: "Stop handing off the work that repeats.",
           description:
-            "Instead of bouncing between tools, just ask Dia. It gathers what's scattered across your tools (Slack, Notion, Calendar, and many more!) and turns it into a report worth sharing.",
+            "Connect agents, tools, and approvals into one clear flow, so work moves from trigger to completion with every step traceable.",
         },
         {
-          title: "Find the answer without hunting it down",
+          title: "Find the answer without digging through everything.",
           description:
-            "Ask once. Dia digs into your full context, across GSuite, Slack, tabs, and more, and answers like someone who's seen every thread.",
+            "Ask across your documents, systems, and business knowledge to find the right context when you need it.",
         },
       ],
     },
@@ -221,19 +221,19 @@ export const translations: Record<Locale, Translations> = {
       title: "懂你所知，更懂如何做到。",
       cases: [
         {
-          title: "让每一天领先两步",
+          title: "从一句话开始，让事情有下一步。",
           description:
-            "在一天开始之前，Dia 的晨间简报为你梳理好一切（日历、收件箱、关键链接），让你清楚知道接下来要面对什么。",
+            "把目标交给 Agent。它理解你的上下文，判断真正要做什么，调用合适的工具，让工作继续向前。",
         },
         {
-          title: "真正实用的综合分析",
+          title: "重复的工作，不必再重复交接。",
           description:
-            "不用再在各个工具之间来回切换，直接问 Dia。它能收集散落在你工具中的信息（Slack、Notion、Calendar 等），整理成一份值得分享的报告。",
+            "把 Agent、工具和审批节点串成一条清晰的流程，让任务从触发到完成自动推进，过程始终可追踪。",
         },
         {
-          title: "无需翻找就能找到答案",
+          title: "不用翻遍资料，也能找到答案。",
           description:
-            "问一次就够了。Dia 深入你的全部上下文，跨越 GSuite、Slack、标签页等，像一个看过所有对话的人一样回答你。",
+            "直接向文档、系统和业务知识提问，在需要的时候找到相关信息，让每个答案都建立在正确的上下文之上。"
         },
       ],
     },
