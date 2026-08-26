@@ -90,7 +90,7 @@ img { display: block; max-width: 100%; }
 .case-description { display: block; max-width: 32ch; padding-top: 10px; color: rgba(0,0,0,.62); font-size: 14px; line-height: 20px; }
 .case-project-list { display: flex; min-width: 0; grid-column: span 8; flex-direction: column; gap: 20px; }
 .case-project { min-height: 60vh; display: flex; align-items: flex-start; padding-bottom: 40px; scroll-margin-top: 20vh; }
-.case-project-frame { width: 100%; overflow: hidden; border-radius: 20px; background: #e7e7e7; box-shadow: 0 22px 64px rgba(0,0,0,.1); }
+.case-project-frame { width: 100%; overflow: hidden; border-radius: 20px; box-shadow: 0 22px 64px rgba(0,0,0,.1); }
 .case-project-frame img { width: 100%; height: auto; }
 .mobile-case-list { display: none; }
 
