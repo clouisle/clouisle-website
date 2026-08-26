@@ -64,9 +64,6 @@ img { display: block; max-width: 100%; }
 .hero-tagline { max-width: 370px; margin: 22px 0 21px; font-size: clamp(21px, 1.75vw, 30px); line-height: 1.12; }
 .hero-download, .cta-download { min-width: 280px; height: 56px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 14px; color: #000; background: #fff; font-size: 18px; font-weight: 600; transition: transform .18s ease, opacity .18s ease; }
 .hero-download:hover, .cta-download:hover { opacity: .9; transform: scale(.98); }
-.download-icon { width: 13px; height: 17px; position: relative; display: inline-block; border-bottom: 1.5px solid currentColor; }
-.download-icon::before { content: ""; position: absolute; left: 6px; top: 1px; width: 1.5px; height: 10px; background: currentColor; }
-.download-icon::after { content: ""; position: absolute; left: 3px; top: 7px; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }
 .trial-note { margin: 12px 0 0; color: rgba(255,255,255,.42); font-size: 12px; }
 .watch-button { align-self: center; margin: 0 0 56px; display: inline-flex; align-items: center; gap: 12px; padding: 9px 20px 9px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #fff; background: rgba(0,0,0,.66); box-shadow: 0 8px 30px -8px rgba(0,0,0,.6); backdrop-filter: blur(12px); font-size: 16px; font-weight: 600; transition: transform .18s ease, background .18s ease; }
 .watch-button:hover { background: rgba(0,0,0,.86); transform: translateY(-2px); }

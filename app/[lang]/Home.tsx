@@ -63,8 +63,23 @@ function DiaMark() {
   );
 }
 
-function DownloadIcon() {
-  return <span className="download-icon" aria-hidden="true" />;
+function ArrowRightIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
 }
 
 type MuxVideoProps = {
@@ -320,7 +335,7 @@ export default function Home({ lang }: { lang: Locale }) {
           </h1>
           <p className="hero-tagline">{t.hero.tagline}</p>
           <button className="hero-download" type="button" onClick={showDownloadNotice}>
-            {t.hero.download} <DownloadIcon />
+            {t.hero.download} <ArrowRightIcon />
           </button>
           <p className="trial-note">{t.hero.trialNote}</p>
         </div>
