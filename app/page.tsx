@@ -6,104 +6,42 @@ import { useLanguage } from "./i18n/LanguageContext";
 const muxStream = (playbackId: string) =>
   `https://stream.mux.com/${playbackId}.m3u8?rendition_order=desc&min_resolution=1080p`;
 
-type FeatureTile = {
-  label: string;
-  title: string;
+const caseImages = [
+  "/dia-assets/morning-brief.png",
+  "/dia-assets/synthesis.png",
+  "/dia-assets/answer.png",
+];
+
+type FeatureMedia = {
   className: string;
   image?: string;
   poster?: string;
   stream?: string;
 };
 
-const useCases = [
+const featureMedia: FeatureMedia[] = [
+  { className: "feature-wide", image: "/dia-assets/decks.png" },
   {
-    number: "01",
-    title: "Start your day two steps ahead",
-    description:
-      "Before the day kicks in, Dia's Morning Brief lays it all out (calendar, inbox, key links) so you know exactly what you're walking into.",
-    image: "/dia-assets/morning-brief.png",
-  },
-  {
-    number: "02",
-    title: "Synthesis you'll actually use",
-    description:
-      "Instead of bouncing between tools, just ask Dia. It gathers what's scattered across your tools (Slack, Notion, Calendar, and many more!) and turns it into a report worth sharing.",
-    image: "/dia-assets/synthesis.png",
-  },
-  {
-    number: "03",
-    title: "Find the answer without hunting it down",
-    description:
-      "Ask once. Dia digs into your full context, across GSuite, Slack, tabs, and more, and answers like someone who's seen every thread.",
-    image: "/dia-assets/answer.png",
-  },
-];
-
-const featureTiles: FeatureTile[] = [
-  {
-    label: "Decks",
-    title:
-      "Ask Dia for a deck and your scattered context becomes real slides -- headers, layout, and flow you can present without a redesign.",
-    image: "/dia-assets/decks.png",
-    className: "feature-wide",
-  },
-  {
-    label: "Live Work",
-    title:
-      "Dia pulls together the places where work is actually happening (like GitHub and Notion) in your tab bar. Click once and land directly in the right PR, spec, or draft.",
+    className: "feature-tall",
     poster:
       "https://image.mux.com/I88MBGecyQVKRzo6NFuq02xLgXhqBB00enYJ2O02AGKYKs/thumbnail.webp?width=960&fit_mode=preserve",
     stream: muxStream("I88MBGecyQVKRzo6NFuq02xLgXhqBB00enYJ2O02AGKYKs"),
-    className: "feature-tall",
   },
   {
-    label: "Better Meetings",
-    title:
-      "Every call starts with the right meeting page, agenda, notes, and related docs open, with a gentle countdown so you're on time. All you have to do is show up.",
+    className: "feature-tall",
     poster:
       "https://image.mux.com/E5RJTOXaiqwYHPNO8IFYspUiOrViAiq9XCWbkz1D9j4/thumbnail.webp?width=960&fit_mode=preserve",
     stream: muxStream("E5RJTOXaiqwYHPNO8IFYspUiOrViAiq9XCWbkz1D9j4"),
-    className: "feature-tall",
   },
+  { className: "feature-wide", image: "/dia-assets/profiles.png" },
+  { className: "feature-wide", image: "/dia-assets/splits.png" },
   {
-    label: "Profiles",
-    title:
-      "Create clean lines between work, freelance, and personal life, with separate tabs, logins, and AI. Context switch between them in just a swipe.",
-    image: "/dia-assets/profiles.png",
-    className: "feature-wide",
-  },
-  {
-    label: "Splits",
-    title:
-      "See a meeting on one side and a doc on the other without juggling windows. Dia remembers your layout, so your favorite setup for recurring 1:1s or focus time is one click away.",
-    image: "/dia-assets/splits.png",
-    className: "feature-wide",
-  },
-  {
-    label: "Organized Tabs",
-    title:
-      "Keep your workspace tidy by grouping related tabs with appropriate naming, so you see Design Review or Q2 Planning instead of a long strip of unnamed pages.",
+    className: "feature-tall feature-tab-organize",
     poster:
       "https://image.mux.com/zqOwkkAS9zCeLJq016siCak1olCG0202BGJXtLq2xxNEHI/thumbnail.webp?width=960&fit_mode=preserve",
     stream: muxStream("zqOwkkAS9zCeLJq016siCak1olCG0202BGJXtLq2xxNEHI"),
-    className: "feature-tall feature-tab-organize",
   },
 ];
-
-const footerGroups = [
-  ["PRODUCT", "FOR WORK", "RELEASE NOTES", "WINDOWS", "STUDENTS", "REPORTS"],
-  ["RESOURCES", "HELP", "STATUS", "PRIVACY", "TERMS OF USE", "SECURITY", "TRUST CENTER"],
-  ["COMPANY", "ABOUT US", "CAREERS", "NEWSLETTER", "EARLY BIRDS PROGRAM"],
-  ["CONNECT", "X", "LINKEDIN", "INSTAGRAM"],
-];
-
-const privacyDefaults = [
-  ["Block trackers", true],
-  ["Personalize new chats", false],
-  ["Memory", true],
-  ["Block ads", true],
-  ["Share content data", false],
-] as const;
 
 function DiaMark() {
   return (
@@ -210,9 +148,6 @@ export default function Home() {
   const caseProjectRefs = useRef<Array<HTMLElement | null>>([]);
   const pendingCaseRef = useRef<number | null>(null);
   const caseNavigationTimerRef = useRef<number | undefined>(undefined);
-  const [privacyStates, setPrivacyStates] = useState(
-    privacyDefaults.map(([, enabled]) => enabled),
-  );
 
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
@@ -392,15 +327,15 @@ export default function Home() {
         <div className="read-tabs-shell">
           <div className="case-picker">
             <nav className="case-picker-sticky" aria-label="Dia use cases">
-              {useCases.map((item, index) => (
+              {t.reads.cases.map((item, index) => (
                 <button
                   className={`case-picker-button ${activeCase === index ? "is-active" : ""}`}
-                  key={item.number}
+                  key={index + 1}
                   type="button"
                   onClick={() => chooseCase(index)}
                   aria-pressed={activeCase === index}
                 >
-                  <span className="case-number">{item.number}</span>
+                  <span className="case-number">{String(index + 1).padStart(2, "0")}</span>
                   <span className="case-title">{item.title}</span>
                   <span className={`case-disclosure ${activeCase === index ? "is-expanded" : ""}`}>
                     <span className="case-disclosure-inner">
@@ -413,17 +348,17 @@ export default function Home() {
           </div>
 
           <div className="case-project-list">
-            {useCases.map((item, index) => (
+            {t.reads.cases.map((_, index) => (
               <article
                 className="case-project"
                 data-case-index={index}
-                key={item.number}
+                key={index + 1}
                 ref={(element) => {
                   caseProjectRefs.current[index] = element;
                 }}
               >
                 <div className="case-project-frame">
-                  <img src={item.image} alt="Dia Browser interface" />
+                  <img src={caseImages[index]} alt={t.alt.diaInterface} />
                 </div>
               </article>
             ))}
@@ -431,10 +366,10 @@ export default function Home() {
         </div>
 
         <div className="mobile-case-list">
-          {useCases.map((item) => (
-            <article className="mobile-case" key={item.number}>
-              <img src={item.image} alt="Dia Browser interface" />
-              <span>{item.number}</span>
+          {t.reads.cases.map((item, index) => (
+            <article className="mobile-case" key={index + 1}>
+              <img src={caseImages[index]} alt={t.alt.diaInterface} />
+              <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
@@ -448,25 +383,25 @@ export default function Home() {
         </div>
 
         <div className="feature-grid">
-          {featureTiles.map((feature) => (
-            <article className={`work-tile ${feature.className}`} key={feature.label}>
+          {t.work.features.map((feature, index) => (
+            <article className={`work-tile ${featureMedia[index].className}`} key={feature.label}>
               <div className="tile-copy">
                 <span className="feature-label">{feature.label}</span>
                 <h3>{feature.title}</h3>
               </div>
               <div className="tile-media">
-                {feature.stream && feature.poster ? (
+                {featureMedia[index].stream && featureMedia[index].poster ? (
                   <MuxVideo
-                    source={feature.stream}
-                    poster={feature.poster}
+                    source={featureMedia[index].stream!}
+                    poster={featureMedia[index].poster!}
                     className="feature-video"
-                    label={`${feature.label} in Dia`}
+                    label={`${feature.label} ${t.work.inDia}`}
                     autoPlay
                     loop
                     muted
                   />
                 ) : (
-                  <img src={feature.image} alt={`${feature.label} in Dia`} />
+                  <img src={featureMedia[index].image} alt={`${feature.label} ${t.work.inDia}`} />
                 )}
               </div>
             </article>
@@ -514,29 +449,7 @@ export default function Home() {
             />
           </svg>
           <h2>{t.privacy.title}</h2>
-          <div className="privacy-marquee" aria-label="Privacy controls preview">
-            <div className="privacy-track">
-              {[...privacyDefaults, ...privacyDefaults].map(([name], index) => {
-                const stateIndex = index % privacyDefaults.length;
-                const enabled = privacyStates[stateIndex];
-                return (
-                  <button
-                    className="privacy-chip"
-                    data-on={enabled}
-                    key={`${name}-${index}`}
-                    type="button"
-                    aria-pressed={enabled}
-                    aria-label={`${name} demo toggle - currently ${enabled ? "on" : "off"}`}
-                    onClick={() => setPrivacyStates((states) => states.map((state, position) => position === stateIndex ? !state : state))}
-                  >
-                    <span className="chip-dot" aria-hidden="true" />
-                    {name}
-                    <b>{enabled ? "On" : "Off"}</b>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          <PrivacyToggles t={t} />
           <p>{t.privacy.description1}</p>
           <p>{t.privacy.description2}</p>
           <a className="privacy-link" href="#top">{t.privacy.learnMore} <span aria-hidden="true">&rarr;</span></a>
@@ -570,10 +483,10 @@ export default function Home() {
           <p>{t.footer.copyright}</p>
         </div>
         <div className="footer-groups">
-          {footerGroups.map(([title, ...links]) => (
-            <section key={title}>
-              <h3>{title}</h3>
-              {links.map((link) => <a href="#top" key={link}>{link}</a>)}
+          {t.footer.groups.map((group) => (
+            <section key={group.title}>
+              <h3>{group.title}</h3>
+              {group.links.map((link) => <a href="#top" key={link}>{link}</a>)}
             </section>
           ))}
         </div>
@@ -603,5 +516,37 @@ export default function Home() {
         </div>
       )}
     </main>
+  );
+}
+
+function PrivacyToggles({ t }: { t: ReturnType<typeof useLanguage>["t"] }) {
+  const [states, setStates] = useState<boolean[]>(() =>
+    Array.from({ length: t.privacy.toggles.length }, () => true),
+  );
+
+  return (
+    <div className="privacy-marquee" aria-label="Privacy controls preview">
+      <div className="privacy-track">
+        {[...t.privacy.toggles, ...t.privacy.toggles].map((name, index) => {
+          const stateIndex = index % t.privacy.toggles.length;
+          const enabled = states[stateIndex];
+          return (
+            <button
+              className="privacy-chip"
+              data-on={enabled}
+              key={`${name}-${index}`}
+              type="button"
+              aria-pressed={enabled}
+              aria-label={`${name} demo toggle - currently ${enabled ? t.privacy.on : t.privacy.off}`}
+              onClick={() => setStates((prev) => prev.map((state, position) => position === stateIndex ? !state : state))}
+            >
+              <span className="chip-dot" aria-hidden="true" />
+              {name}
+              <b>{enabled ? t.privacy.on : t.privacy.off}</b>
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 }
