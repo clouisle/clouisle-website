@@ -67,12 +67,17 @@ export type Translations = {
     text: string;
     dismiss: string;
   };
-  language: {
-    switchTo: string;
+  notice: {
+    message: string;
+    action: string;
+    close: string;
   };
   alt: {
     diaInterface: string;
     featureInDia: string;
+  };
+  language: {
+    switchTo: string;
   };
 };
 
@@ -182,6 +187,11 @@ export const translations: Record<Locale, Translations> = {
     downloadNotice: {
       text: "Dia downloads will be available soon.",
       dismiss: "Dismiss",
+    },
+    notice: {
+      message: "Your browser appears to use Chinese. View this page in Chinese?",
+      action: "Switch to Chinese",
+      close: "Dismiss",
     },
     language: {
       switchTo: "中文",
@@ -296,6 +306,11 @@ export const translations: Record<Locale, Translations> = {
     downloadNotice: {
       text: "Dia 下载即将推出。",
       dismiss: "关闭",
+    },
+    notice: {
+      message: "检测到您的浏览器语言是英文，要切换到英文版吗？",
+      action: "切换到 English",
+      close: "关闭",
     },
     language: {
       switchTo: "English",

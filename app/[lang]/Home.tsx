@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { translations, type Locale } from "../i18n/translations";
+import LocaleNotice from "./LocaleNotice";
 
 const muxStream = (playbackId: string) =>
   `https://stream.mux.com/${playbackId}.m3u8?rendition_order=desc&min_resolution=1080p`;
@@ -518,6 +519,7 @@ export default function Home({ lang }: { lang: Locale }) {
           <button type="button" aria-label={t.downloadNotice.dismiss} onClick={() => setDownloadNotice(false)}>x</button>
         </div>
       )}
+      <LocaleNotice lang={lang} t={t} />
     </main>
   );
 }
