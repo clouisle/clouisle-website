@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "./i18n/LanguageContext";
 
 const muxStream = (playbackId: string) =>
   `https://stream.mux.com/${playbackId}.m3u8?rendition_order=desc&min_resolution=1080p`;
@@ -201,6 +202,7 @@ function MuxVideo({
 }
 
 export default function Home() {
+  const { t, locale, setLocale } = useLanguage();
   const [activeCase, setActiveCase] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [filmOpen, setFilmOpen] = useState(false);
@@ -300,10 +302,13 @@ export default function Home() {
       block: "start",
     });
 
-    // Release the lock if a user interrupts the smooth scroll before the target reaches the observer threshold.
     caseNavigationTimerRef.current = window.setTimeout(() => {
       pendingCaseRef.current = null;
     }, 1500);
+  }
+
+  function toggleLanguage() {
+    setLocale(locale === "en" ? "zh" : "en");
   }
 
   return (
@@ -315,10 +320,19 @@ export default function Home() {
           </a>
 
           <nav className="desktop-links" aria-label="Main navigation">
-            <a href="#features">What&apos;s New</a>
-            <a href="#privacy">Security</a>
-            <a href="#reports">Introducing Reports</a>
+            <a href="#features">{t.nav.features}</a>
+            <a href="#privacy">{t.nav.security}</a>
+            <a href="#reports">{t.nav.reports}</a>
           </nav>
+
+          <button
+            className="lang-toggle"
+            type="button"
+            onClick={toggleLanguage}
+            aria-label="Switch language"
+          >
+            {t.language.switchTo}
+          </button>
 
           <button
             className="menu-toggle"
@@ -335,15 +349,15 @@ export default function Home() {
 
         <nav id="mobile-navigation-menu" className="mobile-menu" aria-label="Main navigation">
           <div className="mobile-menu-links">
-            <a href="#features" onClick={() => setMenuOpen(false)}>What&apos;s New</a>
-            <a href="#privacy" onClick={() => setMenuOpen(false)}>Security</a>
-            <a href="#reports" onClick={() => setMenuOpen(false)}>Introducing Reports</a>
+            <a href="#features" onClick={() => setMenuOpen(false)}>{t.nav.features}</a>
+            <a href="#privacy" onClick={() => setMenuOpen(false)}>{t.nav.security}</a>
+            <a href="#reports" onClick={() => setMenuOpen(false)}>{t.nav.reports}</a>
           </div>
           <div className="mobile-menu-actions">
-            <button className="button button-dark" type="button" onClick={showDownloadNotice}>Download Dia</button>
+            <button className="button button-dark" type="button" onClick={showDownloadNotice}>{t.mobile.download}</button>
             <button className="button button-soft with-play" type="button" onClick={() => { setFilmOpen(true); setMenuOpen(false); }}>
               <span className="play-icon" aria-hidden="true" />
-              Watch the trailer video
+              {t.mobile.watchTrailer}
             </button>
           </div>
         </nav>
@@ -359,21 +373,21 @@ export default function Home() {
               <span className="hero-glyph hero-glyph-a">a</span>
             </span>
           </h1>
-          <p className="hero-tagline">A browser you won&apos;t dread opening.</p>
+          <p className="hero-tagline">{t.hero.tagline}</p>
           <button className="hero-download" type="button" onClick={showDownloadNotice}>
-            Download <DownloadIcon />
+            {t.hero.download} <DownloadIcon />
           </button>
-          <p className="trial-note">Includes 14 day free trial of Better Days</p>
+          <p className="trial-note">{t.hero.trialNote}</p>
         </div>
         <button className="watch-button" type="button" onClick={() => setFilmOpen(true)}>
           <span className="watch-play" aria-hidden="true"><span className="play-icon" /></span>
-          Watch the scream
+          {t.hero.watchScream}
         </button>
       </section>
 
       <section className="reads-section" id="reports">
         <div className="section-intro">
-          <h2>Dia reads between the tabs</h2>
+          <h2>{t.reads.title}</h2>
         </div>
         <div className="read-tabs-shell">
           <div className="case-picker">
@@ -430,7 +444,7 @@ export default function Home() {
 
       <section className="work-section" id="features">
         <div className="section-intro work-intro">
-          <h2>Built for how you actually work</h2>
+          <h2>{t.work.title}</h2>
         </div>
 
         <div className="feature-grid">
@@ -499,7 +513,7 @@ export default function Home() {
               fill="black"
             />
           </svg>
-          <h2>Privacy first with you in control</h2>
+          <h2>{t.privacy.title}</h2>
           <div className="privacy-marquee" aria-label="Privacy controls preview">
             <div className="privacy-track">
               {[...privacyDefaults, ...privacyDefaults].map(([name], index) => {
@@ -523,13 +537,9 @@ export default function Home() {
               })}
             </div>
           </div>
-          <p>
-            You control whether Dia remembers your preferences and which tools connect to your workflow. Your data is never sold or used to build ad profiles -- and with Sync, it&apos;s end-to-end encrypted.
-          </p>
-          <p>
-            Dia for Work adds the guardrails that your team needs, like SSO and admin tools, so your team can stay secure.
-          </p>
-          <a className="privacy-link" href="#top">Learn more about privacy in Dia <span aria-hidden="true">&rarr;</span></a>
+          <p>{t.privacy.description1}</p>
+          <p>{t.privacy.description2}</p>
+          <a className="privacy-link" href="#top">{t.privacy.learnMore} <span aria-hidden="true">&rarr;</span></a>
           <svg
             className="privacy-footer-mark"
             aria-hidden="true"
@@ -549,15 +559,15 @@ export default function Home() {
       </section>
 
       <section className="final-cta">
-        <h2>Ready for a better day?</h2>
-        <button className="cta-download" type="button" onClick={showDownloadNotice}>Download Dia</button>
-        <p>Currently available on Apple macOS 14+ with M1 chips or later.</p>
+        <h2>{t.finalCta.title}</h2>
+        <button className="cta-download" type="button" onClick={showDownloadNotice}>{t.finalCta.download}</button>
+        <p>{t.finalCta.availability}</p>
       </section>
 
       <footer className="footer">
         <div className="footer-brand">
           <a className="wordmark" href="#top" aria-label="Dia"><DiaMark /></a>
-          <p>Copyright 2026 The Browser Company of New York.</p>
+          <p>{t.footer.copyright}</p>
         </div>
         <div className="footer-groups">
           {footerGroups.map(([title, ...links]) => (
@@ -571,14 +581,14 @@ export default function Home() {
 
       {filmOpen && (
         <div className="film-overlay" role="presentation" onMouseDown={() => setFilmOpen(false)}>
-          <section className="film-modal" role="dialog" aria-modal="true" aria-label="Watch the film" onMouseDown={(event) => event.stopPropagation()}>
-            <button className="film-close" type="button" aria-label="Close video" onClick={() => setFilmOpen(false)}>x</button>
+          <section className="film-modal" role="dialog" aria-modal="true" aria-label={t.film.label} onMouseDown={(event) => event.stopPropagation()}>
+            <button className="film-close" type="button" aria-label={t.film.close} onClick={() => setFilmOpen(false)}>x</button>
             <div className="film-frame">
               <MuxVideo
                 source={muxStream("lP00d01uh6GP49vSdkJdDF8RftDkzEvG4kKhwdTgohkXA")}
                 poster="https://image.mux.com/lP00d01uh6GP49vSdkJdDF8RftDkzEvG4kKhwdTgohkXA/thumbnail.webp?width=1920&fit_mode=preserve&time=0"
                 className="film-video"
-                label="Watch the scream video"
+                label={t.film.screamLabel}
                 controls
               />
             </div>
@@ -588,8 +598,8 @@ export default function Home() {
 
       {downloadNotice && (
         <div className="download-notice" role="status">
-          <span>Dia downloads will be available soon.</span>
-          <button type="button" aria-label="Dismiss" onClick={() => setDownloadNotice(false)}>x</button>
+          <span>{t.downloadNotice.text}</span>
+          <button type="button" aria-label={t.downloadNotice.dismiss} onClick={() => setDownloadNotice(false)}>x</button>
         </div>
       )}
     </main>
