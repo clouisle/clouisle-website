@@ -241,7 +241,7 @@ export const translations: Record<Locale, Translations> = {
       title: "为你实际的工作方式而建",
       features: [
         {
-          label: "Agent",
+          label: "智能体",
           title:
             "向 Clouisle 交代一件事，它会读懂你的问题、查找相关知识、调用所需工具，再把结果带回来——不只是回答，而是把工作往前推进。",
         },
