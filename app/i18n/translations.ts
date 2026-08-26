@@ -218,7 +218,7 @@ export const translations: Record<Locale, Translations> = {
       watchScream: "观看尖叫视频",
     },
     reads: {
-      title: "Dia 在标签页之间阅读",
+      title: "懂你所知，更懂如何做到。",
       cases: [
         {
           title: "让每一天领先两步",
