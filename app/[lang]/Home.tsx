@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "./i18n/LanguageContext";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { translations, type Locale } from "../i18n/translations";
 
 const muxStream = (playbackId: string) =>
   `https://stream.mux.com/${playbackId}.m3u8?rendition_order=desc&min_resolution=1080p`;
@@ -139,8 +141,9 @@ function MuxVideo({
   );
 }
 
-export default function Home() {
-  const { t, locale, setLocale } = useLanguage();
+export default function Home({ lang }: { lang: Locale }) {
+  const t = translations[lang];
+  const pathname = usePathname();
   const [activeCase, setActiveCase] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [filmOpen, setFilmOpen] = useState(false);
@@ -148,6 +151,10 @@ export default function Home() {
   const caseProjectRefs = useRef<Array<HTMLElement | null>>([]);
   const pendingCaseRef = useRef<number | null>(null);
   const caseNavigationTimerRef = useRef<number | undefined>(undefined);
+
+  const otherLocale: Locale = lang === "en" ? "zh" : "en";
+  const restPath = pathname.replace(/^\/(?:en|zh)/, "") || "/";
+  const localeSwitchHref = `/${otherLocale}${restPath === "/" ? "" : restPath}`;
 
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
@@ -242,10 +249,6 @@ export default function Home() {
     }, 1500);
   }
 
-  function toggleLanguage() {
-    setLocale(locale === "en" ? "zh" : "en");
-  }
-
   return (
     <main>
       <header className="site-header">
@@ -260,14 +263,14 @@ export default function Home() {
             <a href="#reports">{t.nav.reports}</a>
           </nav>
 
-          <button
+          <Link
             className="lang-toggle"
-            type="button"
-            onClick={toggleLanguage}
+            href={localeSwitchHref}
             aria-label="Switch language"
+            onClick={() => setMenuOpen(false)}
           >
             {t.language.switchTo}
-          </button>
+          </Link>
 
           <button
             className="menu-toggle"
@@ -519,7 +522,7 @@ export default function Home() {
   );
 }
 
-function PrivacyToggles({ t }: { t: ReturnType<typeof useLanguage>["t"] }) {
+function PrivacyToggles({ t }: { t: (typeof translations)[Locale] }) {
   const [states, setStates] = useState<boolean[]>(() =>
     Array.from({ length: t.privacy.toggles.length }, () => true),
   );

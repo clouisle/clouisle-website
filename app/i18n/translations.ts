@@ -1,4 +1,10 @@
 export type Locale = "en" | "zh";
+export const locales = ["en", "zh"] as const;
+
+export function hasLocale(locale: string): locale is Locale {
+  return (locales as readonly string[]).includes(locale);
+}
+
 
 export type Translations = {
   nav: {
