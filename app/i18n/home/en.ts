@@ -127,7 +127,7 @@ export const en: HomeTranslations = {
     availability: "Self-host on your own server, private cloud, or Kubernetes cluster.",
   },
   footer: {
-    copyright: "Copyright 2026 The Browser Company of New York.",
+    copyright: "Copyright 2026 Clouisle.",
     groups: [
       { title: "PRODUCT", links: ["FOR WORK", "RELEASE NOTES", "WINDOWS", "STUDENTS", "REPORTS"] },
       { title: "RESOURCES", links: ["HELP", "STATUS", "PRIVACY", "TERMS OF USE", "SECURITY", "TRUST CENTER"] },
