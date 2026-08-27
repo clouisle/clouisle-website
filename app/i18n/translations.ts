@@ -260,46 +260,60 @@ export const translations: Record<Locale, Translations> = {
       switchTo: "中文",
     },
     securityPage: {
-      title: "Security",
+      title: "Teams and Security",
       sections: [
         {
-          id: "deployment-control",
-          title: "Deployment and data control",
+          id: "team-boundaries",
+          title: "Teams define the first access boundary",
           blocks: [
-            { type: "lead", text: "When AI enters the enterprise, security cannot stop at the login page. Clouisle supports deployment through Docker Compose, Helm, or Kubernetes on your servers, private clouds, and clusters. You decide where data is stored, which models are used, which tools are connected, and which services can reach the external network. Agents, knowledge bases, and workflows run together in the same controlled environment; whether data is sent to external models or services is determined entirely by your deployment configuration." },
+            { type: "lead", text: "Clouisle uses the team as the basic unit of resource isolation. Agents, Workflows, Knowledge Bases, model authorizations, tools, and Skills are created and used in an explicit team context; the workspace uses the active team to determine which resources can be queried and created, so the scope of collaboration stays visible from the start." },
+            { type: "strong", text: "Define the resource boundary before collaboration begins.", body: "The team context connects people, resources, and actions in a traceable relationship, leaving less room for cross-team mistakes or ambiguous permission decisions." },
           ],
         },
         {
-          id: "identity-access",
-          title: "Identity and access control",
+          id: "roles-permissions",
+          title: "Roles and permissions make every action explicit",
           blocks: [
-            { type: "lead", text: "Security starts with identity. Clouisle supports JWT authentication, API keys, OIDC, OAuth2, SAML, and CAS single sign-on, along with TOTP two-factor authentication, password policies, login-failure limits, account lockout, and optional CAPTCHA. For team members, administrators can use global roles, team roles, and resource visibility to control access, making it clear who can see, change, and execute each resource." },
+            { type: "lead", text: "Team roles include owner, administrator, member, and viewer. Roles establish responsibility; global role permissions and team- or resource-scoped roles then determine whether a person can view, change, or execute a specific resource." },
+            { type: "strong", text: "The interface is not the security boundary.", body: "The frontend hides menus that a user cannot use, but the backend makes the final decision and checks every request." },
+            { type: "strong", text: "Ownership and administration stay distinct.", body: "Owners handle team ownership transfer and cannot be removed or leave directly. Administrators manage team resources, while members and viewers work within the scope granted to them." },
           ],
         },
         {
-          id: "sensitive-information",
-          title: "Sensitive information protection",
+          id: "session-isolation",
+          title: "Sessions and data stay within their intended scope",
           blocks: [
-            { type: "lead", text: "Sensitive information is not exposed casually. Model and tool credentials support encrypted storage; API keys are stored only as hashes, and the full key is shown only once at creation; audit records redact sensitive fields such as tokens, API keys, and passwords. Code execution runs in an isolated sandbox with resource limits, preventing one uncontrolled task from affecting the whole system." },
+            { type: "lead", text: "Regular users can only view their own conversations and data. A team-wide view requires admin:dashboard:access or Super Admin, and team-scoped conversation queries additionally require the team owner or administrator role. The same scope applies to the query itself, not just to the visible page." },
+            { type: "strong", text: "API keys are owned by users as well.", body: "Users can view and manage only their own keys. Only Super Admin can view all keys across teams." },
           ],
         },
         {
-          id: "audit-trail",
-          title: "Auditing and accountability",
+          id: "authentication",
+          title: "Authentication can follow your organization’s policy",
           blocks: [
-            { type: "lead", text: "Every important operation should leave a clear record. Clouisle records key operations for logins, user and team changes, agents, workflows, models, tools, and API keys, including the operator, resource, status, time, and request details. For resources that support snapshots, it also records the differences before and after a change, making auditing, investigation, and accountability easier for administrators." },
+            { type: "lead", text: "Sign-in does not have to rely on a single control. Clouisle supports password sign-in, email verification, administrator approval, click CAPTCHA, password policies, password expiration, single-session rules, TOTP, and SSO. Multiple SSO connections are supported, and administrators can disable password sign-in." },
+            { type: "strong", text: "Session lifetime has an explicit boundary.", body: "Active sessions last 30 days by default and can be adjusted with the session_timeout_days site setting. The JWT fallback token lasts 8 days by default." },
           ],
         },
         {
-          id: "security-control",
-          title: "Security boundaries stay in your hands",
+          id: "api-keys",
+          title: "API keys give automation a defined boundary",
           blocks: [
-            { type: "lead", text: "Clouisle does not package security as an unverifiable promise. It puts deployment location, access permissions, model connections, tool calls, and audit records back in your hands, so security boundaries can be configured, inspected, and truly owned by your team." },
+            { type: "lead", text: "API keys start with clou_ and are sent through Authorization: Bearer. When a key is created, it can be restricted to specific Agents or Workflows, given an expiration time, and limited by requests per minute, keeping automation separate from a person’s account." },
+            { type: "strong", text: "Automation does not receive broader access by default.", body: "An unrestricted key can access all matching resources; request-rate limits are counted per user rather than shared across the team, making the source of usage easier to control." },
+          ],
+        },
+        {
+          id: "audit-notifications",
+          title: "Auditing and notifications make change traceable",
+          blocks: [
+            { type: "lead", text: "The admin console records resource operations, actors, and change snapshots, with filters for event, user, team, and time. Administrators can review who changed which resource and when, without relying on verbal confirmation or scattered logs." },
+            { type: "strong", text: "Important events can reach the channels your team already uses.", body: "Notifications can appear in the product and can also be sent through email, DingTalk, WeCom, Feishu, Slack, or Webhook." },
           ],
         },
       ],
       docs: {
-        label: "Read the Clouisle security documentation",
+        label: "Open the complete security documentation",
         href: "https://docs.clouisle.asia",
       },
     },
@@ -467,46 +481,60 @@ export const translations: Record<Locale, Translations> = {
       switchTo: "English",
     },
     securityPage: {
-      title: "安全",
+      title: "团队与安全",
       sections: [
         {
-          id: "deployment-control",
-          title: "部署与数据控制",
+          id: "team-boundaries",
+          title: "团队，是资源访问的第一道边界",
           blocks: [
-            { type: "lead", text: "AI 进入企业，安全不能只停留在登录页面。Clouisle 支持通过 Docker Compose、Helm 或 Kubernetes 部署在你的服务器、私有云和集群中，由你决定数据存储在哪里、使用哪些模型、连接哪些工具，以及哪些服务可以访问外部网络。Agent、知识库和工作流在同一个受控环境中协同运行；是否将数据发送给外部模型或服务，也完全由你的部署配置决定。" },
+            { type: "lead", text: "Clouisle 以团队作为资源隔离的基本单位。Agent、工作流、知识库、模型授权、工具和 Skills 都在明确的团队上下文中创建与使用；工作台依据当前团队决定可以查询和创建哪些资源，让协作范围从一开始就清楚可见。" },
+            { type: "strong", text: "先划清资源边界，再开展协作。", body: "团队上下文把人、资源和操作放在同一条可追溯的关系链中，减少跨团队误用和权限判断上的模糊空间。" },
           ],
         },
         {
-          id: "identity-access",
-          title: "身份与访问控制",
+          id: "roles-permissions",
+          title: "角色与权限，精确到每个动作",
           blocks: [
-            { type: "lead", text: "安全从身份开始。Clouisle 支持 JWT 认证、API Key、OIDC、OAuth2、SAML 和 CAS 单点登录，并提供 TOTP 双因素认证、密码策略、登录失败限制、账户锁定和可选的人机验证。对于团队成员，管理员可以通过全局角色、团队角色和资源可见性控制访问范围，让“谁能看”“谁能改”“谁能执行”都清晰可控。" },
+            { type: "lead", text: "团队角色包括所有者、管理员、成员和观察者。角色决定责任范围；全局角色权限与团队或资源作用域角色叠加后，再决定一个人能否查看、修改或执行具体资源。" },
+            { type: "strong", text: "界面不是安全边界。", body: "前端会根据权限隐藏不适用的菜单，但最终判定始终在后端完成，每一次请求都会经过权限检查。" },
+            { type: "strong", text: "所有权与管理职责分离。", body: "所有者负责团队所有权转让，不能被直接移除或自行退出；管理员负责团队资源管理，成员与观察者按被授予的范围参与工作。" },
           ],
         },
         {
-          id: "sensitive-information",
-          title: "敏感信息保护",
+          id: "session-isolation",
+          title: "会话与数据，默认留在应有范围内",
           blocks: [
-            { type: "lead", text: "敏感信息不会被随意暴露。模型和工具凭证支持加密存储；API Key 只保存哈希值，完整密钥只在创建时显示一次；审计记录会对 token、API Key、密码等敏感字段进行脱敏。代码执行通过隔离的沙箱运行，并支持资源限制，避免一次不受控的任务影响整个系统。" },
+            { type: "lead", text: "普通用户只能查看自己的会话与数据。需要团队级视图时，用户必须具备 admin:dashboard:access 权限；查看团队范围的会话还需要所有者或管理员角色。权限范围随查询一起生效，而不是只在页面上隐藏入口。" },
+            { type: "strong", text: "API Key 同样按用户归属。", body: "用户只能查看和管理自己的密钥；只有超级管理员可以跨团队查看全部密钥。" },
           ],
         },
         {
-          id: "audit-trail",
-          title: "审计与追责",
+          id: "authentication",
+          title: "认证方式，可按组织策略组合",
           blocks: [
-            { type: "lead", text: "每一次重要操作，都应该留下清楚的依据。Clouisle 会记录登录、用户与团队变更、Agent、工作流、模型、工具和 API Key 的关键操作，包括操作者、资源、状态、时间和请求信息；对于支持快照的资源，还会记录变更前后的差异，方便管理员进行审计、排查和追责。" },
+            { type: "lead", text: "登录策略不必只有一种。Clouisle 支持密码登录、邮箱验证、管理员审批、点击式验证码、密码策略、密码过期、单一会话、TOTP 与 SSO，并支持配置多个 SSO 连接；管理员也可以关闭密码登录。" },
+            { type: "strong", text: "会话时效有明确边界。", body: "活动会话默认有效 30 天，可由 session_timeout_days 站点配置调整；JWT 兜底令牌默认有效 8 天。" },
           ],
         },
         {
-          id: "security-control",
-          title: "安全边界由你掌握",
+          id: "api-keys",
+          title: "API Key，为自动化调用设定边界",
           blocks: [
-            { type: "lead", text: "Clouisle 不把“安全”包装成一句无法验证的承诺。它把部署位置、访问权限、模型连接、工具调用和审计记录交还给你，让安全边界能够被配置、被检查，也能够真正掌握在自己的团队手中。" },
+            { type: "lead", text: "API Key 以 clou_ 开头，通过 Authorization: Bearer 发送。创建密钥时，可以限制可访问的 Agent、工作流、有效期和每分钟请求数，把自动化调用从个人账号中区分出来。" },
+            { type: "strong", text: "默认不放大权限。", body: "未设置资源限制的密钥才可以访问其匹配范围内的全部资源；请求频率限制按用户计算，而不是按团队共享，方便定位和控制调用来源。" },
+          ],
+        },
+        {
+          id: "audit-notifications",
+          title: "审计与通知，让变化有迹可循",
+          blocks: [
+            { type: "lead", text: "管理后台记录资源操作、操作者和变更快照，并支持按事件、用户、团队和时间筛选。管理员可以回看谁在什么时间对什么资源做了什么改变，让排查不再依赖口头确认或零散日志。" },
+            { type: "strong", text: "重要事件可以送达团队正在使用的渠道。", body: "通知支持站内展示，也可以通过邮件、钉钉、企业微信、飞书、Slack 或 Webhook 发出。" },
           ],
         },
       ],
       docs: {
-        label: "查看 Clouisle 安全文档",
+        label: "打开完整安全文档",
         href: "https://docs.clouisle.asia",
       },
     },
