@@ -88,21 +88,22 @@ export type Translations = {
     switchTo: string;
   };
   securityPage: {
-    hero: {
+    title: string;
+    sections: {
+      id: string;
       title: string;
-      subtitle: string;
-    };
-    pillarsTitle: string;
-    pillars: {
-      title: string;
-      description: string;
+      blocks: (
+        | { type: "p"; text: string }
+        | { type: "lead"; text: string }
+        | { type: "strong"; text: string; body?: string }
+        | { type: "list"; items: string[] }
+      )[];
     }[];
-    practicesTitle: string;
-    practices: {
-      label: string;
-      description: string;
+    faqTitle: string;
+    faqs: {
+      question: string;
+      answer: string[];
     }[];
-    cta: string;
   };
 };
 
@@ -260,25 +261,66 @@ export const translations: Record<Locale, Translations> = {
       switchTo: "中文",
     },
     securityPage: {
-      hero: {
-        title: "Security at Clouisle",
-        subtitle: "Placeholder copy — your data stays yours. Placeholder section explaining the security promise in one or two sentences.",
-      },
-      pillarsTitle: "How we protect you",
-      pillars: [
-        { title: "Local by default", description: "Placeholder: processing happens on your device whenever possible." },
-        { title: "Encrypted in transit and at rest", description: "Placeholder: TLS everywhere, encrypted storage, key management." },
-        { title: "No ad profiles, ever", description: "Placeholder: your data is never sold or used to build advertising profiles." },
-        { title: "You stay in control", description: "Placeholder: transparent controls over memory, sync, and connected tools." },
+      title: "Security",
+      sections: [
+        {
+          id: "keeping-clouisle-secure",
+          title: "Keeping Clouisle Secure",
+          blocks: [
+            { type: "lead", text: "Your browser is your doorway to the internet—work, personal life, and everything in between. Keeping that doorway secure is core to how we design, build, and ship Clouisle." },
+            { type: "p", text: "We're a focused team that treats security as a product feature, not an afterthought. Our goal is simple: you shouldn't have to worry that your data is being misused, mishandled, or sold." },
+            { type: "strong", text: "Outside security assessments", body: "We work with independent security firms to run regular audits of our products. Each year, we conduct full-scope assessments and schedule point-in-time reviews for new or high-risk features. These engagements include code reviews, architecture analysis, and exploit testing. When appropriate, we publish notable findings and fixes in our Security Bulletins." },
+            { type: "strong", text: "Browser engine", body: "Clouisle is built on Chromium—the same open-source engine behind Chrome and Edge—so we inherit a battle-tested foundation and the latest upstream security patches. We prioritize upgrades and keep Clouisle aligned with the newest Chromium releases and hotfixes on an aggressive cadence." },
+            { type: "strong", text: "Infrastructure", body: "We restrict production access by role, log and review access regularly, and encrypt data at rest and in transit. We store as little personal data as possible, and we routinely audit what we collect to ensure it stays minimal and appropriate for the service." },
+            { type: "strong", text: "How to reach us", body: "If you have questions or see something we should look at, email help@clouisle.com. If you're a security researcher, our bug bounty program welcomes your reports." },
+          ],
+        },
+        {
+          id: "bounty-program",
+          title: "The Clouisle Bounty Program",
+          blocks: [
+            { type: "p", text: "We care deeply about safeguarding the security and privacy of everyone who uses our products. We also recognize the security research community's invaluable role in this mission. If you spot a vulnerability, we want to hear about it so we can make things right as soon as possible. Your work helps us build a safer, more secure browsing experience for all." },
+            { type: "p", text: "Our Bug Bounty Program runs through HackerOne. Please visit our HackerOne program page to review our program policy, scope, and to submit your findings." },
+          ],
+        },
       ],
-      practicesTitle: "Our security practices",
-      practices: [
-        { label: "Encryption", description: "Placeholder: describe encryption standards and scope." },
-        { label: "Access control", description: "Placeholder: describe least-privilege access and SSO options." },
-        { label: "Auditing", description: "Placeholder: describe logging, monitoring, and review cadence." },
-        { label: "Responsible disclosure", description: "Placeholder: describe how researchers can report vulnerabilities." },
+      faqTitle: "FAQ",
+      faqs: [
+        {
+          question: "Where does my data live?",
+          answer: [
+            "By default, your conversations, history, bookmarks, and files are encrypted and stored locally on your device. When you use Clouisle, the data needed to fulfill your request (such as your question and relevant context) is sent through our servers to trusted AI partners, who are contractually restricted from retaining or using your data to train their own models.",
+            "When you enable Sync, your data is sent off your device and passes through our servers so that we can sync the data to another device of your choosing. This data is end-to-end encrypted, and our servers cannot read the data.",
+          ],
+        },
+        {
+          question: "Do you sell my data?",
+          answer: ["Your data is not for sale. We will never sell your personal data. Period. Unlike many of our competitors, we don't collect your browsing data to build ad profiles."],
+        },
+        {
+          question: "Is my data used for training?",
+          answer: [
+            "The partners we rely on for AI are contractually restricted from retaining and using your data to train their own models. By default, we use some content data to improve Clouisle. This content data isn't tied to your account, is retained for 30 days, and then deleted. You can turn this off at any time in Settings.",
+          ],
+        },
+        {
+          question: "What if I want to delete my chats, files, or history?",
+          answer: ["When you clear your local chats, files, or history, they are removed from your device. If you choose to share content data with Clouisle, it is not associated with your account and deleted from our servers after 30 days."],
+        },
+        {
+          question: "Is Clouisle safe to use on sensitive sites like banking or healthcare portals?",
+          answer: [
+            "For your own data and accounts, it's your call. You decide your tolerance for using AI on your bank or personal health portal.",
+            "We make a best-effort attempt to keep sensitive sites out of passive features like memory and out of the content data we use to improve Clouisle. That's not a guarantee, and it doesn't apply when you deliberately include a site in a request.",
+          ],
+        },
+        {
+          question: "Is Clouisle vulnerable to prompt injections?",
+          answer: [
+            "Prompt injections happen when a webpage or third party slips instructions into an assistant's context, and the assistant follows those instructions instead of the user's instructions. All AI chat systems face this risk. Our stance is to assume prompt injections may occur and keep you safe through layered controls.",
+          ],
+        },
       ],
-      cta: "Read the full privacy overview →",
     },
     alt: {
       diaInterface: "Dia Browser interface",
@@ -444,25 +486,64 @@ export const translations: Record<Locale, Translations> = {
       switchTo: "English",
     },
     securityPage: {
-      hero: {
-        title: "Clouisle 安全",
-        subtitle: "占位文案 —— 你的数据只属于你。用一两句话说明安全承诺的占位段落。",
-      },
-      pillarsTitle: "我们如何保护你",
-      pillars: [
-        { title: "默认本地处理", description: "占位：尽可能在你的设备上完成计算，不上传原始数据。" },
-        { title: "传输与存储全程加密", description: "占位：全链路 TLS、加密存储与密钥管理。" },
-        { title: "绝不建立广告画像", description: "占位：你的数据绝不出售，也绝不用于构建广告画像。" },
-        { title: "控制权在你手中", description: "占位：对记忆、同步与连接的工具提供透明可控的开关。" },
+      title: "安全",
+      sections: [
+        {
+          id: "keeping-clouisle-secure",
+          title: "守护 Clouisle 安全",
+          blocks: [
+            { type: "lead", text: "浏览器是你通往互联网的大门——工作、个人生活，以及其间的一切。守住这扇门的安全，是 Clouisle 设计、构建与发布的核心原则。" },
+            { type: "p", text: "我们是一个把安全当作产品特性而非事后补丁的团队。目标很简单：你不必担心自己的数据被滥用、误处理或出售。" },
+            { type: "strong", text: "外部安全评估", body: "我们与独立安全公司合作，定期对产品进行审计。每年进行全范围评估，并为新功能或高风险功能安排专项审查。这些工作包括代码评审、架构分析与漏洞利用测试。适当时，我们会在安全公告中公布重要发现与修复。" },
+            { type: "strong", text: "浏览器内核", body: "Clouisle 基于 Chromium 构建——与 Chrome 和 Edge 同源的开源内核——因此我们继承了久经验证的基础和最新的上游安全补丁。我们以激进的节奏跟进升级，保持与最新 Chromium 版本和安全热修同步。" },
+            { type: "strong", text: "基础设施", body: "我们按角色限制生产环境访问，定期记录并审查访问情况，静态与传输数据全程加密。我们尽可能少地存储个人数据，并例行审计所收集的内容，确保始终最少且恰当。" },
+            { type: "strong", text: "联系我们", body: "如有疑问或发现问题，请发送邮件至 help@clouisle.com。如果你是安全研究者，我们的漏洞赏金计划欢迎你的报告。" },
+          ],
+        },
+        {
+          id: "bounty-program",
+          title: "Clouisle 漏洞赏金计划",
+          blocks: [
+            { type: "p", text: "我们高度重视每一位用户产品的安全与隐私。我们也深知安全研究社区在这一使命中不可替代的价值。如果你发现漏洞，我们希望第一时间知晓，尽快修正。你的工作帮助我们为所有人构建更安全的浏览体验。" },
+            { type: "p", text: "我们的漏洞赏金计划通过 HackerOne 运行。请访问我们的 HackerOne 计划页面了解政策、范围并提交发现。" },
+          ],
+        },
       ],
-      practicesTitle: "我们的安全实践",
-      practices: [
-        { label: "加密", description: "占位：说明加密标准与覆盖范围。" },
-        { label: "访问控制", description: "占位：说明最小权限原则与 SSO 选项。" },
-        { label: "审计", description: "占位：说明日志、监控与例行审查机制。" },
-        { label: "漏洞报告", description: "占位：说明研究者如何负责任地报告安全问题。" },
+      faqTitle: "常见问题",
+      faqs: [
+        {
+          question: "我的数据存在哪里？",
+          answer: [
+            "默认情况下，你的对话、历史记录、书签和文件都加密存储在你自己的设备上。当你使用 Clouisle 时，完成请求所需的数据（如问题和相关上下文）会经由我们的服务器发送给受信任的 AI 合作方，合同约束他们不得保留你的数据或将其用于训练自己的模型。",
+            "开启同步后，你的数据将离开设备并经过我们的服务器，以便同步到你选择的另一台设备。该数据采用端到端加密，我们的服务器无法读取。",
+          ],
+        },
+        {
+          question: "你们会出售我的数据吗？",
+          answer: ["你的数据不被出售。我们绝不会出售你的个人数据。与其他许多竞争对手不同，我们不会收集你的浏览数据来构建广告画像。"],
+        },
+        {
+          question: "我的数据会被用于训练吗？",
+          answer: ["我们依赖的 AI 合作方受合同约束，不得保留你的数据或将其用于训练自己的模型。默认情况下，我们会使用部分内容数据来改进 Clouisle。这些内容数据不与你的账户关联，保留 30 天后删除。你可以随时在设置中关闭。"],
+        },
+        {
+          question: "我想删除聊天、文件或历史记录怎么办？",
+          answer: ["清除本地聊天、文件或历史记录时，它们将从你的设备上移除。如果你选择与 Clouisle 分享内容数据，这些数据不与你的账户关联，并会在 30 天后从我们的服务器删除。"],
+        },
+        {
+          question: "在银行或医疗等敏感网站上使用 Clouisle 安全吗？",
+          answer: [
+            "对于你自己的数据和账户，由你自己决定。你可以自行权衡在银行或个人健康门户网站上使用 AI 的接受度。",
+            "我们会尽力让敏感网站远离记忆等被动功能，也不将其纳入用于改进 Clouisle 的内容数据。但这并非保证，且当你主动将某个网站包含进请求时不适用。",
+          ],
+        },
+        {
+          question: "Clouisle 会受到提示注入攻击吗？",
+          answer: [
+            "提示注入是指网页或第三方在助手的上下文中夹带指令，使助手遵循这些指令而非用户的指令。所有 AI 聊天系统都面临这一风险。我们的立场是：假设提示注入可能发生，通过分层防护保持你的安全。",
+          ],
+        },
       ],
-      cta: "查看完整的隐私概览 →",
     },
     alt: {
       diaInterface: "Dia 浏览器界面",

@@ -1,9 +1,10 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { hasLocale, translations } from "../../i18n/translations";
-
 export { generateStaticParams } from "../generateStaticParams";
+
+import { hasLocale, translations } from "../../i18n/translations";
+import SecurityFaq from "./SecurityFaq";
+
 type SecurityPageProps = {
   params: Promise<{ lang: string }>;
 };
@@ -14,39 +15,60 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
   const t = translations[lang].securityPage;
 
   return (
-    <main className="security-page">
-      <section className="security-hero">
-        <h1>{t.hero.title}</h1>
-        <p>{t.hero.subtitle}</p>
-      </section>
+    <div className="security-page">
+      <header className="security-header">
+        <h1>{t.title}</h1>
+      </header>
 
-      <section className="security-pillars">
-        <h2>{t.pillarsTitle}</h2>
-        <div className="security-pillar-grid">
-          {t.pillars.map((pillar) => (
-            <article className="security-pillar" key={pillar.title}>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.description}</p>
-            </article>
+      <div className="security-body">
+        <nav className="security-toc" aria-label={t.title}>
+          <ul>
+            {t.sections.map((section) => (
+              <li key={section.id}>
+                <a href={`#${section.id}`}>{section.title}</a>
+              </li>
+            ))}
+            <li>
+              <a href="#security-faq">{t.faqTitle}</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="security-content">
+          {t.sections.map((section) => (
+            <section id={section.id} key={section.id}>
+              <h2>{section.title}</h2>
+              {section.blocks.map((block, index) => {
+                switch (block.type) {
+                  case "lead":
+                  case "p":
+                    return <p key={index} data-variant={block.type}>{block.text}</p>;
+                  case "strong":
+                    return (
+                      <p key={index} data-variant="strong-block">
+                        <strong>{block.text}</strong>
+                        {block.body && <><br />{block.body}</>}
+                      </p>
+                    );
+                  case "list":
+                    return (
+                      <ul key={index}>
+                        {block.items.map((item) => <li key={item}>{item}</li>)}
+                      </ul>
+                    );
+                }
+              })}
+            </section>
           ))}
-        </div>
-      </section>
 
-      <section className="security-practices">
-        <h2>{t.practicesTitle}</h2>
-        <dl className="security-practice-list">
-          {t.practices.map((practice) => (
-            <div className="security-practice" key={practice.label}>
-              <dt>{practice.label}</dt>
-              <dd>{practice.description}</dd>
+          <section id="security-faq">
+            <h2>{t.faqTitle}</h2>
+            <div className="security-faq-list">
+              <SecurityFaq faqs={t.faqs} />
             </div>
-          ))}
-        </dl>
-      </section>
-
-      <section className="security-cta">
-        <Link className="security-cta-link" href={`/${lang}#privacy`}>{t.cta}</Link>
-      </section>
-    </main>
+          </section>
+        </div>
+      </div>
+    </div>
   );
 }
