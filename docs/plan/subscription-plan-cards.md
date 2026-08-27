@@ -6,7 +6,7 @@ The final CTA currently contains the page title and a small note after its forme
 
 Success criteria:
 
-- The Chinese page shows exactly three plans: `免费版`, `Plus 会员`, and `定制`.
+- The Chinese page shows exactly three plans: `Community`, `服务支持`, and `企业版`.
 - The English page shows the corresponding `Free`, `Plus`, and `Custom` plans.
 - Cards use localized data rather than hardcoded component copy.
 - Desktop layout uses three columns; narrow screens stack the cards vertically.
@@ -46,7 +46,7 @@ The cards now mirror the supplied pricing-card form without inventing numeric pr
 ### Stage 5: Apply reference-style pricing card treatment
 
 - **Files modified**: `app/i18n/translations.ts`, `app/[lang]/components/FinalCta.tsx`, `app/globals.css`
-- **Specific logic**: Add non-monetary pricing expressions (`免费使用`, `按月订阅`, `按需报价`), visual CTA labels, and localized capability lists. Keep CTA elements non-interactive until real links exist.
+- **Specific logic**: Add non-monetary pricing expressions (`免费`, `服务支持`, `定制` for Chinese; existing `Free`, `Plus`, `Custom` draft for English), visual CTA labels, and localized capability lists. Keep CTA elements non-interactive until real links exist.
 - **Validation**: Run the production build and verify no numeric price or fake navigation was introduced.
 
 ## Testing Strategy
