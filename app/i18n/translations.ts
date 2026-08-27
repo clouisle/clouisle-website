@@ -269,7 +269,7 @@ export const translations: Record<Locale, Translations> = {
       sections: [
         {
           id: "team-boundaries",
-          title: "Teams define the first access boundary",
+          title: "Team boundaries",
           blocks: [
             { type: "lead", text: "Clouisle uses the team as the basic unit of resource isolation. Agents, Workflows, Knowledge Bases, model authorizations, tools, and Skills are created and used in an explicit team context; the workspace uses the active team to determine which resources can be queried and created, so the scope of collaboration stays visible from the start." },
             { type: "strong", text: "Define the resource boundary before collaboration begins.", body: "The team context connects people, resources, and actions in a traceable relationship, leaving less room for cross-team mistakes or ambiguous permission decisions." },
@@ -277,7 +277,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "roles-permissions",
-          title: "Roles and permissions make every action explicit",
+          title: "Roles and permissions",
           blocks: [
             { type: "lead", text: "Team roles include owner, administrator, member, and viewer. Roles establish responsibility; global role permissions and team- or resource-scoped roles then determine whether a person can view, change, or execute a specific resource." },
             { type: "strong", text: "The interface is not the security boundary.", body: "The frontend hides menus that a user cannot use, but the backend makes the final decision and checks every request." },
@@ -286,7 +286,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "session-isolation",
-          title: "Sessions and data stay within their intended scope",
+          title: "Sessions and data",
           blocks: [
             { type: "lead", text: "Regular users can only view their own conversations and data. A team-wide view requires admin:dashboard:access or Super Admin, and team-scoped conversation queries additionally require the team owner or administrator role. The same scope applies to the query itself, not just to the visible page." },
             { type: "strong", text: "API keys are owned by users as well.", body: "Users can view and manage only their own keys. Only Super Admin can view all keys across teams." },
@@ -294,7 +294,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "authentication",
-          title: "Authentication can follow your organization’s policy",
+          title: "Authentication",
           blocks: [
             { type: "lead", text: "Sign-in does not have to rely on a single control. Clouisle supports password sign-in, email verification, administrator approval, click CAPTCHA, password policies, password expiration, single-session rules, TOTP, and SSO. Multiple SSO connections are supported, and administrators can disable password sign-in." },
             { type: "strong", text: "Session lifetime has an explicit boundary.", body: "Active sessions last 30 days by default and can be adjusted with the session_timeout_days site setting. The JWT fallback token lasts 8 days by default." },
@@ -302,7 +302,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "api-keys",
-          title: "API keys give automation a defined boundary",
+          title: "API keys",
           blocks: [
             { type: "lead", text: "API keys start with clou_ and are sent through Authorization: Bearer. When a key is created, it can be restricted to specific Agents or Workflows, given an expiration time, and limited by requests per minute, keeping automation separate from a person’s account." },
             { type: "strong", text: "Automation does not receive broader access by default.", body: "An unrestricted key can access all matching resources; request-rate limits are counted per user rather than shared across the team, making the source of usage easier to control." },
@@ -310,7 +310,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "audit-notifications",
-          title: "Auditing and notifications make change traceable",
+          title: "Make change traceable",
           blocks: [
             { type: "lead", text: "The admin console records resource operations, actors, and change snapshots, with filters for event, user, team, and time. Administrators can review who changed which resource and when, without relying on verbal confirmation or scattered logs." },
             { type: "strong", text: "Important events can reach the channels your team already uses.", body: "Notifications can appear in the product and can also be sent through email, DingTalk, WeCom, Feishu, Slack, or Webhook." },
@@ -513,7 +513,7 @@ export const translations: Record<Locale, Translations> = {
       sections: [
         {
           id: "team-boundaries",
-          title: "团队，是资源访问的第一道边界",
+          title: "团队边界",
           blocks: [
             { type: "lead", text: "Clouisle 以团队作为资源隔离的基本单位。Agent、工作流、知识库、模型授权、工具和 Skills 都在明确的团队上下文中创建与使用；工作台依据当前团队决定可以查询和创建哪些资源，让协作范围从一开始就清楚可见。" },
             { type: "strong", text: "先划清资源边界，再开展协作。", body: "团队上下文把人、资源和操作放在同一条可追溯的关系链中，减少跨团队误用和权限判断上的模糊空间。" },
@@ -521,7 +521,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "roles-permissions",
-          title: "角色与权限，精确到每个动作",
+          title: "角色与权限",
           blocks: [
             { type: "lead", text: "团队角色包括所有者、管理员、成员和观察者。角色决定责任范围；全局角色权限与团队或资源作用域角色叠加后，再决定一个人能否查看、修改或执行具体资源。" },
             { type: "strong", text: "界面不是安全边界。", body: "前端会根据权限隐藏不适用的菜单，但最终判定始终在后端完成，每一次请求都会经过权限检查。" },
@@ -530,7 +530,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "session-isolation",
-          title: "会话与数据，默认留在应有范围内",
+          title: "会话与数据",
           blocks: [
             { type: "lead", text: "普通用户只能查看自己的会话与数据。需要团队级视图时，用户必须具备 admin:dashboard:access 权限；查看团队范围的会话还需要所有者或管理员角色。权限范围随查询一起生效，而不是只在页面上隐藏入口。" },
             { type: "strong", text: "API Key 同样按用户归属。", body: "用户只能查看和管理自己的密钥；只有超级管理员可以跨团队查看全部密钥。" },
@@ -538,7 +538,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "authentication",
-          title: "认证方式，可按组织策略组合",
+          title: "认证策略",
           blocks: [
             { type: "lead", text: "登录策略不必只有一种。Clouisle 支持密码登录、邮箱验证、管理员审批、点击式验证码、密码策略、密码过期、单一会话、TOTP 与 SSO，并支持配置多个 SSO 连接；管理员也可以关闭密码登录。" },
             { type: "strong", text: "会话时效有明确边界。", body: "活动会话默认有效 30 天，可由 session_timeout_days 站点配置调整；JWT 兜底令牌默认有效 8 天。" },
@@ -546,7 +546,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "api-keys",
-          title: "API Key，为自动化调用设定边界",
+          title: "API Key",
           blocks: [
             { type: "lead", text: "API Key 以 clou_ 开头，通过 Authorization: Bearer 发送。创建密钥时，可以限制可访问的 Agent、工作流、有效期和每分钟请求数，把自动化调用从个人账号中区分出来。" },
             { type: "strong", text: "默认不放大权限。", body: "未设置资源限制的密钥才可以访问其匹配范围内的全部资源；请求频率限制按用户计算，而不是按团队共享，方便定位和控制调用来源。" },
@@ -554,7 +554,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "audit-notifications",
-          title: "审计与通知，让变化有迹可循",
+          title: "让变化有迹可循",
           blocks: [
             { type: "lead", text: "管理后台记录资源操作、操作者和变更快照，并支持按事件、用户、团队和时间筛选。管理员可以回看谁在什么时间对什么资源做了什么改变，让排查不再依赖口头确认或零散日志。" },
             { type: "strong", text: "重要事件可以送达团队正在使用的渠道。", body: "通知支持站内展示，也可以通过邮件、钉钉、企业微信、飞书、Slack 或 Webhook 发出。" },
