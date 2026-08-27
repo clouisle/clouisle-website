@@ -49,21 +49,14 @@ export default function PrivacySection({ t }: { t: Translations }) {
         <p>{t.privacy.description1}</p>
         <p>{t.privacy.description2}</p>
         <a className="privacy-link" href="#top">{t.privacy.learnMore} <span aria-hidden="true">&rarr;</span></a>
-        <svg
+        <img
           className="privacy-footer-mark"
+          src="/clouisle-assets/clouisle-light.svg"
+          alt=""
           aria-hidden="true"
-          width="76"
-          height="29"
-          viewBox="0 0 76 29"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="74.3867" height="28" transform="translate(0.806641 0.903809)" fill="#F8F8F8" />
-          <path
-            d="M38 1.40381C38.3911 1.40376 38.7855 1.41655 39.1826 1.44385V1.44482C47.4655 2.01498 54.1553 8.76601 54.6631 17.0562C54.897 20.9106 53.7566 24.5118 51.6475 27.647C51.1487 28.3883 50.1161 28.6096 49.1895 28.2056C45.7816 26.7198 41.907 25.5191 38.0059 25.5679H37.9932C34.0924 25.5193 30.2181 26.7199 26.8105 28.2056C25.8839 28.6096 24.8513 28.3883 24.3525 27.647C22.2434 24.5118 21.103 20.9106 21.3369 17.0562C21.8447 8.76617 28.5338 2.0152 36.8164 1.44482C37.0149 1.43117 37.2131 1.42034 37.4102 1.41357L38 1.40381Z"
-            stroke="black"
-          />
-        </svg>
+          width={76}
+          height={76}
+        />
       </div>
     </section>
   );
