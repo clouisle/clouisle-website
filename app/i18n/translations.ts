@@ -271,49 +271,48 @@ export const translations: Record<Locale, Translations> = {
           id: "team-boundaries",
           title: "Team boundaries",
           blocks: [
-            { type: "lead", text: "Clouisle uses the team as the basic unit of resource isolation. Agents, Workflows, Knowledge Bases, model authorizations, tools, and Skills are created and used in an explicit team context; the workspace uses the active team to determine which resources can be queried and created, so the scope of collaboration stays visible from the start." },
-            { type: "strong", text: "Define the resource boundary before collaboration begins.", body: "The team context connects people, resources, and actions in a traceable relationship, leaving less room for cross-team mistakes or ambiguous permission decisions." },
+            { type: "lead", text: "A team is the context in which people, knowledge, and AI work together. Clouisle gives that context a clear boundary, so collaboration starts with a shared understanding of what belongs together and who is working within it." },
+            { type: "strong", text: "Security begins with a clear sense of belonging.", body: "When resources have an understood home, teams can move quickly without losing sight of what they are responsible for." },
           ],
         },
         {
           id: "roles-permissions",
           title: "Roles and permissions",
           blocks: [
-            { type: "lead", text: "Team roles include owner, administrator, member, and viewer. Roles establish responsibility; global role permissions and team- or resource-scoped roles then determine whether a person can view, change, or execute a specific resource." },
-            { type: "strong", text: "The interface is not the security boundary.", body: "The frontend hides menus that a user cannot use, but the backend makes the final decision and checks every request." },
-            { type: "strong", text: "Ownership and administration stay distinct.", body: "Owners handle team ownership transfer and cannot be removed or leave directly. Administrators manage team resources, while members and viewers work within the scope granted to them." },
+            { type: "lead", text: "Good collaboration does not mean everyone has the same access. Clouisle gives teams a way to express responsibility in the way they already work, keeping ownership, administration, and everyday participation distinct." },
+            { type: "strong", text: "Clarity makes trust practical.", body: "People should know what they are responsible for, and teams should be able to make those decisions without turning every collaboration into a manual review." },
           ],
         },
         {
           id: "session-isolation",
           title: "Sessions and data",
           blocks: [
-            { type: "lead", text: "Regular users can only view their own conversations and data. A team-wide view requires admin:dashboard:access or Super Admin, and team-scoped conversation queries additionally require the team owner or administrator role. The same scope applies to the query itself, not just to the visible page." },
-            { type: "strong", text: "API keys are owned by users as well.", body: "Users can view and manage only their own keys. Only Super Admin can view all keys across teams." },
+            { type: "lead", text: "Work is personal before it becomes shared. Conversations, knowledge, and outcomes carry context; Clouisle keeps that context intact so individual work and team collaboration can coexist without making everything visible to everyone." },
+            { type: "strong", text: "Start with the smallest necessary view.", body: "A wider perspective should be intentional and accountable, not an accidental result of how the workspace is arranged." },
           ],
         },
         {
           id: "authentication",
           title: "Authentication",
           blocks: [
-            { type: "lead", text: "Sign-in does not have to rely on a single control. Clouisle supports password sign-in, email verification, administrator approval, click CAPTCHA, password policies, password expiration, single-session rules, TOTP, and SSO. Multiple SSO connections are supported, and administrators can disable password sign-in." },
-            { type: "strong", text: "Session lifetime has an explicit boundary.", body: "Active sessions last 30 days by default and can be adjusted with the session_timeout_days site setting. The JWT fallback token lasts 8 days by default." },
+            { type: "lead", text: "Every organization has its own way of recognizing people and managing access. Clouisle is designed to fit into that reality, allowing identity and session policies to become part of the team’s existing operating model rather than a separate workflow." },
+            { type: "strong", text: "The secure path should feel like part of the work.", body: "Clear identity at the beginning makes collaboration more dependable all the way through." },
           ],
         },
         {
           id: "api-keys",
           title: "API keys",
           blocks: [
-            { type: "lead", text: "API keys start with clou_ and are sent through Authorization: Bearer. When a key is created, it can be restricted to specific Agents or Workflows, given an expiration time, and limited by requests per minute, keeping automation separate from a person’s account." },
-            { type: "strong", text: "Automation does not receive broader access by default.", body: "An unrestricted key can access all matching resources; request-rate limits are counted per user rather than shared across the team, making the source of usage easier to control." },
+            { type: "lead", text: "AI becomes more useful when it can work with the systems around it. That connection also needs an identity of its own. Clouisle treats automation as a participant with a defined purpose, rather than quietly extending a person’s account." },
+            { type: "strong", text: "Capability should follow intent.", body: "Every connection should be understandable, limited to its role, and possible to take responsibility for when work moves from people to systems." },
           ],
         },
         {
           id: "audit-notifications",
           title: "Make change traceable",
           blocks: [
-            { type: "lead", text: "The admin console records resource operations, actors, and change snapshots, with filters for event, user, team, and time. Administrators can review who changed which resource and when, without relying on verbal confirmation or scattered logs." },
-            { type: "strong", text: "Important events can reach the channels your team already uses.", body: "Notifications can appear in the product and can also be sent through email, DingTalk, WeCom, Feishu, Slack, or Webhook." },
+            { type: "lead", text: "Responsible teams need more than a record of the final result. They need to understand how work changed over time, especially when resources are shared and decisions are revisited. Clouisle makes that history part of everyday governance." },
+            { type: "strong", text: "Visibility turns security into a shared practice.", body: "When change can be understood, teams can learn from it, explain it, and keep improving the way they work." },
           ],
         },
       ],
@@ -515,49 +514,48 @@ export const translations: Record<Locale, Translations> = {
           id: "team-boundaries",
           title: "团队边界",
           blocks: [
-            { type: "lead", text: "Clouisle 以团队作为资源隔离的基本单位。Agent、工作流、知识库、模型授权、工具和 Skills 都在明确的团队上下文中创建与使用；工作台依据当前团队决定可以查询和创建哪些资源，让协作范围从一开始就清楚可见。" },
-            { type: "strong", text: "先划清资源边界，再开展协作。", body: "团队上下文把人、资源和操作放在同一条可追溯的关系链中，减少跨团队误用和权限判断上的模糊空间。" },
+            { type: "lead", text: "团队是人、知识与智能共同工作的上下文。Clouisle 为这个上下文划出清晰边界，让协作从一开始就建立在共同理解之上：哪些内容属于这里，谁正在一起工作，什么需要被共同负责。" },
+            { type: "strong", text: "安全，始于清楚的归属。", body: "资源有明确的归处，团队才能保持行动速度，同时不丢失对责任范围的判断。" },
           ],
         },
         {
           id: "roles-permissions",
           title: "角色与权限",
           blocks: [
-            { type: "lead", text: "团队角色包括所有者、管理员、成员和观察者。角色决定责任范围；全局角色权限与团队或资源作用域角色叠加后，再决定一个人能否查看、修改或执行具体资源。" },
-            { type: "strong", text: "界面不是安全边界。", body: "前端会根据权限隐藏不适用的菜单，但最终判定始终在后端完成，每一次请求都会经过权限检查。" },
-            { type: "strong", text: "所有权与管理职责分离。", body: "所有者负责团队所有权转让，不能被直接移除或自行退出；管理员负责团队资源管理，成员与观察者按被授予的范围参与工作。" },
+            { type: "lead", text: "好的协作并不意味着所有人拥有相同的权限。Clouisle 让团队可以按照真实的分工表达责任，让所有权、管理职责与日常参与各有位置。" },
+            { type: "strong", text: "边界清楚，信任才有落点。", body: "每个人都知道自己负责什么，团队也不必把每一次协作都变成手工审核。" },
           ],
         },
         {
           id: "session-isolation",
           title: "会话与数据",
           blocks: [
-            { type: "lead", text: "普通用户只能查看自己的会话与数据。需要团队级视图时，用户必须具备 admin:dashboard:access 权限；查看团队范围的会话还需要所有者或管理员角色。权限范围随查询一起生效，而不是只在页面上隐藏入口。" },
-            { type: "strong", text: "API Key 同样按用户归属。", body: "用户只能查看和管理自己的密钥；只有超级管理员可以跨团队查看全部密钥。" },
+            { type: "lead", text: "工作往往先从个人开始，再进入团队。对话、知识和工作结果都带着自己的上下文；Clouisle 保持这种上下文的区分，让个人工作与团队协作可以并存，而不是把所有内容默认摊开。" },
+            { type: "strong", text: "从必要的可见范围开始。", body: "更大的视角应该来自明确的需要和责任，而不是工作台布局带来的偶然开放。" },
           ],
         },
         {
           id: "authentication",
           title: "认证策略",
           blocks: [
-            { type: "lead", text: "登录策略不必只有一种。Clouisle 支持密码登录、邮箱验证、管理员审批、点击式验证码、密码策略、密码过期、单一会话、TOTP 与 SSO，并支持配置多个 SSO 连接；管理员也可以关闭密码登录。" },
-            { type: "strong", text: "会话时效有明确边界。", body: "活动会话默认有效 30 天，可由 session_timeout_days 站点配置调整；JWT 兜底令牌默认有效 8 天。" },
+            { type: "lead", text: "每个组织都有自己的身份管理方式和进入流程。Clouisle 让认证与会话策略能够融入现有的工作体系，而不是要求团队另起一套与业务脱节的流程。" },
+            { type: "strong", text: "安全的入口，也应该自然地融入工作。", body: "当身份在开始时得到确认，后续的协作才更值得信赖。" },
           ],
         },
         {
           id: "api-keys",
           title: "API Key",
           blocks: [
-            { type: "lead", text: "API Key 以 clou_ 开头，通过 Authorization: Bearer 发送。创建密钥时，可以限制可访问的 Agent、工作流、有效期和每分钟请求数，把自动化调用从个人账号中区分出来。" },
-            { type: "strong", text: "默认不放大权限。", body: "未设置资源限制的密钥才可以访问其匹配范围内的全部资源；请求频率限制按用户计算，而不是按团队共享，方便定位和控制调用来源。" },
+            { type: "lead", text: "当 AI 开始连接周围的业务系统，自动化也需要拥有清晰的身份。Clouisle 将自动化视为有明确目的的协作者，而不是悄悄借用某个人账号的延伸。" },
+            { type: "strong", text: "能力应当与目的相匹配。", body: "每一次连接都应该易于理解、服务于自己的职责，并在工作从人交给系统之后仍然能够追溯责任。" },
           ],
         },
         {
           id: "audit-notifications",
           title: "让变化有迹可循",
           blocks: [
-            { type: "lead", text: "管理后台记录资源操作、操作者和变更快照，并支持按事件、用户、团队和时间筛选。管理员可以回看谁在什么时间对什么资源做了什么改变，让排查不再依赖口头确认或零散日志。" },
-            { type: "strong", text: "重要事件可以送达团队正在使用的渠道。", body: "通知支持站内展示，也可以通过邮件、钉钉、企业微信、飞书、Slack 或 Webhook 发出。" },
+            { type: "lead", text: "负责任的团队不只关心最后留下了什么结果，也需要理解工作如何一步步发生变化，尤其当资源被共同使用、决定需要重新审视时。Clouisle 让这段过程成为日常治理的一部分。" },
+            { type: "strong", text: "看得见变化，安全才会成为共同的工作方式。", body: "当变化能够被理解，团队才能从中学习、解释决定，并持续改进协作方式。" },
           ],
         },
       ],
