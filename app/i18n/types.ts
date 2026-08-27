@@ -100,8 +100,6 @@ export type SecurityPageTranslations = {
 };
 
 export type ReleaseNotesTranslations = {
-  title: string;
-  backLabel: string;
   newFeaturesLabel: string;
   pastIssuesLabel: string;
   metadata: {

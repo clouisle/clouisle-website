@@ -2,8 +2,6 @@ import type { ReleaseNotesTranslations } from "../types";
 
 // Example skeleton data — replace with real releases.
 export const en: ReleaseNotesTranslations = {
-  title: "Release Notes",
-  backLabel: "Back to release notes",
   newFeaturesLabel: "New features",
   pastIssuesLabel: "Past Issues",
   metadata: {

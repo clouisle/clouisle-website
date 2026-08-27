@@ -2,8 +2,6 @@ import type { ReleaseNotesTranslations } from "../types";
 
 // 示例骨架数据——替换为真实发布内容
 export const zh: ReleaseNotesTranslations = {
-  title: "发布记录",
-  backLabel: "返回发布记录",
   newFeaturesLabel: "新功能",
   pastIssuesLabel: "过往版本",
   metadata: {

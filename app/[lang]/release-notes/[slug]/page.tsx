@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { hasLocale, translations } from "../../../i18n/translations";
@@ -27,9 +26,6 @@ export default async function ReleaseDetailPage({ params }: ReleaseDetailPagePro
 
   return (
     <div className="release-detail-page">
-      <Link className="release-back" href={`/${lang}/release-notes`}>
-        <span aria-hidden="true">&larr;</span> {t.backLabel}
-      </Link>
       <ReleaseMetadata release={release} labels={t.metadata} />
       <main className="release-detail-main">
         <h1 className="release-detail-title">{release.cardTitle}</h1>

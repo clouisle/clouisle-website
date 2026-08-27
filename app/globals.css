@@ -169,8 +169,6 @@ img { display: block; max-width: 100%; }
 .footer-groups a:hover { color: var(--ink); }
 
 /* Release notes — postcard card grid (references diabrowser.com/release-notes) */
-.release-page { width: min(100% - 48px, 1120px); margin: 0 auto; padding: 110px 0 140px; }
-.release-title { max-width: 30ch; margin: 0 auto 72px; color: #111; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(36px, 4.6vw, 50px); font-weight: 600; line-height: 1.2; letter-spacing: -.04em; text-align: center; }
 .release-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .release-card { display: flex; flex-direction: column; aspect-ratio: 350 / 226; padding: 15px 15px 0; overflow: hidden; border: 1px solid rgba(0,0,0,.1); border-radius: 12px; color: #111; background: #fff; box-shadow: 0 4px 32px rgba(0,0,0,.06); transition: opacity .2s cubic-bezier(.87,0,.13,1), transform .2s cubic-bezier(.87,0,.13,1); }
 .release-card:hover { opacity: .8; }
@@ -186,8 +184,6 @@ img { display: block; max-width: 100%; }
 
 /* Release notes — detail postcard */
 .release-detail-page { padding: 110px 0 140px; overflow: hidden; }
-.release-back { width: min(100% - 48px, 1120px); display: inline-flex; align-items: center; gap: 8px; margin: 0 calc((100% - min(100% - 48px, 1120px)) / 2) 40px; color: rgba(0,0,0,.55); font-family: "ABC Favorit Mono", "Courier New", monospace; font-size: 12px; font-weight: 500; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; transition: color .2s ease; }
-.release-back:hover { color: #000; }
 .release-metadata { height: 50px; overflow-x: auto; border-top: 1px solid rgba(0,0,0,.2); border-bottom: 1px solid rgba(0,0,0,.2); color: rgba(0,0,0,.5); background: #f7f7f7; scrollbar-width: none; }
 .release-metadata::-webkit-scrollbar { display: none; }
 .release-metadata-inner { width: max-content; min-width: 100%; display: flex; align-items: center; gap: 32px; height: 100%; padding: 0 32px; }
@@ -257,10 +253,9 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 560px) {
   .release-grid { grid-template-columns: 1fr; }
-  .release-page, .release-detail-page { padding-top: 72px; }
+  .release-detail-page { padding-top: 72px; }
   .release-card { padding-top: 15px; }
   .release-detail-main { width: min(100% - 32px, 1120px); padding-top: 48px; }
-  .release-back { width: calc(100% - 32px); margin-left: 16px; margin-right: 16px; }
   .release-metadata-inner { gap: 24px; padding: 0 16px; }
   .release-meta-item { font-size: 12px; }
   .release-greeting { margin-bottom: 38px; }
