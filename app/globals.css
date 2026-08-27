@@ -205,7 +205,7 @@ img { display: block; max-width: 100%; }
 .postcard-scene { --postcard-width: min(86vw, 980px); --postcard-rotate-x: 0deg; --postcard-rotate-y: 0deg; --postcard-rotate-z: 0deg; --postcard-sheen-x: 0px; --postcard-sheen-y: 0px; --postcard-sheen-opacity: 0; position: relative; width: var(--postcard-width); aspect-ratio: 8 / 5; margin-bottom: 88px; perspective:1800px; }
 .postcard-card, .postcard-face, .postcard-inner { position: absolute; inset: 0; width: 100%; height: 100%; }
 .postcard-card, .postcard-inner { transform-style: preserve-3d; }
-.postcard-card { z-index: 1; transform: rotateY(0); transition: transform .72s cubic-bezier(.65,0,.2,1); pointer-events: none; }
+.postcard-card { z-index: 4; transform: rotateY(0); transition: transform .72s cubic-bezier(.65,0,.2,1); pointer-events: none; }
 .postcard-card[data-flipped="true"] { transform: rotateY(-180deg); }
 .postcard-inner { overflow: visible; border-radius: 16px; box-shadow: 0 35px 64px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.05); transform: rotateX(var(--postcard-rotate-x)) rotateY(var(--postcard-rotate-y)) rotate(var(--postcard-rotate-z)); transition: transform .6s cubic-bezier(.2,.8,.2,1); }
 .postcard-scene[data-tilting] .postcard-inner { transition: transform 90ms cubic-bezier(.2,.6,.3,1); will-change: transform; }
@@ -223,33 +223,25 @@ img { display: block; max-width: 100%; }
 .postcard-blank-layer, .postcard-paperclip-layer, .postcard-polaroid-layer { position: absolute; inset: 0; backface-visibility: hidden; pointer-events: none; }
 .postcard-blank-layer { transform: translateZ(.5px); }
 .postcard-paperclip-layer { transform: translateZ(2px); }
-.postcard-paperclip-back-layer { transform: rotateY(180deg) translateZ(2px); }
-.postcard-polaroid-layer { transform: rotateY(180deg) translateZ(2px); }
 .postcard-blank-layer img, .postcard-paperclip-layer img { position: absolute; top: -6%; left: -10%; width: 44%; height: auto; transform: translate(calc(var(--postcard-width) * .035),calc(var(--postcard-width) * .2)); }
 .postcard-polaroid { --polaroid-photo-left: 17%; --polaroid-photo-top: 12.4%; --polaroid-photo-width: 68%; --polaroid-photo-height: 60%; --polaroid-photo-rotate: 9.6deg; position: absolute; right: -6.5%; bottom: -9%; width: 44%; transform: translateX(calc(var(--postcard-width) * -.008)); }
 .postcard-polaroid > img { display: block; width: 100%; height: auto; }
-.postcard-polaroid-photo { position: absolute; top: var(--polaroid-photo-top); left: var(--polaroid-photo-left); width: var(--polaroid-photo-width); height: var(--polaroid-photo-height); transform: rotate(var(--polaroid-photo-rotate)); transform-origin: center; }
+.postcard-polaroid-photo { position: absolute; top: var(--polaroid-photo-top); left: var(--polaroid-photo-left); width: var(--polaroid-photo-width); height: var(--polaroid-photo-height); overflow: hidden; transform: rotate(var(--polaroid-photo-rotate)); transform-origin: center; }
 .postcard-polaroid-photo img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
 .postcard-back { container-type: inline-size; background: #f7f4ee; transform: rotateY(180deg) translateZ(1px); }
+
+.postcard-blank-layer img, .postcard-paperclip-layer img { position: absolute; top: -6%; left: -10%; width: 44%; height: auto; transform: translate(calc(var(--postcard-width) * .035),calc(var(--postcard-width) * .2)); }
+.postcard-polaroid { --polaroid-photo-left: 17%; --polaroid-photo-top: 12.4%; --polaroid-photo-width: 68%; --polaroid-photo-height: 60%; --polaroid-photo-rotate: 9.6deg; position: absolute; right: -6.5%; bottom: -9%; width: 44%; transform: translateX(calc(var(--postcard-width) * -.008)); }
+.postcard-polaroid > img { display: block; width: 100%; height: auto; }
+.postcard-polaroid-photo { position: absolute; top: var(--polaroid-photo-top); left: var(--polaroid-photo-left); width: var(--polaroid-photo-width); height: var(--polaroid-photo-height); overflow: hidden; transform: rotate(var(--polaroid-photo-rotate)); transform-origin: center; }
+.postcard-polaroid-photo img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.postcard-back { container-type: inline-size; background: #f7f4ee; transform: rotateY(180deg) translateZ(1px); }
+
 .postcard-paper, .postcard-paper img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .postcard-paper img { object-fit: cover; }
 .postcard-stamp { position: absolute; top: 4.5%; left: 80%; width: 16%; height: auto; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.22)); pointer-events: none; }
 .postcard-postmark { position: absolute; top: 6%; left: 54%; width: 35%; height: auto; opacity: .9; mix-blend-mode: multiply; pointer-events: none; }
 .postcard-copy { position: absolute; top: 11%; left: 6%; width: 40%; color: rgba(0,0,0,.7); font-family: "Dia Exposure Variable", Georgia, serif; font-size: clamp(12px, 2.05cqw, 20px); font-weight: 400; line-height: 1.42; text-wrap: pretty; }
-.postcard-greeting, .postcard-message p, .postcard-signoff { margin: 0; }
-.postcard-greeting { margin-bottom: 1.5cqw; color: rgba(0,0,0,.82); }
-.postcard-message { display: flex; flex-direction: column; gap: 1.15cqw; }
-.postcard-features-title { margin: 1.35cqw 0 .7cqw; color: rgba(0,0,0,.55); font-family: "ABC Favorit Mono", monospace; font-size: .62em; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
-.postcard-features { display: grid; gap: .38cqw; margin: 0; padding: 0; list-style: none; font-family: "ABC Oracle", Arial, sans-serif; font-size: .76em; line-height: 1.3; }
-.postcard-features li { position: relative; padding-left: 1em; }
-.postcard-features li::before { position: absolute; top: .42em; left: .18em; width: .32em; height: .32em; border-radius: 50%; background: currentColor; content: ""; }
-.postcard-signoff { width: fit-content; margin-top: 1.5cqw; margin-left: auto; color: rgba(40,61,140,.92); font-weight: 550; font-style: italic; letter-spacing: .02em; text-shadow: 0 0 .05em color-mix(in srgb,currentColor 50%,transparent); transform: rotate(-5deg); transform-origin: right center; }
-.past-issues { width: min(100% - 48px, 1120px); margin: 0 auto; }
-.past-issues h2 { margin: 0 0 48px; color: #111; font-family: "Dia Exposure Variable", Georgia, serif; font-size: clamp(34px, 4vw, 48px); font-weight: 400; line-height: 1; letter-spacing: -.03em; text-align: center; }
-
-@media (max-width: 900px) {
-  .release-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 
 @media (max-width: 560px) {
   .release-grid { grid-template-columns: 1fr; }
@@ -416,6 +408,16 @@ img { display: block; max-width: 100%; }
   .mobile-case p { max-width: 600px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
   .work-section { padding: 26px 0 82px; }
   .work-intro { margin-bottom: 28px; }
+  .final-cta { padding: 64px 20px; }
+  .final-plan-grid { width: 100%; grid-template-columns: 1fr; gap: 12px; margin-top: 34px; }
+  .final-plan-card { min-height: 0; padding: 20px; border-radius: 12px; }
+  .final-plan-price { margin-top: 22px; }
+  .final-plan-card h3 { margin-top: 0; font-size: 26px; }
+  .final-plan-description { min-height: 0; margin-top: 14px; }
+  .final-plan-action { margin-top: 20px; }
+  .final-plan-features { margin-top: 24px; }
+  .final-plan-features h4 { margin-bottom: 18px; }
+  .final-plan-features ul { gap: 12px; }
   .feature-grid { width: calc(100% - 40px); display: grid; grid-template-columns: 1fr; gap: 12px; }
   .work-tile, .feature-wide, .feature-tall { grid-column: auto; min-height: 390px; }
   .security-brand { margin-bottom: 18px; }
@@ -430,7 +432,7 @@ img { display: block; max-width: 100%; }
   .privacy-panel p { font-size: 15px; }
   .privacy-link { font-size: 15px; }
   .final-cta { padding: 64px 20px; }
-  .final-plan-grid { width: 100%; grid-template-columns: 1fr; gap: 12px; margin-top: 30px; }
+  .final-plan-grid { width: 100%; grid-template-columns: 1fr; gap: 12px; margin-top: 34px; }
   .final-plan-card { min-height: 0; padding: 20px; border-radius: 12px; }
   .final-plan-price { margin-top: 22px; }
   .final-plan-card h3 { margin-top: 0; font-size: 26px; }
@@ -439,8 +441,6 @@ img { display: block; max-width: 100%; }
   .final-plan-features { margin-top: 24px; }
   .final-plan-features h4 { margin-bottom: 18px; }
   .final-plan-features ul { gap: 12px; }
-  .footer { width: calc(100% - 40px); grid-template-columns: 1fr; gap: 50px; padding-top: 55px; }
-  .footer-groups { grid-template-columns: repeat(2, 1fr); gap: 34px 22px; }
   .film-overlay { padding: 16px; }
   .film-frame { aspect-ratio: 3 / 4; border-radius: 18px; }
   .film-frame img { object-position: center; }
