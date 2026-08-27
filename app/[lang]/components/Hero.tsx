@@ -1,8 +1,8 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import type { Translations } from "../../i18n/translations";
 import { ArrowRightIcon } from "./icons";
+import GlyphWord from "./GlyphWord";
 
 type HeroProps = {
   t: Translations;
@@ -16,17 +16,7 @@ export default function Hero({ t, onDownload, onWatchTrailer }: HeroProps) {
       <img className="hero-scream" src="/clouisle-assets/hero.png" alt="" aria-hidden="true" />
       <div className="hero-content">
         <h1 aria-label="Clouisle">
-          <span className="hero-word" aria-hidden="true">
-            {Array.from("Clouisle").map((letter, index) => (
-              <span
-                key={index}
-                className="hero-glyph"
-                style={{ "--i": index } as CSSProperties}
-              >
-                {letter}
-              </span>
-            ))}
-          </span>
+          <GlyphWord text="Clouisle" />
         </h1>
         <p className="hero-tagline">{t.hero.tagline}</p>
         <button className="hero-download" type="button" onClick={onDownload}>
