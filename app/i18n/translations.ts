@@ -269,7 +269,7 @@ export const translations: Record<Locale, Translations> = {
       sections: [
         {
           id: "team-boundaries",
-          title: "Team boundaries",
+          title: "It starts with a team",
           blocks: [
             { type: "lead", text: "A team is the context in which people, knowledge, and AI work together. Clouisle gives that context a clear boundary, so collaboration starts with a shared understanding of what belongs together and who is working within it." },
             { type: "strong", text: "Security begins with a clear sense of belonging.", body: "When resources have an understood home, teams can move quickly without losing sight of what they are responsible for." },
@@ -277,7 +277,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "roles-permissions",
-          title: "Roles and permissions",
+          title: "Everyone has a place",
           blocks: [
             { type: "lead", text: "Good collaboration does not mean everyone has the same access. Clouisle gives teams a way to express responsibility in the way they already work, keeping ownership, administration, and everyday participation distinct." },
             { type: "strong", text: "Clarity makes trust practical.", body: "People should know what they are responsible for, and teams should be able to make those decisions without turning every collaboration into a manual review." },
@@ -285,7 +285,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "session-isolation",
-          title: "Sessions and data",
+          title: "From individual to team",
           blocks: [
             { type: "lead", text: "Work is personal before it becomes shared. Conversations, knowledge, and outcomes carry context; Clouisle keeps that context intact so individual work and team collaboration can coexist without making everything visible to everyone." },
             { type: "strong", text: "Start with the smallest necessary view.", body: "A wider perspective should be intentional and accountable, not an accidental result of how the workspace is arranged." },
@@ -293,7 +293,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "authentication",
-          title: "Authentication",
+          title: "A familiar way in",
           blocks: [
             { type: "lead", text: "Every organization has its own way of recognizing people and managing access. Clouisle is designed to fit into that reality, allowing identity and session policies to become part of the team’s existing operating model rather than a separate workflow." },
             { type: "strong", text: "The secure path should feel like part of the work.", body: "Clear identity at the beginning makes collaboration more dependable all the way through." },
@@ -301,7 +301,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "api-keys",
-          title: "API keys",
+          title: "An identity for automation",
           blocks: [
             { type: "lead", text: "AI becomes more useful when it can work with the systems around it. That connection also needs an identity of its own. Clouisle treats automation as a participant with a defined purpose, rather than quietly extending a person’s account." },
             { type: "strong", text: "Capability should follow intent.", body: "Every connection should be understandable, limited to its role, and possible to take responsibility for when work moves from people to systems." },
@@ -512,7 +512,7 @@ export const translations: Record<Locale, Translations> = {
       sections: [
         {
           id: "team-boundaries",
-          title: "团队边界",
+          title: "从团队开始",
           blocks: [
             { type: "lead", text: "团队是人、知识与智能共同工作的上下文。Clouisle 为这个上下文划出清晰边界，让协作从一开始就建立在共同理解之上：哪些内容属于这里，谁正在一起工作，什么需要被共同负责。" },
             { type: "strong", text: "安全，始于清楚的归属。", body: "资源有明确的归处，团队才能保持行动速度，同时不丢失对责任范围的判断。" },
@@ -520,7 +520,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "roles-permissions",
-          title: "角色与权限",
+          title: "各司其职",
           blocks: [
             { type: "lead", text: "好的协作并不意味着所有人拥有相同的权限。Clouisle 让团队可以按照真实的分工表达责任，让所有权、管理职责与日常参与各有位置。" },
             { type: "strong", text: "边界清楚，信任才有落点。", body: "每个人都知道自己负责什么，团队也不必把每一次协作都变成手工审核。" },
@@ -528,7 +528,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "session-isolation",
-          title: "会话与数据",
+          title: "先个人，再团队",
           blocks: [
             { type: "lead", text: "工作往往先从个人开始，再进入团队。对话、知识和工作结果都带着自己的上下文；Clouisle 保持这种上下文的区分，让个人工作与团队协作可以并存，而不是把所有内容默认摊开。" },
             { type: "strong", text: "从必要的可见范围开始。", body: "更大的视角应该来自明确的需要和责任，而不是工作台布局带来的偶然开放。" },
@@ -536,7 +536,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "authentication",
-          title: "认证策略",
+          title: "熟悉的入口",
           blocks: [
             { type: "lead", text: "每个组织都有自己的身份管理方式和进入流程。Clouisle 让认证与会话策略能够融入现有的工作体系，而不是要求团队另起一套与业务脱节的流程。" },
             { type: "strong", text: "安全的入口，也应该自然地融入工作。", body: "当身份在开始时得到确认，后续的协作才更值得信赖。" },
@@ -544,7 +544,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: "api-keys",
-          title: "API Key",
+          title: "给自动化一个身份",
           blocks: [
             { type: "lead", text: "当 AI 开始连接周围的业务系统，自动化也需要拥有清晰的身份。Clouisle 将自动化视为有明确目的的协作者，而不是悄悄借用某个人账号的延伸。" },
             { type: "strong", text: "能力应当与目的相匹配。", body: "每一次连接都应该易于理解、服务于自己的职责，并在工作从人交给系统之后仍然能够追溯责任。" },
