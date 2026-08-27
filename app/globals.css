@@ -30,7 +30,7 @@ img { display: block; max-width: 100%; }
 .wordmark { display: inline-flex; align-items: center; width: max-content; line-height: 1; }
 .dia-mark { width: 28px; height: 18px; display: block; }
 .clouisle-mark { width: 30px; height: 30px; display: block; }
-.wordmark-name { margin-left: 8px; color: #000; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 500; letter-spacing: -.01em; line-height: 1; }
+.wordmark-name { margin-left: 8px; color: #000; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 700; letter-spacing: -.01em; line-height: 1; }
 .desktop-links { display: flex; gap: 22px; margin-left: 18px; color: rgba(0,0,0,.7); font-size: 15px; white-space: nowrap; }
 .desktop-links a { transition: opacity .2s ease; }
 .desktop-links a:hover { opacity: .56; }
