@@ -1,5 +1,7 @@
-import { en } from "./en";
-import { zh } from "./zh";
+import { en as homeEn } from "./home/en";
+import { zh as homeZh } from "./home/zh";
+import { en as securityEn } from "./security/en";
+import { zh as securityZh } from "./security/zh";
 import type { Locale, Translations } from "./types";
 
 export type { Locale, Translations } from "./types";
@@ -11,6 +13,6 @@ export function hasLocale(locale: string): locale is Locale {
 }
 
 export const translations: Record<Locale, Translations> = {
-  en,
-  zh,
+  en: { ...homeEn, securityPage: securityEn },
+  zh: { ...homeZh, securityPage: securityZh },
 };

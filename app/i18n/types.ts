@@ -1,6 +1,6 @@
 export type Locale = "en" | "zh";
 
-export type Translations = {
+export type HomeTranslations = {
   nav: {
     features: string;
     security: string;
@@ -81,26 +81,31 @@ export type Translations = {
   language: {
     switchTo: string;
   };
-  securityPage: {
+};
+
+export type SecurityPageTranslations = {
+  title: string;
+  sections: {
+    id: string;
     title: string;
-    sections: {
-      id: string;
-      title: string;
-      blocks: (
-        | { type: "p"; text: string }
-        | { type: "lead"; text: string }
-        | { type: "strong"; text: string; body?: string }
-        | { type: "list"; items: string[] }
-      )[];
-    }[];
-    faqTitle: string;
-    faqs: {
-      question: string;
-      answer: string[];
-    }[];
-    docs: {
-      label: string;
-      href: string;
-    };
+    blocks: (
+      | { type: "p"; text: string }
+      | { type: "lead"; text: string }
+      | { type: "strong"; text: string; body?: string }
+      | { type: "list"; items: string[] }
+    )[];
+  }[];
+  faqTitle: string;
+  faqs: {
+    question: string;
+    answer: string[];
+  }[];
+  docs: {
+    label: string;
+    href: string;
   };
+};
+
+export type Translations = HomeTranslations & {
+  securityPage: SecurityPageTranslations;
 };
