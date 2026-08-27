@@ -5,12 +5,23 @@ export const zh: ReleaseNotesTranslations = {
   title: "发布记录",
   backLabel: "返回发布记录",
   newFeaturesLabel: "新功能",
+  pastIssuesLabel: "过往版本",
+  metadata: {
+    dateLabel: "发布日期",
+    locationLabel: "来自",
+    issueLabel: "期号",
+    versionLabel: "应用版本",
+  },
+  postcardFlipLabel: "翻转发布记录",
   releases: [
     {
       slug: "clouisle-launch",
       issue: "第 01 期",
+      issueNo: "01",
       version: "v0.1.0",
       date: "2026 年 8 月 27 日",
+      metadataDate: "2026 年 8 月 27 日 11:15（东八区）",
+      location: "中国杭州",
       cardTitle: "Clouisle 来了",
       greeting: "从想法到结果，现在可以交给一个平台。",
       message: [
@@ -30,8 +41,11 @@ export const zh: ReleaseNotesTranslations = {
     {
       slug: "workflow-refinements",
       issue: "第 02 期",
+      issueNo: "02",
       version: "v0.1.1",
       date: "2026 年 8 月 20 日",
+      metadataDate: "2026 年 8 月 20 日 11:15（东八区）",
+      location: "中国杭州",
       cardTitle: "工作流更顺手",
       greeting: "一次聚焦体验的更新。",
       message: [

@@ -5,12 +5,23 @@ export const en: ReleaseNotesTranslations = {
   title: "Release Notes",
   backLabel: "Back to release notes",
   newFeaturesLabel: "New features",
+  pastIssuesLabel: "Past Issues",
+  metadata: {
+    dateLabel: "Published",
+    locationLabel: "From",
+    issueLabel: "Issue No.",
+    versionLabel: "App Version",
+  },
+  postcardFlipLabel: "Flip release note",
   releases: [
     {
       slug: "clouisle-launch",
       issue: "Issue 01",
+      issueNo: "01",
       version: "v0.1.0",
       date: "August 27, 2026",
+      metadataDate: "August 27, 2026 11:15 AM ET",
+      location: "Hangzhou, China",
       cardTitle: "Clouisle is here",
       greeting: "From idea to outcome, now in one place.",
       message: [
@@ -30,8 +41,11 @@ export const en: ReleaseNotesTranslations = {
     {
       slug: "workflow-refinements",
       issue: "Issue 02",
+      issueNo: "02",
       version: "v0.1.1",
       date: "August 20, 2026",
+      metadataDate: "August 20, 2026 11:15 AM ET",
+      location: "Hangzhou, China",
       cardTitle: "Workflow refinements",
       greeting: "An update focused on day-to-day feel.",
       message: [

@@ -16,6 +16,14 @@
   font-weight: 1 999;
   font-display: swap;
 }
+@font-face { font-family: "ABC Oracle"; src: url("/fonts/ABCOracle-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Oracle"; src: url("/fonts/ABCOracle-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Oracle"; src: url("/fonts/ABCOracle-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Favorit Mono"; src: url("/fonts/ABCFavoritMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Favorit Mono"; src: url("/fonts/ABCFavoritMono-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Favorit Mono"; src: url("/fonts/ABCFavoritMono-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Oracle Triple"; src: url("/fonts/ABCOracleTriple-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Quadrant Text Mono"; src: url("/fonts/QuadrantTextMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -162,43 +170,129 @@ img { display: block; max-width: 100%; }
 
 /* Release notes — postcard card grid (references diabrowser.com/release-notes) */
 .release-page { width: min(100% - 48px, 1120px); margin: 0 auto; padding: 110px 0 140px; }
-.release-title { margin: 0 auto 72px; max-width: 30ch; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(36px, 4.6vw, 50px); font-weight: 600; line-height: 1.2; letter-spacing: -.04em; text-align: center; }
+.release-title { max-width: 30ch; margin: 0 auto 72px; color: #111; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(36px, 4.6vw, 50px); font-weight: 600; line-height: 1.2; letter-spacing: -.04em; text-align: center; }
 .release-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.release-card { position: relative; display: flex; flex-direction: column; aspect-ratio: 350 / 226; padding: 15px 15px 13px; overflow: hidden; border: 1px solid rgba(0,0,0,.1); border-radius: 12px; background: #fff; box-shadow: 0 4px 32px 0 rgba(0,0,0,.06); transition: opacity .2s ease, transform .2s ease; }
+.release-card { display: flex; flex-direction: column; aspect-ratio: 350 / 226; padding: 15px 15px 0; overflow: hidden; border: 1px solid rgba(0,0,0,.1); border-radius: 12px; color: #111; background: #fff; box-shadow: 0 4px 32px rgba(0,0,0,.06); transition: opacity .2s cubic-bezier(.87,0,.13,1), transform .2s cubic-bezier(.87,0,.13,1); }
 .release-card:hover { opacity: .8; }
 .release-card:active { transform: scale(.98); }
-.release-card-labels { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
-.release-label { font-family: "Courier New", Courier, monospace; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; line-height: 1.4; color: rgba(0,0,0,.55); }
-.release-cover { position: relative; flex: 1; min-height: 0; }
-.release-cover > img:first-child { width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 10px; box-shadow: 0 4.6px 27.6px 0 rgba(0,0,0,.08), 0 0 2.3px 0 rgba(0,0,0,.25); }
-.release-paperclip { position: absolute; top: -14px; left: 26px; width: 34px; transform: rotate(-8deg); }
-.release-polaroid { position: absolute; right: -6px; bottom: -16px; width: 84px; transform: rotate(6deg); }
-.release-card-title { margin: 13px 0 0; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-align: center; color: #000; }
+.release-card-labels { display: flex; flex-shrink: 0; justify-content: center; align-items: center; gap: 12px; margin-bottom: 10px; color: #111; white-space: nowrap; }
+.release-label { font-family: "Quadrant Text Mono", "Courier New", monospace; font-size: 12px; line-height: 17px; }
+.release-label-dot { width: 2px; height: 2px; flex: 0 0 2px; background: rgba(17,17,17,.2); }
+.release-cover { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.release-cover > img:first-child { width: 100%; height: 100%; object-fit: contain; object-position: center; border-radius: 10px; filter: drop-shadow(0 4.6px 27.6px rgba(0,0,0,.08)) drop-shadow(0 0 2.3px rgba(0,0,0,.25)); }
+.release-paperclip { position: absolute; top: -14px; left: 26px; width: 34px; transform: rotate(-8deg); pointer-events: none; }
+.release-polaroid { position: absolute; right: -6px; bottom: -16px; width: 84px; transform: rotate(6deg); pointer-events: none; }
+.release-card-title { margin: 12px 0 0; color: #111; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 700; line-height: 30px; letter-spacing: -.01em; text-align: center; }
 
 /* Release notes — detail postcard */
-.release-back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 56px; font-family: "Courier New", Courier, monospace; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; color: rgba(0,0,0,.55); transition: color .2s ease; }
+.release-detail-page { padding: 110px 0 140px; overflow: hidden; }
+.release-back { width: min(100% - 48px, 1120px); display: inline-flex; align-items: center; gap: 8px; margin: 0 calc((100% - min(100% - 48px, 1120px)) / 2) 40px; color: rgba(0,0,0,.55); font-family: "ABC Favorit Mono", "Courier New", monospace; font-size: 12px; font-weight: 500; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; transition: color .2s ease; }
 .release-back:hover { color: #000; }
-.release-detail { max-width: 760px; margin: 0 auto; }
-.release-detail-meta { margin-bottom: 40px; text-align: center; }
-.release-detail-title { margin: 18px 0 14px; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(34px, 4.4vw, 48px); font-weight: 600; line-height: 1.15; letter-spacing: -.04em; }
-.release-greeting { margin: 0; color: rgba(0,0,0,.6); font-size: 19px; line-height: 1.55; }
-.release-detail-cover { position: relative; margin: 0 auto 44px; max-width: 560px; }
-.release-detail-cover > img:first-child { width: 100%; border-radius: 10px; box-shadow: 0 4.6px 27.6px 0 rgba(0,0,0,.08), 0 0 2.3px 0 rgba(0,0,0,.25); }
-.release-detail-cover .release-paperclip { top: -16px; left: 34px; }
-.release-detail-body { font-size: 17px; line-height: 1.75; color: rgba(0,0,0,.72); }
-.release-detail-body > p { margin: 0 0 20px; }
-.release-features-title { margin: 34px 0 16px; font-family: "Courier New", Courier, monospace; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 400; color: rgba(0,0,0,.55); text-align: center; }
-.release-features { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; max-width: 520px; margin-left: auto; margin-right: auto; }
-.release-features li { position: relative; padding-left: 20px; color: var(--ink); font-size: 16px; line-height: 1.5; }
-.release-features li::before { content: ""; position: absolute; left: 0; top: .6em; width: 8px; height: 8px; border-radius: 50%; background: rgba(88,99,234,.55); }
-.release-signoff { margin: 48px 0 0; color: rgba(0,0,0,.5); font-size: 15px; }
+.release-metadata { height: 50px; overflow-x: auto; border-top: 1px solid rgba(0,0,0,.2); border-bottom: 1px solid rgba(0,0,0,.2); color: rgba(0,0,0,.5); background: #f7f7f7; scrollbar-width: none; }
+.release-metadata::-webkit-scrollbar { display: none; }
+.release-metadata-inner { width: max-content; min-width: 100%; display: flex; align-items: center; gap: 32px; height: 100%; padding: 0 32px; }
+.release-meta-item { display: flex; align-items: center; gap: 10px; height: 100%; color: inherit; font-family: "ABC Oracle Triple", "ABC Oracle", Arial, sans-serif; font-size: 13px; white-space: nowrap; }
+.release-meta-icon { flex: 0 0 20px; }
+.release-meta-roller { gap: 8px; }
+.release-version-roller { display: inline-flex; align-items: center; gap: 0; height: 18px; }
+.release-digit { height: 18px; display: inline-flex; align-items: center; padding: 0 4px; overflow: hidden; border: 1px solid currentColor; border-radius: 0; }
+.release-digit.is-symbol { width: auto; min-width: 0; padding: 0 2px; border-color: transparent; }
+.release-digit-viewport { position: relative; width: 8px; height: 18px; overflow: hidden; }
+.release-digit.is-symbol .release-digit-viewport { width: auto; }
+.release-digit-track { position: absolute; top: 0; left: 0; display: flex; flex-direction: column; width: 100%; font-family: "Quadrant Text Mono", "Courier New", monospace; font-size: 12px; font-variant-numeric: tabular-nums; line-height: 18px; transition: transform 1.25s cubic-bezier(.87,0,.13,1); }
+.release-digit-value { width: 100%; height: 18px; display: flex; align-items: center; justify-content: center; text-align: center; }
+.release-digit.is-symbol .release-digit-track { position: static; }
+.release-detail-main { width: min(100% - 48px, 1120px); display: flex; flex-direction: column; align-items: center; margin: 0 auto; padding-top: 68px; }
+.release-detail-title { max-width: 18ch; margin: 0; color: #111; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(38px, 5vw, 62px); font-weight: 550; line-height: 1.08; letter-spacing: -.04em; text-align: center; }
+.release-greeting { max-width: 38ch; margin: 18px 0 58px; color: rgba(0,0,0,.62); font-family: "ABC Oracle", Arial, sans-serif; font-size: 17px; line-height: 1.45; text-align: center; }
+.postcard-entrance-x, .postcard-entrance-y { width: 100%; display: flex; justify-content: center; }
+.postcard-scene { --postcard-width: min(86vw, 980px); --postcard-rotate-x: 0deg; --postcard-rotate-y: 0deg; --postcard-rotate-z: 0deg; --postcard-sheen-x: 0px; --postcard-sheen-y: 0px; --postcard-sheen-opacity: 0; position: relative; width: var(--postcard-width); aspect-ratio: 8 / 5; margin-bottom: 88px; perspective:1800px; }
+.postcard-card, .postcard-face, .postcard-inner { position: absolute; inset: 0; width: 100%; height: 100%; }
+.postcard-card, .postcard-inner { transform-style: preserve-3d; }
+.postcard-card { z-index: 1; transform: rotateY(0); transition: transform .72s cubic-bezier(.65,0,.2,1); pointer-events: none; }
+.postcard-card[data-flipped="true"] { transform: rotateY(-180deg); }
+.postcard-inner { overflow: visible; border-radius: 16px; box-shadow: 0 35px 64px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.05); transform: rotateX(var(--postcard-rotate-x)) rotateY(var(--postcard-rotate-y)) rotate(var(--postcard-rotate-z)); transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.postcard-scene[data-tilting] .postcard-inner { transition: transform 90ms cubic-bezier(.2,.6,.3,1); will-change: transform; }
+.postcard-scene[data-tilting][data-tilt-entering] .postcard-inner { transition-duration: .4s; transition-timing-function: cubic-bezier(.2,.8,.2,1); }
+.postcard-inner::after { position: absolute; top: 1.2%; left: 100%; z-index: -1; width: 2px; height: 97.6%; border-radius: 0 2px 2px 0; background: linear-gradient(90deg,#d8d3c9,#f5f1e9 55%,#c8c2b7); content: ""; transform: rotateY(90deg); transform-origin: left center; backface-visibility: hidden; pointer-events: none; }
+.postcard-card[data-flipped="true"] .postcard-inner { box-shadow: -2px 3px 7px rgba(0,0,0,.18), 0 0 0 1px rgba(0,0,0,.06); }
+.postcard-face { overflow: hidden; border-radius: 16px; background: #f8f8f8; backface-visibility: hidden; }
+.postcard-front { display: block; transform: translateZ(1px); pointer-events: none; }
+.postcard-hero-image, .postcard-hero-image img { display: block; width: 100%; height: 100%; }
+.postcard-hero-image img { object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.postcard-flip-toggle { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; border-radius: 16px; background: transparent; cursor: pointer; }
+.postcard-flip-toggle:focus-visible { outline: 3px solid #0358f7; outline-offset: 7px; }
+.postcard-sheen { position: absolute; top: -10%; left: 15%; width: 70%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(255,255,255,.42) 0,rgba(255,255,255,.1) 38%,transparent 70%); mix-blend-mode: screen; opacity: var(--postcard-sheen-opacity); transform: translate3d(var(--postcard-sheen-x),var(--postcard-sheen-y),0); pointer-events: none; transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .6s ease-out; }
+.postcard-scene[data-tilting] .postcard-sheen { transition: transform 90ms cubic-bezier(.2,.6,.3,1), opacity .16s ease-out; will-change: transform, opacity; }
+.postcard-scene[data-tilting][data-tilt-entering] .postcard-sheen { transition-duration: .4s; transition-timing-function: cubic-bezier(.2,.8,.2,1); }
+.postcard-blank-layer, .postcard-paperclip-layer, .postcard-polaroid-layer { position: absolute; inset: 0; backface-visibility: hidden; pointer-events: none; }
+.postcard-blank-layer { transform: translateZ(.5px); }
+.postcard-paperclip-layer { transform: translateZ(2px); }
+.postcard-polaroid-layer { transform: rotateY(180deg) translateZ(2px); }
+.postcard-blank-layer img, .postcard-paperclip-layer img { position: absolute; top: -6%; left: -10%; width: 44%; height: auto; transform: translate(calc(var(--postcard-width) * .035),calc(var(--postcard-width) * .2)); }
+.postcard-polaroid { --polaroid-photo-left: 17%; --polaroid-photo-top: 12.4%; --polaroid-photo-width: 68%; --polaroid-photo-height: 60%; --polaroid-photo-rotate: 9.6deg; position: absolute; right: -6.5%; bottom: -9%; width: 44%; transform: translateX(calc(var(--postcard-width) * -.008)); }
+.postcard-polaroid > img { display: block; width: 100%; height: auto; }
+.postcard-polaroid-photo { position: absolute; top: var(--polaroid-photo-top); left: var(--polaroid-photo-left); width: var(--polaroid-photo-width); height: var(--polaroid-photo-height); transform: rotate(var(--polaroid-photo-rotate)); transform-origin: center; }
+.postcard-polaroid-photo img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.postcard-back { container-type: inline-size; background: #f7f4ee; transform: rotateY(180deg) translateZ(1px); }
+.postcard-paper, .postcard-paper img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.postcard-paper img { object-fit: cover; }
+.postcard-stamp { position: absolute; top: 4.5%; left: 80%; width: 16%; height: auto; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.22)); pointer-events: none; }
+.postcard-postmark { position: absolute; top: 6%; left: 54%; width: 35%; height: auto; opacity: .9; mix-blend-mode: multiply; pointer-events: none; }
+.postcard-copy { position: absolute; top: 11%; left: 6%; width: 40%; color: rgba(0,0,0,.7); font-family: "Dia Exposure Variable", Georgia, serif; font-size: clamp(12px, 2.05cqw, 20px); font-weight: 400; line-height: 1.42; text-wrap: pretty; }
+.postcard-greeting, .postcard-message p, .postcard-signoff { margin: 0; }
+.postcard-greeting { margin-bottom: 1.5cqw; color: rgba(0,0,0,.82); }
+.postcard-message { display: flex; flex-direction: column; gap: 1.15cqw; }
+.postcard-features-title { margin: 1.35cqw 0 .7cqw; color: rgba(0,0,0,.55); font-family: "ABC Favorit Mono", monospace; font-size: .62em; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.postcard-features { display: grid; gap: .38cqw; margin: 0; padding: 0; list-style: none; font-family: "ABC Oracle", Arial, sans-serif; font-size: .76em; line-height: 1.3; }
+.postcard-features li { position: relative; padding-left: 1em; }
+.postcard-features li::before { position: absolute; top: .42em; left: .18em; width: .32em; height: .32em; border-radius: 50%; background: currentColor; content: ""; }
+.postcard-signoff { width: fit-content; margin-top: 1.5cqw; margin-left: auto; color: rgba(40,61,140,.92); font-weight: 550; font-style: italic; letter-spacing: .02em; text-shadow: 0 0 .05em color-mix(in srgb,currentColor 50%,transparent); transform: rotate(-5deg); transform-origin: right center; }
+.past-issues { width: min(100% - 48px, 1120px); margin: 0 auto; }
+.past-issues h2 { margin: 0 0 48px; color: #111; font-family: "Dia Exposure Variable", Georgia, serif; font-size: clamp(34px, 4vw, 48px); font-weight: 400; line-height: 1; letter-spacing: -.03em; text-align: center; }
 
 @media (max-width: 900px) {
   .release-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
 @media (max-width: 560px) {
   .release-grid { grid-template-columns: 1fr; }
-  .release-page { padding-top: 72px; }
+  .release-page, .release-detail-page { padding-top: 72px; }
+  .release-card { padding-top: 15px; }
+  .release-detail-main { width: min(100% - 32px, 1120px); padding-top: 48px; }
+  .release-back { width: calc(100% - 32px); margin-left: 16px; margin-right: 16px; }
+  .release-metadata-inner { gap: 24px; padding: 0 16px; }
+  .release-meta-item { font-size: 12px; }
+  .release-greeting { margin-bottom: 38px; }
+  .postcard-scene { --postcard-width: min(92vw, 460px); aspect-ratio: 4 / 5; margin-bottom: 64px; }
+  .postcard-blank-layer, .postcard-paper, .postcard-paperclip-layer, .postcard-polaroid-layer { display: none; }
+  .postcard-back::before { position: absolute; inset: 0; background: linear-gradient(90deg,transparent 49.8%,rgba(0,0,0,.07) 50%,transparent 50.2%),#f7f4ee; content: ""; }
+  .postcard-stamp { top: 4%; right: 5%; left: auto; width: 19%; }
+  .postcard-postmark { top: 5%; right: 10%; left: auto; width: 42%; }
+  .postcard-copy { top: 10%; left: 8%; width: 84%; font-size: clamp(12px, 3.55vw, 15px); line-height: 1.35; }
+  .postcard-greeting { width: 58%; margin-bottom: 1.25rem; }
+  .postcard-message { gap: .65rem; }
+  .postcard-features-title { margin-top: .8rem; }
+  .postcard-features { gap: .25rem; }
+  .postcard-signoff { margin-top: .9rem; }
+  .postcard-sheen { display: none; }
+  .past-issues { width: calc(100% - 32px); }
+  .past-issues h2 { margin-bottom: 32px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .postcard-face { background: #252525; }
+  .postcard-back { background: #25272c; }
+  .postcard-inner::after { background: linear-gradient(90deg,#16171a,#33363c 55%,#101114); }
+  .postcard-postmark { filter: invert(1); mix-blend-mode: screen; }
+  .postcard-copy { color: #aab2c2; }
+  .postcard-greeting { color: #d3d8e2; }
+  .postcard-signoff { color: #8b9cf0; }
+  .postcard-back::before { background: linear-gradient(90deg,transparent 49.8%,rgba(255,255,255,.08) 50%,transparent 50.2%),#25272c; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .postcard-sheen { display: none; }
 }
 
 .film-overlay { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 40px; background: rgba(2,2,4,.83); backdrop-filter: blur(18px); }

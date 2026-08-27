@@ -4,9 +4,9 @@ import { en as securityEn } from "./security/en";
 import { zh as securityZh } from "./security/zh";
 import { en as releaseNotesEn } from "./release-notes/en";
 import { zh as releaseNotesZh } from "./release-notes/zh";
-import type { Locale, Translations } from "./types";
+import type { Locale, ReleaseNotesTranslations, Translations } from "./types";
 
-export type { Locale, Translations } from "./types";
+export type { Locale, ReleaseNotesTranslations, Translations } from "./types";
 
 export const locales = ["en", "zh"] as const;
 

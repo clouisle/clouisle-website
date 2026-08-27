@@ -103,11 +103,22 @@ export type ReleaseNotesTranslations = {
   title: string;
   backLabel: string;
   newFeaturesLabel: string;
+  pastIssuesLabel: string;
+  metadata: {
+    dateLabel: string;
+    locationLabel: string;
+    issueLabel: string;
+    versionLabel: string;
+  };
+  postcardFlipLabel: string;
   releases: {
     slug: string;
     issue: string;
+    issueNo: string;
     version: string;
     date: string;
+    metadataDate: string;
+    location: string;
     cardTitle: string;
     greeting: string;
     message: string[];

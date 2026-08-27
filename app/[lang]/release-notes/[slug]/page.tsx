@@ -2,6 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { hasLocale, translations } from "../../../i18n/translations";
+import PastIssues from "../PastIssues";
+import Postcard from "../Postcard";
+import ReleaseMetadata from "../ReleaseMetadata";
 
 type ReleaseDetailPageProps = {
   params: Promise<{ lang: string; slug: string }>;
@@ -10,9 +13,7 @@ type ReleaseDetailPageProps = {
 export function generateStaticParams() {
   const slugs = new Set<string>();
   for (const lang of ["en", "zh"] as const) {
-    for (const release of translations[lang].releaseNotes.releases) {
-      slugs.add(release.slug);
-    }
+    for (const release of translations[lang].releaseNotes.releases) slugs.add(release.slug);
   }
   return [...slugs].map((slug) => ({ slug }));
 }
@@ -25,40 +26,17 @@ export default async function ReleaseDetailPage({ params }: ReleaseDetailPagePro
   if (!release) notFound();
 
   return (
-    <div className="release-page">
-      <Link className="release-back" href="release-notes">
+    <div className="release-detail-page">
+      <Link className="release-back" href={`/${lang}/release-notes`}>
         <span aria-hidden="true">&larr;</span> {t.backLabel}
       </Link>
-
-      <article className="release-detail">
-        <header className="release-detail-meta">
-          <div className="release-card-labels">
-            <span className="release-label">{release.issue}</span>
-            <span className="release-label">{release.date}</span>
-            <span className="release-label">{release.version}</span>
-          </div>
-          <h1 className="release-detail-title">{release.cardTitle}</h1>
-          <p className="release-greeting">{release.greeting}</p>
-        </header>
-
-        <div className="release-detail-cover">
-          <img src={release.cover} alt="" />
-          <img className="release-paperclip" src="/clouisle-assets/release-notes/paperclip.png" alt="" aria-hidden="true" />
-        </div>
-
-        <div className="release-detail-body">
-          {release.message.map((paragraph) => (
-            <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-          ))}
-          <h2 className="release-features-title">{t.newFeaturesLabel}</h2>
-          <ul className="release-features">
-            {release.features.map((feature) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
-          <p className="release-signoff">{release.signOff}</p>
-        </div>
-      </article>
+      <ReleaseMetadata release={release} labels={t.metadata} />
+      <main className="release-detail-main">
+        <h1 className="release-detail-title">{release.cardTitle}</h1>
+        <p className="release-greeting">{release.greeting}</p>
+        <Postcard release={release} flipLabel={t.postcardFlipLabel} featuresLabel={t.newFeaturesLabel} />
+      </main>
+      <PastIssues title={t.pastIssuesLabel} releases={t.releases.filter((item) => item.slug !== release.slug)} lang={lang} />
     </div>
   );
 }
