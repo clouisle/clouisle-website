@@ -115,7 +115,7 @@ img { display: block; max-width: 100%; }
 .feature-tab-organize .tile-media img, .feature-tab-organize .tile-media .feature-video { object-position: center; }
 
 .privacy-section { padding: 0 24px 130px; }
-.privacy-panel { width: min(100%, 1180px); min-height: 600px; position: relative; display: flex; flex-direction: column; align-items: center; margin: 0 auto; padding: 70px 48px; overflow: visible; border-radius: 12px; text-align: center; }
+.privacy-panel { width: min(100%, 1380px); min-height: 600px; position: relative; display: flex; flex-direction: column; align-items: center; margin: 0 auto; padding: 70px 48px; overflow: visible; border-radius: 12px; text-align: center; }
 .privacy-panel > :not(.privacy-border, .privacy-lock-mark, .privacy-footer-mark) { position: relative; z-index: 1; }
 .privacy-border { width: 100%; height: 100%; position: absolute; z-index: 0; inset: 0; overflow: visible; pointer-events: none; }
 .privacy-lock-mark, .privacy-footer-mark { position: absolute; z-index: 2; left: 50%; pointer-events: none; }
