@@ -29,6 +29,7 @@ img { display: block; max-width: 100%; }
 .site-nav { height: 52px; display: flex; align-items: center; padding: 0 15px; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; background: rgba(255,255,255,.94); box-shadow: 0 8px 18px rgba(0,0,0,.08); backdrop-filter: blur(18px); }
 .wordmark { display: inline-flex; align-items: center; width: max-content; line-height: 1; }
 .dia-mark { width: 28px; height: 18px; display: block; }
+.clouisle-mark { width: 30px; height: 30px; display: block; }
 .desktop-links { display: flex; gap: 22px; margin-left: 18px; color: rgba(0,0,0,.7); font-size: 15px; white-space: nowrap; }
 .desktop-links a { transition: opacity .2s ease; }
 .desktop-links a:hover { opacity: .56; }

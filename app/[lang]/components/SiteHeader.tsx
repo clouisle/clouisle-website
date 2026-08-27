@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import type { Translations } from "../../i18n/translations";
-import { DiaMark } from "./icons";
 
 type SiteHeaderProps = {
   t: Translations;
@@ -26,8 +25,8 @@ export default function SiteHeader({
   return (
     <header className="site-header">
       <div className={`site-nav ${menuOpen ? "is-open" : ""}`}>
-        <a className="wordmark" href="#top" aria-label="Dia">
-          <DiaMark />
+        <a className="wordmark" href="#top" aria-label="Clouisle">
+          <img className="clouisle-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" />
         </a>
 
         <nav className="desktop-links" aria-label="Main navigation">
