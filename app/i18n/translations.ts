@@ -48,9 +48,14 @@ export type Translations = {
   };
   finalCta: {
     title: string;
+    featuresTitle: string;
     plans: {
       name: string;
+      price: string;
+      period: string;
       description: string;
+      action: string;
+      features: string[];
     }[];
     availability: string;
   };
@@ -170,12 +175,46 @@ export const translations: Record<Locale, Translations> = {
     },
     finalCta: {
       title: "Ready for a better day?",
+      featuresTitle: "Core capabilities",
       plans: [
-        { name: "Free", description: "Start with the core Clouisle experience." },
-        { name: "Plus", description: "More room for deeper, everyday work." },
-        { name: "Custom", description: "A Clouisle setup shaped around your team." },
+        {
+          name: "Free",
+          price: "Free",
+          period: "to use",
+          description: "Start with the core Clouisle experience and move from idea to outcome.",
+          action: "Start for free",
+          features: [
+            "Agents, knowledge bases, and workflows",
+            "Connect the tools you already use",
+            "Build your first AI workflow",
+          ],
+        },
+        {
+          name: "Plus",
+          price: "Monthly",
+          period: "subscription",
+          description: "More room for deeper, everyday work with Clouisle.",
+          action: "Choose Plus",
+          features: [
+            "Agents, knowledge, and workflows in one place",
+            "Model and parameter management",
+            "Built for frequent, focused work",
+          ],
+        },
+        {
+          name: "Custom",
+          price: "On demand",
+          period: "pricing",
+          description: "A Clouisle setup shaped around your team, permissions, and infrastructure.",
+          action: "Talk to us",
+          features: [
+            "Self-hosted deployment",
+            "SSO, RBAC, API keys, and audit logs",
+            "Configured around your team workflows",
+          ],
+        },
       ],
-      availability: "Currently available on Apple macOS 14+ with M1 chips or later.",
+      availability: "Self-host on your own server, private cloud, or Kubernetes cluster.",
     },
     footer: {
       copyright: "Copyright 2026 The Browser Company of New York.",
@@ -293,12 +332,46 @@ export const translations: Record<Locale, Translations> = {
     },
     finalCta: {
       title: "准备好从想法走到结果了吗？",
+      featuresTitle: "核心能力",
       plans: [
-        { name: "免费版", description: "从基础能力开始使用 Clouisle。" },
-        { name: "Plus 会员", description: "为更高频、更深入的工作提供更多空间。" },
-        { name: "定制", description: "为团队配置符合自身流程的专属方案。" },
+        {
+          name: "免费版",
+          price: "免费",
+          period: "使用",
+          description: "从基础能力开始使用 Clouisle，让想法走向结果。",
+          action: "免费开始",
+          features: [
+            "智能体、知识库与工作流",
+            "连接你正在使用的工具",
+            "构建你的第一个 AI 工作流",
+          ],
+        },
+        {
+          name: "Plus 会员",
+          price: "按月",
+          period: "订阅",
+          description: "为更高频、更深入的日常工作提供更多空间。",
+          action: "选择 Plus",
+          features: [
+            "智能体、知识库与工作流协同",
+            "统一管理模型与参数",
+            "适合日常高频、专注使用",
+          ],
+        },
+        {
+          name: "定制",
+          price: "按需",
+          period: "报价",
+          description: "为团队、权限与基础设施配置专属 Clouisle 方案。",
+          action: "联系团队",
+          features: [
+            "私有化部署",
+            "SSO、RBAC、API 密钥与审计日志",
+            "按团队工作流进行配置",
+          ],
+        },
       ],
-      availability: "目前支持 Apple macOS 14+ 及 M1 芯片或更高版本。",
+      availability: "支持部署在你的服务器、私有云或 Kubernetes 集群中。",
     },
     footer: {
       copyright: "Copyright 2026 The Browser Company of New York.",
