@@ -133,7 +133,6 @@ export const zh: HomeTranslations = {
     availability: "对比所有服务",
   },
   footer: {
-    copyright: "Copyright 2026 Clouisle.",
     groups: [
       { title: "产品", links: ["工作版", "发布说明", "Windows", "学生", "报告"] },
       { title: "资源", links: ["帮助", "状态", "隐私", "使用条款", "安全", "信任中心"] },

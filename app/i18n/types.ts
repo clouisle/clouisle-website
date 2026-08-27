@@ -54,7 +54,6 @@ export type HomeTranslations = {
     availability: string;
   };
   footer: {
-    copyright: string;
     groups: {
       title: string;
       links: string[];

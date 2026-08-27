@@ -8,7 +8,6 @@ export default function SiteFooter({ t }: { t: Translations }) {
           <img className="clouisle-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" />
           <span className="footer-wordmark-name">Clouisle</span>
         </a>
-        <p>{t.footer.copyright}</p>
       </div>
       <div className="footer-groups">
         {t.footer.groups.map((group) => (
