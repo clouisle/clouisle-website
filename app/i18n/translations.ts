@@ -48,7 +48,6 @@ export type Translations = {
   };
   finalCta: {
     title: string;
-    download: string;
     availability: string;
   };
   footer: {
@@ -167,7 +166,6 @@ export const translations: Record<Locale, Translations> = {
     },
     finalCta: {
       title: "Ready for a better day?",
-      download: "Download Dia",
       availability: "Currently available on Apple macOS 14+ with M1 chips or later.",
     },
     footer: {
@@ -286,7 +284,6 @@ export const translations: Record<Locale, Translations> = {
     },
     finalCta: {
       title: "准备好从想法走到结果了吗？",
-      download: "下载 Dia",
       availability: "目前支持 Apple macOS 14+ 及 M1 芯片或更高版本。",
     },
     footer: {

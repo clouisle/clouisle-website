@@ -74,7 +74,7 @@ export default function Home({ lang }: { lang: Locale }) {
       <ReadsSection t={t} />
       <WorkSection t={t} />
       <PrivacySection t={t} />
-      <FinalCta t={t} onDownload={showDownloadNotice} />
+      <FinalCta t={t} />
       <SiteFooter t={t} />
 
       {filmOpen && <FilmModal t={t} onClose={() => setFilmOpen(false)} />}
