@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
 import { hasLocale, translations } from "../../i18n/translations";
 
+export { generateStaticParams } from "../generateStaticParams";
 type SecurityPageProps = {
   params: Promise<{ lang: string }>;
 };

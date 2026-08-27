@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import type { Locale } from "../i18n/translations";
 
-export const metadata: Metadata = {
-  title: "Dia | A browser you won't dread opening",
-  description:
-    "A local learning recreation of the Dia Browser marketing experience.",
-};
-
-export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "zh" }];
+/**
+ * Per-locale layout under the [lang] root-parameter segment. The root layout
+ * (app/layout.tsx) renders the document shell; locale-specific metadata is
+ * declared here. Next does not support overriding <html lang> from a nested
+ * layout, so the root keeps lang="en" and the zh pages declare their locale
+ * through hreflang alternates instead.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return {
+    alternates: {
+      languages: {
+        "en": "/en",
+        "zh-CN": "/zh",
+      },
+    },
+  };
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps<"/[lang]">) {
-  const lang: Locale = (await params).lang === "zh" ? "zh" : "en";
-  return (
-    <html lang={lang} data-scroll-behavior="smooth" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
+export default function LangLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }
