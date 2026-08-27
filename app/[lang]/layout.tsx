@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { hasLocale, locales, type Locale } from "../i18n/translations";
+import PageShell from "./PageShell";
 
-/**
- * Per-locale layout under the [lang] root-parameter segment. The root layout
- * (app/layout.tsx) renders the document shell; locale-specific metadata is
- * declared here. Next does not support overriding <html lang> from a nested
- * layout, so the root keeps lang="en" and the zh pages declare their locale
- * through hreflang alternates instead.
- */
+export { generateStaticParams } from "./generateStaticParams";
+
 export async function generateMetadata({
   params,
 }: {
@@ -16,13 +13,30 @@ export async function generateMetadata({
   return {
     alternates: {
       languages: {
-        "en": "/en",
+        en: "/en",
         "zh-CN": "/zh",
       },
     },
   };
 }
 
-export default function LangLayout({ children }: { children: React.ReactNode }) {
-  return children;
+/**
+ * Per-locale layout wrapping every page in the shared PageShell (header,
+ * footer, overlays). Locale-specific hreflang metadata is declared here;
+ * Next does not support overriding <html lang> from a nested layout.
+ */
+export default async function LangLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang: rawLang } = await params;
+  if (!hasLocale(rawLang)) return null;
+  const lang: Locale = rawLang;
+
+  return (
+    <PageShell lang={lang}>{children}</PageShell>
+  );
 }
