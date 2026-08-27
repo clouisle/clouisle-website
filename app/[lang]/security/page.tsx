@@ -60,9 +60,6 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
               <SecurityFaq faqs={t.faqs} />
             </div>
           </section>
-          <a className="security-docs-link" href={t.docs.href} target="_blank" rel="noopener noreferrer">
-            {t.docs.label} <span aria-hidden="true">↗</span>
-          </a>
 
         </div>
       </div>

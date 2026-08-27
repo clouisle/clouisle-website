@@ -87,8 +87,4 @@ export const en: SecurityPageTranslations = {
       answer: ["The admin console records resource operations, actors, and change snapshots, and supports filtering by event, user, team, and time. Notifications can be delivered in-product or through email, DingTalk, WeCom, Feishu, Slack, or Webhook."],
     },
   ],
-  docs: {
-    label: "Open the complete security documentation",
-    href: "https://docs.clouisle.asia",
-  },
 };

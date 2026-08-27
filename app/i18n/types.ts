@@ -100,10 +100,6 @@ export type SecurityPageTranslations = {
     question: string;
     answer: string[];
   }[];
-  docs: {
-    label: string;
-    href: string;
-  };
 };
 
 export type Translations = HomeTranslations & {

@@ -87,8 +87,4 @@ export const zh: SecurityPageTranslations = {
       answer: ["管理后台会记录资源操作、操作者和变更快照，并支持按事件、用户、团队和时间筛选。通知可以在站内展示，也可以通过邮件、钉钉、企业微信、飞书、Slack 或 Webhook 发出。"],
     },
   ],
-  docs: {
-    label: "打开完整安全文档",
-    href: "https://docs.clouisle.asia",
-  },
 };
