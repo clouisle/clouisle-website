@@ -93,6 +93,7 @@ export const zh: HomeTranslations = {
         period: "",
         description: "适合开源爱好者、独立开发者及非商业项目。",
         action: "立即开始",
+        href: "https://docs.clouisle.asia/self-host",
         features: [
           "公开仓库下发布的所有核心功能",
           "单个工作空间",

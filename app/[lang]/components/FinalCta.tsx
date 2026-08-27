@@ -18,7 +18,13 @@ export default function FinalCta({ t }: { t: Translations }) {
               {plan.period && <span>{plan.period}</span>}
             </div>
             <p className="final-plan-description">{plan.description}</p>
-            <span className="final-plan-action" aria-hidden="true">{plan.action}</span>
+            {plan.href ? (
+              <a className="final-plan-action" href={plan.href} target="_blank" rel="noopener noreferrer">
+                {plan.action}
+              </a>
+            ) : (
+              <span className="final-plan-action" aria-hidden="true">{plan.action}</span>
+            )}
             <div className="final-plan-features">
               <h4>{t.finalCta.featuresTitle}</h4>
               <ul>

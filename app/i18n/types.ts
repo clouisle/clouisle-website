@@ -49,6 +49,7 @@ export type HomeTranslations = {
       period: string;
       description: string;
       action: string;
+      href?: string;
       features: string[];
     }[];
   };
