@@ -158,6 +158,7 @@ img { display: block; max-width: 100%; }
 .footer-brand .wordmark { display: inline-flex; align-items: center; gap: 10px; color: #000; }
 .footer-brand .clouisle-mark { width: 40px; height: 40px; }
 .footer-wordmark-name { color: #000; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 800; letter-spacing: -.01em; line-height: 1; }
+.footer-brand p { margin: 28px 0 0; color: var(--muted); font-size: 12px; }
 .footer-groups { display: grid; grid-template-columns: 1.08fr 1.45fr 1.2fr .7fr; gap: 22px; }
 .footer-groups h3 { margin: 0 0 19px; font-family: "Courier New", monospace; font-size: 12px; font-weight: 400; }
 .footer-groups a { display: block; width: max-content; margin: 0 0 11px; color: var(--muted); font-size: 12px; }
