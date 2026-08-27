@@ -99,6 +99,11 @@ export type Translations = {
         | { type: "list"; items: string[] }
       )[];
     }[];
+    faqTitle: string;
+    faqs: {
+      question: string;
+      answer: string[];
+    }[];
     docs: {
       label: string;
       href: string;
@@ -310,6 +315,29 @@ export const translations: Record<Locale, Translations> = {
             { type: "lead", text: "The admin console records resource operations, actors, and change snapshots, with filters for event, user, team, and time. Administrators can review who changed which resource and when, without relying on verbal confirmation or scattered logs." },
             { type: "strong", text: "Important events can reach the channels your team already uses.", body: "Notifications can appear in the product and can also be sent through email, DingTalk, WeCom, Feishu, Slack, or Webhook." },
           ],
+        },
+      ],
+      faqTitle: "Frequently asked questions",
+      faqs: [
+        {
+          question: "How does Clouisle separate resources between teams?",
+          answer: ["Clouisle uses the team as the resource boundary. Agents, Workflows, Knowledge Bases, model authorizations, tools, and Skills are created in a team context, and the active team determines which resources the workspace can query or create."],
+        },
+        {
+          question: "Who can see conversations and team data?",
+          answer: ["Regular users can see only their own conversations and data. A team-wide view requires admin:dashboard:access or Super Admin; team-scoped conversation queries also require the team owner or administrator role."],
+        },
+        {
+          question: "Can Clouisle fit an existing sign-in policy?",
+          answer: ["Yes. Password sign-in, email verification, administrator approval, click CAPTCHA, password policies, password expiration, single-session rules, TOTP, and SSO can be combined. Multiple SSO connections are supported, and administrators can disable password sign-in."],
+        },
+        {
+          question: "How much access does an API key receive?",
+          answer: ["An API key can be restricted to specific Agents or Workflows, an expiration time, and a requests-per-minute limit. Users manage their own keys; only Super Admin can view keys across teams. An unrestricted key can access all matching resources."],
+        },
+        {
+          question: "How can administrators investigate a change?",
+          answer: ["The admin console records resource operations, actors, and change snapshots, and supports filtering by event, user, team, and time. Notifications can be delivered in-product or through email, DingTalk, WeCom, Feishu, Slack, or Webhook."],
         },
       ],
       docs: {
@@ -531,6 +559,29 @@ export const translations: Record<Locale, Translations> = {
             { type: "lead", text: "管理后台记录资源操作、操作者和变更快照，并支持按事件、用户、团队和时间筛选。管理员可以回看谁在什么时间对什么资源做了什么改变，让排查不再依赖口头确认或零散日志。" },
             { type: "strong", text: "重要事件可以送达团队正在使用的渠道。", body: "通知支持站内展示，也可以通过邮件、钉钉、企业微信、飞书、Slack 或 Webhook 发出。" },
           ],
+        },
+      ],
+      faqTitle: "常见问题",
+      faqs: [
+        {
+          question: "Clouisle 如何隔离不同团队的资源？",
+          answer: ["Clouisle 以团队作为资源边界。Agent、工作流、知识库、模型授权、工具和 Skills 都在团队上下文中创建与使用，工作台依据当前团队决定可以查询和创建哪些资源。"],
+        },
+        {
+          question: "普通成员能看到哪些会话和数据？",
+          answer: ["普通用户只能查看自己的会话与数据。团队级视图需要 admin:dashboard:access 权限或超级管理员身份；查询团队范围的会话，还需要团队所有者或管理员角色。"],
+        },
+        {
+          question: "可以接入现有的登录策略吗？",
+          answer: ["可以。密码登录、邮箱验证、管理员审批、点击式验证码、密码策略、密码过期、单一会话、TOTP 与 SSO 可以组合使用。系统支持多个 SSO 连接，管理员也可以关闭密码登录。"],
+        },
+        {
+          question: "API Key 可以限制访问范围吗？",
+          answer: ["可以。创建密钥时可以限定 Agent、工作流、有效期和每分钟请求数。用户只能管理自己的密钥，只有超级管理员可以跨团队查看密钥；未设置资源限制的密钥可以访问其匹配范围内的全部资源。"],
+        },
+        {
+          question: "管理员如何追踪资源变更？",
+          answer: ["管理后台会记录资源操作、操作者和变更快照，并支持按事件、用户、团队和时间筛选。通知可以在站内展示，也可以通过邮件、钉钉、企业微信、飞书、Slack 或 Webhook 发出。"],
         },
       ],
       docs: {

@@ -10,11 +10,15 @@ type TocItem = {
 export default function SecurityToc({
   sections,
   label,
+  faqTitle,
 }: {
   sections: TocItem[];
   label: string;
+  faqTitle?: string;
 }) {
-  const items = sections;
+  const items = faqTitle
+    ? [...sections, { id: "security-faq", title: faqTitle }]
+    : sections;
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
 
   useEffect(() => {
@@ -41,7 +45,7 @@ export default function SecurityToc({
 
     targets.forEach((target) => observer.observe(target));
     return () => observer.disconnect();
-  }, [sections]);
+  }, [sections, faqTitle]);
 
   return (
     <nav className="security-toc" aria-label={label}>
