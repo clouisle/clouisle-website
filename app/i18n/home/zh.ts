@@ -101,7 +101,7 @@ export const zh: HomeTranslations = {
       {
         name: "服务支持",
         description: "适合需要专业服务支持，但不需要完整企业版功能的团队。",
-        action: "联系团队",
+        action: "联系我们",
         features: [
           "部署与接入指导",
           "使用咨询与问题排查",
@@ -111,7 +111,7 @@ export const zh: HomeTranslations = {
       {
         name: "企业版",
         description: "适合需要高级安全、合规、治理与专属支持的企业。",
-        action: "联系销售",
+        action: "联系我们",
         features: [
           "企业级可扩展部署解决方案",
           "商业许可授权",
