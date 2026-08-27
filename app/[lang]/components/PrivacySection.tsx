@@ -54,7 +54,7 @@ export default function PrivacySection({ t }: { t: Translations }) {
           src="/clouisle-assets/clouisle-light.svg"
           alt=""
           aria-hidden="true"
-          width={56}
+          width={80}
           height={56}
         />
       </div>
