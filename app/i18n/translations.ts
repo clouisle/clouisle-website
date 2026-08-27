@@ -274,11 +274,11 @@ export const translations: Record<Locale, Translations> = {
       inDia: "在 Clouisle 中",
     },
     privacy: {
-      title: "隐私优先，由你掌控",
+      title: "数据不出域，决策不离心",
       description1:
-        "你可以控制 Dia 是否记住你的偏好，以及哪些工具连接到你的工作流。你的数据绝不会被出售或用于构建广告档案——而且通过 Sync，它是端到端加密的。",
+        "你可以将 Clouisle 部署在自己的服务器、私有云或 Kubernetes 集群中，决定数据存储在哪里、使用哪些模型、连接哪些工具，以及谁可以访问。Agent、知识库和工作流都运行在你掌控的基础设施内；是否连接外部模型或服务，也完全由你配置。",
       description2:
-        "Dia for Work 为你的团队提供了所需的护栏，如 SSO 和管理工具，让你的团队保持安全。",
+        "Clouisle 为团队提供 SSO、RBAC、API 密钥管理和审计日志等安全护栏，让 AI 在符合组织权限、网络边界和合规要求的环境中运行。",
       learnMore: "了解更多关于 Dia 隐私的信息",
       toggles: ["阻止追踪器", "个性化新对话", "记忆", "阻止广告", "分享内容数据"],
       on: "开",
