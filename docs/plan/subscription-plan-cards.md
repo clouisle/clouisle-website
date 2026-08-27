@@ -15,7 +15,7 @@ Success criteria:
 
 ## High-Level Design
 
-`app/i18n/translations.ts` owns the localized plan names, non-monetary pricing expressions, descriptions, action labels, and feature lists. `app/[lang]/components/FinalCta.tsx` maps the plan data into semantic `<article>` cards. `app/globals.css` supplies the reference-style dark cards, glow treatment, typography, and responsive layout.
+`app/i18n/translations.ts` owns the localized plan names, non-monetary pricing expressions, descriptions, action labels, and feature lists. `app/[lang]/components/FinalCta.tsx` maps the plan data into semantic `<article>` cards. `app/globals.css` supplies the reference-style light cards, colored top marks, typography, and responsive layout.
 
 The cards now mirror the supplied pricing-card form without inventing numeric prices or purchase behavior. CTA labels are presented visually and remain non-interactive until destinations are provided.
 
@@ -36,7 +36,7 @@ The cards now mirror the supplied pricing-card form without inventing numeric pr
 ### Stage 3: Add responsive card presentation
 
 - **Files modified**: `app/globals.css`
-- **Specific logic**: Add the supplied reference treatment: dark gradient surfaces, colored glow, top mark, bordered cards, visual CTA, feature divider, and feature-list typography. Use three columns above the mobile breakpoint and a single-column stack below it.
+- **Specific logic**: Add the supplied reference structure on the existing light page palette: white bordered cards, colored top marks, compact visual CTAs, feature dividers, and feature-list typography. Use three columns above the mobile breakpoint and a single-column stack below it.
 
 ### Stage 4: Final verification and plan status
 
