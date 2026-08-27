@@ -207,6 +207,7 @@ img { display: block; max-width: 100%; }
 .security-toc li { margin-bottom: 8px; }
 .security-toc a { color: rgba(0,0,0,.6); transition: color .2s ease; }
 .security-toc a:hover { color: rgba(88,99,234,1); }
+.security-toc a.is-active { color: rgba(88,99,234,1); }
 .security-content { display: flex; flex-direction: column; gap: 64px; font-size: 16px; line-height: 2rem; scroll-margin-top: 100px; }
 .security-content section { scroll-margin-top: 110px; }
 /* Dia type scale (.h1-.h4): Exposure serif, weight 300, -.04em/-0.02em tracking.

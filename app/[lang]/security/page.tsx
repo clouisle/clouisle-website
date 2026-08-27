@@ -4,6 +4,7 @@ export { generateStaticParams } from "../generateStaticParams";
 
 import { hasLocale, translations } from "../../i18n/translations";
 import SecurityFaq from "./SecurityFaq";
+import SecurityToc from "./SecurityToc";
 
 type SecurityPageProps = {
   params: Promise<{ lang: string }>;
@@ -25,18 +26,7 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
       </header>
 
       <div className="security-body">
-        <nav className="security-toc" aria-label={t.title}>
-          <ul>
-            {t.sections.map((section) => (
-              <li key={section.id}>
-                <a href={`#${section.id}`}>{section.title}</a>
-              </li>
-            ))}
-            <li>
-              <a href="#security-faq">{t.faqTitle}</a>
-            </li>
-          </ul>
-        </nav>
+        <SecurityToc sections={t.sections} faqTitle={t.faqTitle} />
 
         <div className="security-content">
           {t.sections.map((section) => (
