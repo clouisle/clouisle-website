@@ -196,6 +196,24 @@ img { display: block; max-width: 100%; }
   color: transparent;
   will-change: background-position;
 }
+
+.security-page { padding: 140px 0 110px; }
+.security-hero { width: min(100% - 48px, 880px); margin: 0 auto; text-align: center; }
+.security-hero h1 { margin: 0; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(44px, 5.5vw, 76px); font-weight: 400; line-height: 1.05; letter-spacing: -.01em; }
+.security-hero p { max-width: 60ch; margin: 24px auto 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+.security-pillars, .security-practices { width: min(100% - 48px, 1040px); margin: 96px auto 0; }
+.security-pillars h2, .security-practices h2 { margin: 0; font-size: clamp(28px, 3vw, 40px); font-weight: 300; line-height: 1.1; }
+.security-pillar-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.security-pillar { padding: 26px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.security-pillar h3 { margin: 0; font-size: 20px; font-weight: 600; }
+.security-pillar p { margin: 12px 0 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.security-practice-list { display: grid; gap: 0; margin: 32px 0 0; }
+.security-practice { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+.security-practice dt { font-weight: 600; font-size: 16px; }
+.security-practice dd { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.security-cta { margin-top: 96px; text-align: center; }
+.security-cta-link { color: #000; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,.4); transition: opacity .2s ease; }
+.security-cta-link:hover { opacity: .6; }
 .chroma-text-animate { animation: chroma-sweep var(--chroma-duration, .9s) ease-in-out var(--chroma-delay, .1s) forwards; filter: blur(1px); }
 
 @media (min-width: 800px) {
@@ -241,6 +259,10 @@ img { display: block; max-width: 100%; }
   .hero-download { min-width: min(280px, calc(100vw - 64px)); height: 54px; }
   .watch-button { margin-bottom: 34px; }
   .reads-section { padding: 72px 0 82px; }
+  .security-page { padding: 110px 0 80px; }
+  .security-pillars, .security-practices { margin-top: 64px; width: calc(100% - 40px); }
+  .security-pillar-grid { grid-template-columns: 1fr; gap: 12px; }
+  .security-practice { grid-template-columns: 1fr; gap: 6px; }
   .section-intro { width: calc(100% - 40px); }
   .section-intro h2, .privacy-panel h2, .final-cta h2 { font-size: clamp(39px, 11vw, 54px); }
   .read-tabs-shell { display: none; }

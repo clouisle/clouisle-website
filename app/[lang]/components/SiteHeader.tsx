@@ -31,7 +31,7 @@ export default function SiteHeader({
 
         <nav className="desktop-links" aria-label="Main navigation">
           <a href="#features">{t.nav.features}</a>
-          <a href="#privacy">{t.nav.security}</a>
+          <Link href="security" onClick={onCloseMenu}>{t.nav.security}</Link>
           <a href="#reports">{t.nav.reports}</a>
         </nav>
 
@@ -60,7 +60,7 @@ export default function SiteHeader({
       <nav id="mobile-navigation-menu" className="mobile-menu" aria-label="Main navigation">
         <div className="mobile-menu-links">
           <a href="#features" onClick={onCloseMenu}>{t.nav.features}</a>
-          <a href="#privacy" onClick={onCloseMenu}>{t.nav.security}</a>
+          <Link href="security" onClick={onCloseMenu}>{t.nav.security}</Link>
           <a href="#reports" onClick={onCloseMenu}>{t.nav.reports}</a>
         </div>
         <div className="mobile-menu-actions">

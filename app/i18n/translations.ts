@@ -87,6 +87,23 @@ export type Translations = {
   language: {
     switchTo: string;
   };
+  securityPage: {
+    hero: {
+      title: string;
+      subtitle: string;
+    };
+    pillarsTitle: string;
+    pillars: {
+      title: string;
+      description: string;
+    }[];
+    practicesTitle: string;
+    practices: {
+      label: string;
+      description: string;
+    }[];
+    cta: string;
+  };
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -241,6 +258,27 @@ export const translations: Record<Locale, Translations> = {
     },
     language: {
       switchTo: "中文",
+    },
+    securityPage: {
+      hero: {
+        title: "Security at Clouisle",
+        subtitle: "Placeholder copy — your data stays yours. Placeholder section explaining the security promise in one or two sentences.",
+      },
+      pillarsTitle: "How we protect you",
+      pillars: [
+        { title: "Local by default", description: "Placeholder: processing happens on your device whenever possible." },
+        { title: "Encrypted in transit and at rest", description: "Placeholder: TLS everywhere, encrypted storage, key management." },
+        { title: "No ad profiles, ever", description: "Placeholder: your data is never sold or used to build advertising profiles." },
+        { title: "You stay in control", description: "Placeholder: transparent controls over memory, sync, and connected tools." },
+      ],
+      practicesTitle: "Our security practices",
+      practices: [
+        { label: "Encryption", description: "Placeholder: describe encryption standards and scope." },
+        { label: "Access control", description: "Placeholder: describe least-privilege access and SSO options." },
+        { label: "Auditing", description: "Placeholder: describe logging, monitoring, and review cadence." },
+        { label: "Responsible disclosure", description: "Placeholder: describe how researchers can report vulnerabilities." },
+      ],
+      cta: "Read the full privacy overview →",
     },
     alt: {
       diaInterface: "Dia Browser interface",
@@ -404,6 +442,27 @@ export const translations: Record<Locale, Translations> = {
     },
     language: {
       switchTo: "English",
+    },
+    securityPage: {
+      hero: {
+        title: "Clouisle 安全",
+        subtitle: "占位文案 —— 你的数据只属于你。用一两句话说明安全承诺的占位段落。",
+      },
+      pillarsTitle: "我们如何保护你",
+      pillars: [
+        { title: "默认本地处理", description: "占位：尽可能在你的设备上完成计算，不上传原始数据。" },
+        { title: "传输与存储全程加密", description: "占位：全链路 TLS、加密存储与密钥管理。" },
+        { title: "绝不建立广告画像", description: "占位：你的数据绝不出售，也绝不用于构建广告画像。" },
+        { title: "控制权在你手中", description: "占位：对记忆、同步与连接的工具提供透明可控的开关。" },
+      ],
+      practicesTitle: "我们的安全实践",
+      practices: [
+        { label: "加密", description: "占位：说明加密标准与覆盖范围。" },
+        { label: "访问控制", description: "占位：说明最小权限原则与 SSO 选项。" },
+        { label: "审计", description: "占位：说明日志、监控与例行审查机制。" },
+        { label: "漏洞报告", description: "占位：说明研究者如何负责任地报告安全问题。" },
+      ],
+      cta: "查看完整的隐私概览 →",
     },
     alt: {
       diaInterface: "Dia 浏览器界面",
