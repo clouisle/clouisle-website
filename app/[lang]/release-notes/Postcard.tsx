@@ -16,6 +16,7 @@ type PostcardProps = {
 export default function Postcard({ release, flipLabel, featuresLabel }: PostcardProps) {
   const sceneRef = useRef<HTMLDivElement>(null);
   const tiltTimer = useRef<number | null>(null);
+  const userFlipped = useRef(false);
   const [flipped, setFlipped] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -29,7 +30,6 @@ export default function Postcard({ release, flipLabel, featuresLabel }: Postcard
       media.removeEventListener("change", update);
     };
   }, []);
-
 
   useEffect(() => {
     return () => {
@@ -49,6 +49,31 @@ export default function Postcard({ release, flipLabel, featuresLabel }: Postcard
     scene.style.removeProperty("--postcard-sheen-y");
     scene.style.removeProperty("--postcard-sheen-opacity");
   }
+
+  useEffect(() => {
+    const scene = sceneRef.current;
+    if (!scene) return;
+
+    const updateFromScroll = () => {
+      if (userFlipped.current) return;
+      const rect = scene.getBoundingClientRect();
+      const hasScrolled = window.scrollY >= 50;
+      const cardAtBottom = rect.bottom <= window.innerHeight - 32;
+      const cardCenterInUpperViewport = rect.top + rect.height / 2 <= window.innerHeight * 0.65;
+      const shouldFlip = hasScrolled && (cardAtBottom || cardCenterInUpperViewport);
+      if (shouldFlip) clearTilt();
+      setFlipped(shouldFlip);
+    };
+
+    const frame = window.requestAnimationFrame(updateFromScroll);
+    window.addEventListener("scroll", updateFromScroll, { passive: true });
+    window.addEventListener("resize", updateFromScroll);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateFromScroll);
+      window.removeEventListener("resize", updateFromScroll);
+    };
+  }, []);
 
   function handlePointerEnter(event: React.PointerEvent<HTMLDivElement>) {
     if (event.pointerType !== "mouse" || flipped || reducedMotion) return;
@@ -76,6 +101,7 @@ export default function Postcard({ release, flipLabel, featuresLabel }: Postcard
   }
 
   function handleFlip() {
+    userFlipped.current = true;
     clearTilt();
     setFlipped((current) => !current);
   }

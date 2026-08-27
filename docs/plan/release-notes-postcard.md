@@ -28,9 +28,8 @@ Success criteria:
 - **Validation**: Confirm every English release has a matching Chinese slug, all required fields, and the same newest record; confirm the entry redirect and historical links preserve the current locale segment.
 
 ### Stage 2: Interactive postcard
-- **Files modified**: `app/[lang]/release-notes/Postcard.tsx`, `app/globals.css`
-- **Specific logic**: Add front/back faces, click/tap flip, mouse-only pointer tilt, sheen variables, entrance motion, and `prefers-reduced-motion` handling. Keep the front decorative and the back readable.
-- **Validation**: Verify the flip control has an accessible label and that pointer leave clears tilt state; verify reduced-motion users receive no entrance or pointer animation.
+- **Specific logic**: Add front/back faces, click/tap flip, scroll-position-triggered flip while the card moves through the viewport, mouse-only pointer tilt, sheen variables, entrance motion, and `prefers-reduced-motion` handling. Keep the front decorative and the back readable.
+- **Validation**: Verify the flip control has an accessible label, scrolling past the viewport threshold flips the card and scrolling back restores the front, and pointer leave clears tilt state; verify reduced-motion users receive no entrance or pointer animation.
 
 ### Stage 3: Metadata and Past Issues
 - **Files modified**: `app/[lang]/release-notes/ReleaseMetadata.tsx`, `app/[lang]/release-notes/PastIssues.tsx`, `app/globals.css`
