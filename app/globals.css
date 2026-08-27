@@ -215,7 +215,7 @@ img { display: block; max-width: 100%; }
   .button-soft { display: flex; align-items: center; justify-content: center; gap: 13px; background: #ececec; }
   .button-soft .play-icon { border-top-width: 5px; border-bottom-width: 5px; border-left-width: 8px; }
   .hero { min-height: 100svh; }
-  .hero-scream { inset: 32vh 25% 0; height: calc(100% - 32vh); object-fit: cover; object-position: center top; }
+  .hero-scream { inset: 32vh 8% 0; height: calc(100% - 32vh); object-fit: contain; object-position: center bottom; }
   .hero-content { padding-top: 112px; }
   .hero h1 { font-size: 72px; }
   .hero-tagline { max-width: 280px; margin: 20px 0; font-size: 21px; }
