@@ -69,6 +69,7 @@ export default function PageShell({
     <main>
       <SiteHeader
         t={t}
+        homeHref={`/${lang}`}
         localeSwitchHref={localeSwitchHref}
         menuOpen={menuOpen}
         onToggleMenu={() => setMenuOpen((open) => !open)}

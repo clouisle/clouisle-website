@@ -5,6 +5,7 @@ import type { Translations } from "../../i18n/translations";
 
 type SiteHeaderProps = {
   t: Translations;
+  homeHref: string;
   localeSwitchHref: string;
   menuOpen: boolean;
   onToggleMenu: () => void;
@@ -15,6 +16,7 @@ type SiteHeaderProps = {
 
 export default function SiteHeader({
   t,
+  homeHref,
   localeSwitchHref,
   menuOpen,
   onToggleMenu,
@@ -25,9 +27,9 @@ export default function SiteHeader({
   return (
     <header className="site-header">
       <div className={`site-nav ${menuOpen ? "is-open" : ""}`}>
-        <a className="wordmark" href="#top" aria-label="Clouisle">
+        <Link className="wordmark" href={homeHref} aria-label="Clouisle">
           <img className="clouisle-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" />
-        </a>
+        </Link>
 
         <nav className="desktop-links" aria-label="Main navigation">
           <a href="#features">{t.nav.features}</a>
