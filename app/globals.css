@@ -53,6 +53,7 @@ img { display: block; max-width: 100%; }
   color: rgba(0,0,0,.9);
 }
 .menu-toggle { display: none; }
+.mobile-menu { display: none; }
 
 .hero { min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; isolation: isolate; color: var(--white); background: var(--black); }
 .hero-scream { position: absolute; z-index: -1; inset: 24vh 25% 0; width: 50%; height: calc(100% - 24vh); object-fit: contain; object-position: center bottom; pointer-events: none; user-select: none; animation: scream-float 9s ease-in-out infinite; }
@@ -197,6 +198,8 @@ img { display: block; max-width: 100%; }
   .site-nav { justify-content: space-between; border-radius: 30px; padding: 0 24px; }
   .desktop-links { display: none; }
   .lang-toggle { margin-left: auto; margin-right: 14px; height: 30px; padding: 0 10px; font-size: 12px; }
+  .menu-toggle { width: 32px; height: 32px; position: relative; display: grid; place-items: center; background: transparent; border: none; cursor: pointer; }
+  .menu-toggle span { width: 17px; height: 1.5px; position: absolute; background: currentColor; transition: transform .25s ease; }
   .menu-toggle span:first-child { transform: translateY(-4px); }
   .menu-toggle span:last-child { transform: translateY(4px); }
   .site-nav.is-open .menu-toggle span:first-child { transform: rotate(45deg); }
