@@ -178,6 +178,23 @@ img { display: block; max-width: 100%; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes dia-glyph-pulse { 0%, 100% { font-variation-settings: "EXPO" 40; } 50% { font-variation-settings: "EXPO" -100; } }
 @keyframes dia-glyph-idle { 0%, 100% { font-variation-settings: "EXPO" 40; } 50% { font-variation-settings: "EXPO" -50; } }
+@keyframes chroma-sweep { from { background-position: 100% 0; filter: blur(1px); } to { background-position: 0 0; filter: blur(0); } }
+
+.chroma-text {
+  display: inline-flex;
+  padding-bottom: 1px;
+  padding-right: 2px;
+  margin-right: -2px;
+  background-image: linear-gradient(90deg, #000 0, #000 33.33%, #c679c4 40%, #fa3d1d 45%, #ffb005 50%, #e1e1fe 55%, #0358f7 60%, transparent 66.67%, transparent);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  will-change: background-position;
+}
+.chroma-text-animate { animation: chroma-sweep .9s ease-in-out .1s forwards; filter: blur(1px); }
 
 @media (min-width: 800px) {
   .hero h1 { font-size: 96px; }

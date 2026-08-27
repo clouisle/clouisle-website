@@ -1,11 +1,39 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 import type { Translations } from "../../i18n/translations";
 
 export default function FinalCta({ t }: { t: Translations }) {
+  const titleRef = useRef<HTMLSpanElement | null>(null);
+  const [titleInView, setTitleInView] = useState(false);
+
+  useEffect(() => {
+    const node = titleRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 1)) {
+          setTitleInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 1 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="final-cta">
-      <h2>{t.finalCta.title}</h2>
+      <h2>
+        <span
+          ref={titleRef}
+          className={`chroma-text${titleInView ? " chroma-text-animate" : ""}`}
+        >
+          {t.finalCta.title}
+        </span>
+      </h2>
       <div className="final-plan-grid">
         {t.finalCta.plans.map((plan) => (
           <article className="final-plan-card" key={plan.name}>
