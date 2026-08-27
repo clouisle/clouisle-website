@@ -122,6 +122,9 @@ export default function Postcard({ release, flipLabel, featuresLabel }: Postcard
           <div className="postcard-card" data-flipped={flipped ? "true" : undefined}>
             <div className="postcard-inner">
               <div className="postcard-face postcard-front" aria-hidden="true">
+                <div className="postcard-hero-image"><img src={release.cover} alt="" draggable="false" /></div>
+              </div>
+              <div className="postcard-blank-layer" aria-hidden="true">
                 <img src="/clouisle-assets/release-notes/card-blank.png" alt="" draggable="false" />
               </div>
               <div className="postcard-paperclip-layer" aria-hidden="true">
