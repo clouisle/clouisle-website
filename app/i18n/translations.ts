@@ -223,12 +223,12 @@ export const translations: Record<Locale, Translations> = {
         {
           title: "从一句话开始，让事情有下一步。",
           description:
-            "把目标交给 Agent。它理解你的上下文，判断真正要做什么，调用合适的工具，让工作继续向前。",
+            "把目标交给智能体。它理解你的上下文，判断真正要做什么，调用合适的工具，让工作继续向前。",
         },
         {
           title: "重复的工作，不必再重复交接。",
           description:
-            "把 Agent、工具和审批节点串成一条清晰的流程，让任务从触发到完成自动推进，过程始终可追踪。",
+            "把智能体、工具和审批节点串成一条清晰的流程，让任务从触发到完成自动推进，过程始终可追踪。",
         },
         {
           title: "不用翻遍资料，也能找到答案。",
@@ -268,7 +268,7 @@ export const translations: Record<Locale, Translations> = {
         {
           label: "团队协作",
           title:
-            "把 Agent、知识和流程交给整个团队，同时保留每个人该有的边界——谁能使用、谁能修改、发生过什么，都清楚可查。",
+            "把智能体、知识和流程交给整个团队，同时保留每个人该有的边界——谁能使用、谁能修改、发生过什么，都清楚可查。",
         },
       ],
       inDia: "在 Clouisle 中",
@@ -276,7 +276,7 @@ export const translations: Record<Locale, Translations> = {
     privacy: {
       title: "数据不出域，决策不离心",
       description1:
-        "你可以将 Clouisle 部署在自己的服务器、私有云或 Kubernetes 集群中，决定数据存储在哪里、使用哪些模型、连接哪些工具，以及谁可以访问。Agent、知识库和工作流都运行在你掌控的基础设施内；是否连接外部模型或服务，也完全由你配置。",
+        "你可以将 Clouisle 部署在自己的服务器、私有云或 Kubernetes 集群中，决定数据存储在哪里、使用哪些模型、连接哪些工具，以及谁可以访问。智能体、知识库和工作流都运行在你掌控的基础设施内；是否连接外部模型或服务，也完全由你配置。",
       description2:
         "Clouisle 为团队提供 SSO、RBAC、API 密钥管理和审计日志等安全护栏，让 AI 在符合组织权限、网络边界和合规要求的环境中运行。",
       learnMore: "了解更多关于 Dia 隐私的信息",
