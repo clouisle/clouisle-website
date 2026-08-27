@@ -89,8 +89,6 @@ export const zh: HomeTranslations = {
     plans: [
       {
         name: "Community",
-        price: "免费",
-        period: "",
         description: "适合开源爱好者、独立开发者及非商业项目。",
         action: "立即开始",
         href: "https://docs.clouisle.asia/self-host",
@@ -102,8 +100,6 @@ export const zh: HomeTranslations = {
       },
       {
         name: "服务支持",
-        price: "服务支持",
-        period: "",
         description: "适合需要专业服务支持，但不需要完整企业版功能的团队。",
         action: "联系团队",
         features: [
@@ -114,8 +110,6 @@ export const zh: HomeTranslations = {
       },
       {
         name: "企业版",
-        price: "定制",
-        period: "",
         description: "适合需要高级安全、合规、治理与专属支持的企业。",
         action: "联系销售",
         features: [

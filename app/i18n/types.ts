@@ -45,8 +45,6 @@ export type HomeTranslations = {
     featuresTitle: string;
     plans: {
       name: string;
-      price: string;
-      period: string;
       description: string;
       action: string;
       href?: string;

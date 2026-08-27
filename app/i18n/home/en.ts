@@ -89,8 +89,6 @@ export const en: HomeTranslations = {
     plans: [
       {
         name: "Free",
-        price: "Free",
-        period: "to use",
         description: "Start with the core Clouisle experience and move from idea to outcome.",
         action: "Start for free",
         features: [
@@ -101,8 +99,6 @@ export const en: HomeTranslations = {
       },
       {
         name: "Plus",
-        price: "Monthly",
-        period: "subscription",
         description: "More room for deeper, everyday work with Clouisle.",
         action: "Choose Plus",
         features: [
@@ -113,8 +109,6 @@ export const en: HomeTranslations = {
       },
       {
         name: "Custom",
-        price: "On demand",
-        period: "pricing",
         description: "A Clouisle setup shaped around your team, permissions, and infrastructure.",
         action: "Talk to us",
         features: [

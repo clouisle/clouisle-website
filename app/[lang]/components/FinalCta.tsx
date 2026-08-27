@@ -13,10 +13,6 @@ export default function FinalCta({ t }: { t: Translations }) {
         {t.finalCta.plans.map((plan) => (
           <article className="final-plan-card" key={plan.name}>
             <h3>{plan.name}</h3>
-            <div className="final-plan-price">
-              <strong>{plan.price}</strong>
-              {plan.period && <span>{plan.period}</span>}
-            </div>
             <p className="final-plan-description">{plan.description}</p>
             {plan.href ? (
               <a className="final-plan-action" href={plan.href} target="_blank" rel="noopener noreferrer">
