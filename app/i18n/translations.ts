@@ -279,7 +279,7 @@ export const translations: Record<Locale, Translations> = {
         "你可以将 Clouisle 部署在自己的服务器、私有云或 Kubernetes 集群中，决定数据存储在哪里、使用哪些模型、连接哪些工具，以及谁可以访问。智能体、知识库和工作流都运行在你掌控的基础设施内；是否连接外部模型或服务，也完全由你配置。",
       description2:
         "Clouisle 为团队提供 SSO、RBAC、API 密钥管理和审计日志等安全护栏，让 AI 在符合组织权限、网络边界和合规要求的环境中运行。",
-      learnMore: "了解更多关于 Dia 隐私的信息",
+      learnMore: "了解 Clouisle 如何保护你的数据",
       toggles: ["阻止追踪器", "个性化新对话", "记忆", "阻止广告", "分享内容数据"],
       on: "开",
       off: "关",
