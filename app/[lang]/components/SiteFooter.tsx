@@ -1,11 +1,13 @@
 import type { Translations } from "../../i18n/translations";
-import { DiaMark } from "./icons";
 
 export default function SiteFooter({ t }: { t: Translations }) {
   return (
     <footer className="footer">
       <div className="footer-brand">
-        <a className="wordmark" href="#top" aria-label="Dia"><DiaMark /></a>
+        <a className="wordmark" href="#top" aria-label="Clouisle">
+          <img className="clouisle-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" />
+          <span className="footer-wordmark-name">Clouisle</span>
+        </a>
         <p>{t.footer.copyright}</p>
       </div>
       <div className="footer-groups">
