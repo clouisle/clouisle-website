@@ -48,6 +48,10 @@ export type Translations = {
   };
   finalCta: {
     title: string;
+    plans: {
+      name: string;
+      description: string;
+    }[];
     availability: string;
   };
   footer: {
@@ -166,6 +170,11 @@ export const translations: Record<Locale, Translations> = {
     },
     finalCta: {
       title: "Ready for a better day?",
+      plans: [
+        { name: "Free", description: "Start with the core Clouisle experience." },
+        { name: "Plus", description: "More room for deeper, everyday work." },
+        { name: "Custom", description: "A Clouisle setup shaped around your team." },
+      ],
       availability: "Currently available on Apple macOS 14+ with M1 chips or later.",
     },
     footer: {
@@ -284,6 +293,11 @@ export const translations: Record<Locale, Translations> = {
     },
     finalCta: {
       title: "准备好从想法走到结果了吗？",
+      plans: [
+        { name: "免费版", description: "从基础能力开始使用 Clouisle。" },
+        { name: "Plus 会员", description: "为更高频、更深入的工作提供更多空间。" },
+        { name: "定制", description: "为团队配置符合自身流程的专属方案。" },
+      ],
       availability: "目前支持 Apple macOS 14+ 及 M1 芯片或更高版本。",
     },
     footer: {
