@@ -27,6 +27,7 @@ export default function SiteHeader({
       <div className={`site-nav ${menuOpen ? "is-open" : ""}`}>
         <a className="wordmark" href="#top" aria-label="Clouisle">
           <img className="clouisle-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" />
+          <span className="wordmark-name">Clouisle</span>
         </a>
 
         <nav className="desktop-links" aria-label="Main navigation">
