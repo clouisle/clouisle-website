@@ -80,6 +80,7 @@ export type HomeTranslations = {
     switchTo: string;
   };
 };
+
 export type SecurityPageTranslations = {
   title: string;
   sections: {
@@ -99,34 +100,6 @@ export type SecurityPageTranslations = {
   }[];
 };
 
-export type ReleaseNotesTranslations = {
-  newFeaturesLabel: string;
-  pastIssuesLabel: string;
-  metadata: {
-    dateLabel: string;
-    locationLabel: string;
-    issueLabel: string;
-    versionLabel: string;
-  };
-  postcardFlipLabel: string;
-  releases: {
-    slug: string;
-    issue: string;
-    issueNo: string;
-    version: string;
-    date: string;
-    metadataDate: string;
-    location: string;
-    cardTitle: string;
-    greeting: string;
-    message: string[];
-    features: string[];
-    signOff: string;
-    cover: string;
-  }[];
-};
-
 export type Translations = HomeTranslations & {
   securityPage: SecurityPageTranslations;
-  releaseNotes: ReleaseNotesTranslations;
 };
