@@ -124,7 +124,6 @@ export const en: HomeTranslations = {
         ],
       },
     ],
-    availability: "Self-host on your own server, private cloud, or Kubernetes cluster.",
   },
   footer: {
     copyright: "Copyright 2026 Clouisle.",

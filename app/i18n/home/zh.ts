@@ -130,7 +130,6 @@ export const zh: HomeTranslations = {
         ],
       },
     ],
-    availability: "对比所有服务",
   },
   footer: {
     copyright: "Copyright 2026 Clouisle.",

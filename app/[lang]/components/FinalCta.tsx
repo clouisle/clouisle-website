@@ -35,7 +35,6 @@ export default function FinalCta({ t }: { t: Translations }) {
           </article>
         ))}
       </div>
-      <p className="privacy-link">{t.finalCta.availability} <span aria-hidden="true">&rarr;</span></p>
     </section>
   );
 }
