@@ -377,7 +377,7 @@ export const translations: Record<Locale, Translations> = {
           ],
         },
       ],
-      availability: "支持部署在你的服务器、私有云或 Kubernetes 集群中。",
+      availability: "对比所有服务",
     },
     footer: {
       copyright: "Copyright 2026 The Browser Company of New York.",
