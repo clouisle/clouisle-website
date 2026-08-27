@@ -285,7 +285,7 @@ export const translations: Record<Locale, Translations> = {
       off: "关",
     },
     finalCta: {
-      title: "准备好让工作，从想法走到结果了吗？",
+      title: "准备好从想法走到结果了吗？",
       download: "下载 Dia",
       availability: "目前支持 Apple macOS 14+ 及 M1 芯片或更高版本。",
     },
