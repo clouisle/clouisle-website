@@ -223,7 +223,7 @@ img { display: block; max-width: 100%; }
   .watch-button { margin-bottom: 34px; }
   .reads-section { padding: 72px 0 82px; }
   .section-intro { width: calc(100% - 40px); }
-  .section-intro h2, .privacy-panel h2 { font-size: clamp(39px, 11vw, 54px); }
+  .section-intro h2, .privacy-panel h2, .final-cta h2 { font-size: clamp(39px, 11vw, 54px); }
   .read-tabs-shell { display: none; }
   .mobile-case-list { width: calc(100% - 40px); display: grid; gap: 54px; margin: 0 auto; }
   .mobile-case img { overflow: hidden; border-radius: 20px; }
@@ -243,12 +243,16 @@ img { display: block; max-width: 100%; }
   .privacy-marquee { width: calc(100% + 44px); margin: 35px -22px 32px; }
   .privacy-panel p { font-size: 15px; }
   .privacy-link { font-size: 15px; }
-  .final-plan-grid { width: 100%; grid-template-columns: 1fr; gap: 14px; margin-top: 34px; }
-  .final-plan-card { min-height: 0; padding: 22px; border-radius: 12px; }
-  .final-plan-price { margin-top: 32px; }
+  .final-cta { padding: 64px 20px; }
+  .final-plan-grid { width: 100%; grid-template-columns: 1fr; gap: 12px; margin-top: 30px; }
+  .final-plan-card { min-height: 0; padding: 20px; border-radius: 12px; }
+  .final-plan-price { margin-top: 22px; }
   .final-plan-card h3 { margin-top: 0; font-size: 26px; }
-  .final-plan-action { margin-top: 22px; }
-  .final-plan-features { margin-top: 34px; }
+  .final-plan-description { min-height: 0; margin-top: 14px; }
+  .final-plan-action { margin-top: 20px; }
+  .final-plan-features { margin-top: 24px; }
+  .final-plan-features h4 { margin-bottom: 18px; }
+  .final-plan-features ul { gap: 12px; }
   .footer { width: calc(100% - 40px); grid-template-columns: 1fr; gap: 50px; padding-top: 55px; }
   .footer-groups { grid-template-columns: repeat(2, 1fr); gap: 34px 22px; }
   .film-overlay { padding: 16px; }
