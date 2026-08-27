@@ -100,7 +100,8 @@ export const en: HomeTranslations = {
       {
         name: "Plus",
         description: "More room for deeper, everyday work with Clouisle.",
-        action: "Choose Plus",
+        action: "Contact us",
+        href: "https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnhxtmPEGTgMylxK4byYIrbh",
         features: [
           "Agents, knowledge, and workflows in one place",
           "Model and parameter management",
@@ -110,7 +111,8 @@ export const en: HomeTranslations = {
       {
         name: "Custom",
         description: "A Clouisle setup shaped around your team, permissions, and infrastructure.",
-        action: "Talk to us",
+        action: "Contact us",
+        href: "https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnhxtmPEGTgMylxK4byYIrbh",
         features: [
           "Self-hosted deployment",
           "SSO, RBAC, API keys, and audit logs",
