@@ -12,7 +12,7 @@ export default function FinalCta({ t }: { t: Translations }) {
             <h3>{plan.name}</h3>
             <div className="final-plan-price">
               <strong>{plan.price}</strong>
-              <span>{plan.period}</span>
+              {plan.period && <span>{plan.period}</span>}
             </div>
             <p className="final-plan-description">{plan.description}</p>
             <span className="final-plan-action" aria-hidden="true">{plan.action}</span>
