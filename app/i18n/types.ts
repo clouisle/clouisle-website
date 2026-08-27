@@ -80,7 +80,6 @@ export type HomeTranslations = {
     switchTo: string;
   };
 };
-
 export type SecurityPageTranslations = {
   title: string;
   sections: {
@@ -100,6 +99,17 @@ export type SecurityPageTranslations = {
   }[];
 };
 
+export type ReleaseNotesTranslations = {
+  title: string;
+  releases: {
+    version: string;
+    date: string;
+    summary: string;
+    features: string[];
+  }[];
+};
+
 export type Translations = HomeTranslations & {
   securityPage: SecurityPageTranslations;
+  releaseNotes: ReleaseNotesTranslations;
 };

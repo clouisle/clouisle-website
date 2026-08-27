@@ -160,6 +160,22 @@ img { display: block; max-width: 100%; }
 .footer-groups a { display: block; width: max-content; margin: 0 0 11px; color: var(--muted); font-size: 12px; }
 .footer-groups a:hover { color: var(--ink); }
 
+/* Release notes timeline */
+.release-list { display: flex; flex-direction: column; gap: 48px; }
+.release-item { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; padding-bottom: 48px; border-bottom: 1px solid rgba(0,0,0,.1); }
+.release-item:last-child { padding-bottom: 0; border-bottom: none; }
+.release-meta h2 { margin: 0 0 8px; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(28px, 3vw, 36px); font-weight: 300; line-height: 1.1; letter-spacing: -.02em; color: rgba(0,0,0,.85); }
+.release-meta time { color: var(--muted); font-size: 14px; }
+.release-body { max-width: 580px; }
+.release-summary { margin: 0 0 14px; color: rgba(0,0,0,.75); font-size: 16px; line-height: 1.6; }
+.release-features { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.release-features li { position: relative; padding-left: 18px; color: var(--ink); font-size: 15px; line-height: 1.5; }
+.release-features li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: rgba(88,99,234,.55); }
+
+@media (max-width: 850px) {
+  .release-item { grid-template-columns: 1fr; gap: 14px; }
+}
+
 .film-overlay { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 40px; background: rgba(2,2,4,.83); backdrop-filter: blur(18px); }
 .film-modal { width: min(100%, 1070px); position: relative; }
 .film-frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 24px; background: #000; box-shadow: 0 40px 120px -20px rgba(0,0,0,.82); }
