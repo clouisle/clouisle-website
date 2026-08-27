@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 export { generateStaticParams } from "../generateStaticParams";
 
 import { hasLocale, translations } from "../../i18n/translations";
-import SecurityFaq from "./SecurityFaq";
 import SecurityToc from "./SecurityToc";
 
 type SecurityPageProps = {
@@ -26,7 +25,7 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
       </header>
 
       <div className="security-body">
-        <SecurityToc sections={t.sections} faqTitle={t.faqTitle} />
+        <SecurityToc sections={t.sections} label={t.title} />
 
         <div className="security-content">
           {t.sections.map((section) => (
@@ -54,13 +53,10 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
               })}
             </section>
           ))}
+          <a className="security-docs-link" href={t.docs.href} target="_blank" rel="noopener noreferrer">
+            {t.docs.label} <span aria-hidden="true">↗</span>
+          </a>
 
-          <section id="security-faq">
-            <h2>{t.faqTitle}</h2>
-            <div className="security-faq-list">
-              <SecurityFaq faqs={t.faqs} />
-            </div>
-          </section>
         </div>
       </div>
     </div>

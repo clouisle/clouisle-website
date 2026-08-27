@@ -9,12 +9,12 @@ type TocItem = {
 
 export default function SecurityToc({
   sections,
-  faqTitle,
+  label,
 }: {
   sections: TocItem[];
-  faqTitle: string;
+  label: string;
 }) {
-  const items = [...sections, { id: "security-faq", title: faqTitle }];
+  const items = sections;
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
 
   useEffect(() => {
@@ -41,10 +41,10 @@ export default function SecurityToc({
 
     targets.forEach((target) => observer.observe(target));
     return () => observer.disconnect();
-  }, [sections, faqTitle]);
+  }, [sections]);
 
   return (
-    <nav className="security-toc" aria-label={faqTitle}>
+    <nav className="security-toc" aria-label={label}>
       <ul>
         {items.map((item) => (
           <li key={item.id}>
