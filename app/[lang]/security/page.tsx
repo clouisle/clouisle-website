@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
-
 export { generateStaticParams } from "../generateStaticParams";
 
 import { hasLocale, translations } from "../../i18n/translations";
@@ -17,6 +17,10 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
   return (
     <div className="security-page">
       <header className="security-header">
+        <Link className="security-brand" href={`/${lang}`} aria-label="Clouisle">
+          <img className="security-brand-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" aria-hidden="true" />
+          <span className="security-brand-name">Clouisle</span>
+        </Link>
         <h1>{t.title}</h1>
       </header>
 

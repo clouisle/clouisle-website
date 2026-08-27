@@ -198,6 +198,9 @@ img { display: block; max-width: 100%; }
 }
 
 .security-page { width: min(100% - 40px, 1040px); margin: 0 auto; padding: 120px 0 140px; }
+.security-brand { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 24px; color: #000; }
+.security-brand-mark { width: 48px; height: 48px; display: block; }
+.security-brand-name { color: #000; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(48px, 6.6vw, 72px); font-weight: 300; letter-spacing: -.04em; line-height: 1.1667; }
 .security-header h1 { margin: 0 0 90px; font-family: "Dia Exposure Variable", Georgia, "Times New Roman", serif; font-size: clamp(48px, 6.6vw, 72px); font-weight: 300; line-height: 1.1667; letter-spacing: -.04em; }
 .security-body { display: grid; grid-template-columns: 240px minmax(0, 580px); gap: 120px; justify-content: space-between; }
 .security-toc ul { position: sticky; top: 100px; margin: 0; padding: 0; list-style: none; font-size: 16px; }
@@ -286,6 +289,8 @@ img { display: block; max-width: 100%; }
   .work-intro { margin-bottom: 28px; }
   .feature-grid { width: calc(100% - 40px); display: grid; grid-template-columns: 1fr; gap: 12px; }
   .work-tile, .feature-wide, .feature-tall { grid-column: auto; min-height: 390px; }
+  .security-brand { margin-bottom: 18px; }
+  .security-brand-mark { width: 40px; height: 40px; }
   .tile-copy { padding: 22px 22px 0; }
   .security-page { padding: 100px 0 90px; }
   .security-header h1 { margin-bottom: 48px; }
