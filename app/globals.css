@@ -120,7 +120,7 @@ img { display: block; max-width: 100%; }
 .privacy-border { width: 100%; height: 100%; position: absolute; z-index: 0; inset: 0; overflow: visible; pointer-events: none; }
 .privacy-lock-mark, .privacy-footer-mark { position: absolute; z-index: 2; left: 50%; pointer-events: none; }
 .privacy-lock-mark { top: 0; transform: translate(-50%, -50%); }
-.privacy-footer-mark { bottom: 0; transform: translate(-50%, 50%); }
+.privacy-footer-mark { bottom: 0; transform: translate(-50%, 50%); background: #fff; }
 .privacy-panel h2 { max-width: 620px; }
 .privacy-marquee { width: calc(100% + 96px); margin: 42px -48px 38px; overflow: hidden; }
 .privacy-track { width: max-content; display: flex; gap: 18px; padding: 0 9px; animation: ticker 28s linear infinite; }
