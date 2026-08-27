@@ -136,23 +136,19 @@ img { display: block; max-width: 100%; }
 .final-cta { min-height: 370px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 88px 24px; background: #F8F8F8; text-align: center; }
 .final-cta h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(54px, 5vw, 86px); font-weight: 400; }
 .final-plan-grid { width: min(100%, 1180px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 42px auto 0; text-align: left; }
-.final-plan-card { --plan-accent: #7896ff; min-height: 610px; position: relative; isolation: isolate; display: flex; flex-direction: column; padding: 28px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; color: var(--ink); background: #fff; box-shadow: none; }
-.final-plan-card:nth-child(2) { --plan-accent: #a176ff; border-color: var(--ink); background: #fff; }
-.final-plan-card:nth-child(3) { --plan-accent: #62c5ff; background: #fff; }
-.final-plan-card > * { position: relative; z-index: 1; }
-.final-plan-badge { width: 58px; height: 58px; display: block; flex: 0 0 auto; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(145deg, rgba(255,255,255,.9), var(--plan-accent)); box-shadow: 0 8px 28px color-mix(in srgb, var(--plan-accent) 48%, transparent); }
-.final-plan-card h3 { margin: 30px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; }
+.final-plan-card { min-height: 610px; display: flex; flex-direction: column; padding: 28px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; color: var(--ink); background: #fff; box-shadow: none; }
+.final-plan-card h3 { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; }
 .final-plan-price { display: flex; align-items: baseline; gap: 8px; margin-top: 38px; }
 .final-plan-price strong { font-size: clamp(38px, 3.4vw, 54px); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
 .final-plan-price span { color: var(--muted); font-size: 18px; }
 .final-plan-description { min-height: 72px; margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
-.final-plan-action { width: min(100%, 280px); height: 56px; min-height: 56px; display: flex; align-items: center; justify-content: center; align-self: center; margin-top: 24px; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: #E5E5E5; box-shadow: 0 8px 18px rgba(0,0,0,.08); font-size: 18px; font-weight: 500; }
+.final-plan-action { width: min(100%, 280px); height: 56px; min-height: 56px; display: flex; align-items: center; justify-content: center; align-self: center; margin-top: 24px; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: #fff; box-shadow: 0 8px 18px rgba(0,0,0,.08); font-size: 18px; font-weight: 500; }
 .final-plan-features { margin-top: 40px; }
 .final-plan-features h4 { display: flex; align-items: center; gap: 12px; margin: 0 0 25px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .08em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
 .final-plan-features h4::before, .final-plan-features h4::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 .final-plan-features ul { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
 .final-plan-features li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start; color: var(--ink); font-size: 14px; line-height: 1.45; }
-.final-plan-features li svg { margin-top: 1px; color: var(--plan-accent); }
+.final-plan-features li svg { margin-top: 1px; color: var(--muted); }
 .final-cta-note { margin: 26px 0 0; color: var(--muted); font-size: 12px; }
 
 .footer { width: min(100% - 48px, 1380px); display: grid; grid-template-columns: .9fr 2.1fr; gap: 55px; margin: 0 auto; padding: 70px 0 38px; }
@@ -246,9 +242,8 @@ img { display: block; max-width: 100%; }
   .privacy-link { font-size: 15px; }
   .final-plan-grid { width: 100%; grid-template-columns: 1fr; gap: 14px; margin-top: 34px; }
   .final-plan-card { min-height: 0; padding: 22px; border-radius: 20px; }
-  .final-plan-card h3 { margin-top: 26px; font-size: 30px; }
   .final-plan-price { margin-top: 32px; }
-  .final-plan-description { min-height: 0; margin-top: 18px; }
+  .final-plan-card h3 { margin-top: 0; font-size: 30px; }
   .final-plan-action { margin-top: 22px; }
   .final-plan-features { margin-top: 34px; }
   .final-cta-note { margin-top: 22px; }

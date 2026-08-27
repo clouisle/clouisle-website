@@ -9,7 +9,6 @@ export default function FinalCta({ t }: { t: Translations }) {
       <div className="final-plan-grid">
         {t.finalCta.plans.map((plan) => (
           <article className="final-plan-card" key={plan.name}>
-            <span className="final-plan-badge" aria-hidden="true" />
             <h3>{plan.name}</h3>
             <div className="final-plan-price">
               <strong>{plan.price}</strong>
