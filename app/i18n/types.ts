@@ -101,11 +101,19 @@ export type SecurityPageTranslations = {
 
 export type ReleaseNotesTranslations = {
   title: string;
+  backLabel: string;
+  newFeaturesLabel: string;
   releases: {
+    slug: string;
+    issue: string;
     version: string;
     date: string;
-    summary: string;
+    cardTitle: string;
+    greeting: string;
+    message: string[];
     features: string[];
+    signOff: string;
+    cover: string;
   }[];
 };
 

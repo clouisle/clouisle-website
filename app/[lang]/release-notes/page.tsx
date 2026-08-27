@@ -14,31 +14,23 @@ export default async function ReleaseNotesPage({ params }: ReleaseNotesPageProps
   const t = translations[lang].releaseNotes;
 
   return (
-    <div className="security-page">
-      <header className="security-header">
-        <Link className="security-brand" href={`/${lang}`} aria-label="Clouisle">
-          <img className="security-brand-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" aria-hidden="true" />
-          <span className="security-brand-name">Clouisle</span>
-        </Link>
-        <h1>{t.title}</h1>
-      </header>
+    <div className="release-page">
+      <h1 className="release-title">{t.title}</h1>
 
-      <div className="release-list">
+      <div className="release-grid">
         {t.releases.map((release) => (
-          <article className="release-item" key={release.version}>
-            <div className="release-meta">
-              <h2>{release.version}</h2>
-              <time>{release.date}</time>
+          <Link className="release-card" href={`release-notes/${release.slug}`} key={release.slug}>
+            <div className="release-card-labels">
+              <span className="release-label">{release.issue}</span>
+              <span className="release-label">{release.date}</span>
             </div>
-            <div className="release-body">
-              {release.summary && <p className="release-summary">{release.summary}</p>}
-              <ul className="release-features">
-                {release.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
+            <div className="release-cover">
+              <img src={release.cover} alt="" />
+              <img className="release-paperclip" src="/clouisle-assets/release-notes/paperclip.png" alt="" aria-hidden="true" />
+              <img className="release-polaroid" src="/clouisle-assets/release-notes/polaroid.png" alt="" aria-hidden="true" />
             </div>
-          </article>
+            <h2 className="release-card-title">{release.cardTitle}</h2>
+          </Link>
         ))}
       </div>
     </div>
