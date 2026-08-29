@@ -145,7 +145,13 @@ export type ReleaseNotesTranslations = {
   issues: ReleaseIssue[];
 };
 
+export type HelpPageTranslations = {
+  description: string;
+  chatPlaceholder: string;
+};
+
 export type Translations = HomeTranslations & {
   securityPage: SecurityPageTranslations;
   releaseNotes: ReleaseNotesTranslations;
+  helpPage: HelpPageTranslations;
 };
