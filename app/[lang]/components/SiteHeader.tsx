@@ -6,6 +6,9 @@ import type { Translations } from "../../i18n/translations";
 type SiteHeaderProps = {
   t: Translations;
   homeHref: string;
+  releaseHref: string;
+  securityHref: string;
+  reportsHref: string;
   localeSwitchHref: string;
   menuOpen: boolean;
   onToggleMenu: () => void;
@@ -17,6 +20,9 @@ type SiteHeaderProps = {
 export default function SiteHeader({
   t,
   homeHref,
+  releaseHref,
+  securityHref,
+  reportsHref,
   localeSwitchHref,
   menuOpen,
   onToggleMenu,
@@ -32,9 +38,10 @@ export default function SiteHeader({
         </Link>
 
         <nav className="desktop-links" aria-label="Main navigation">
-          <a href="#features">{t.nav.features}</a>
-          <Link href="security" onClick={onCloseMenu}>{t.nav.security}</Link>
-          <a href="#reports">{t.nav.reports}</a>
+          <Link href={releaseHref} onClick={onCloseMenu}>{t.nav.features}</Link>
+          <Link href={securityHref} onClick={onCloseMenu}>{t.nav.security}</Link>
+          <Link href={reportsHref}>{t.nav.reports}</Link>
+          <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
         </nav>
 
         <Link
@@ -61,9 +68,10 @@ export default function SiteHeader({
 
       <nav id="mobile-navigation-menu" className="mobile-menu" aria-label="Main navigation">
         <div className="mobile-menu-links">
-          <a href="#features" onClick={onCloseMenu}>{t.nav.features}</a>
-          <Link href="security" onClick={onCloseMenu}>{t.nav.security}</Link>
-          <a href="#reports" onClick={onCloseMenu}>{t.nav.reports}</a>
+          <Link href={releaseHref} onClick={onCloseMenu}>{t.nav.features}</Link>
+          <Link href={securityHref} onClick={onCloseMenu}>{t.nav.security}</Link>
+          <Link href={reportsHref} onClick={onCloseMenu}>{t.nav.reports}</Link>
+          <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
         </div>
         <div className="mobile-menu-actions">
           <button className="button button-dark" type="button" onClick={onDownload}>{t.mobile.download}</button>

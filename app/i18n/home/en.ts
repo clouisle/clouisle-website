@@ -5,6 +5,7 @@ export const en: HomeTranslations = {
     features: "What's New",
     security: "Security",
     reports: "Introducing Reports",
+    docs: "Docs",
   },
   mobile: {
     download: "Download Dia",
@@ -122,7 +123,6 @@ export const en: HomeTranslations = {
     ],
   },
   footer: {
-    copyright: "Copyright 2026 Clouisle.",
     groups: [
       { title: "PRODUCT", links: ["FOR WORK", "RELEASE NOTES", "WINDOWS", "STUDENTS", "REPORTS"] },
       { title: "RESOURCES", links: ["HELP", "STATUS", "PRIVACY", "TERMS OF USE", "SECURITY", "TRUST CENTER"] },

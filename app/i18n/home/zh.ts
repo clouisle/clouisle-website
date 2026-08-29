@@ -5,6 +5,7 @@ export const zh: HomeTranslations = {
     features: "新功能",
     security: "安全性",
     reports: "报告功能",
+    docs: "文档",
   },
   mobile: {
     download: "下载 Dia",
@@ -17,7 +18,7 @@ export const zh: HomeTranslations = {
     watchScream: "观看尖叫视频",
   },
   reads: {
-    title: "懂你所知，更懂如何做到。",
+    title: "懂你所知\n更懂如何做到",
     cases: [
       {
         title: "从一句话开始，让事情有下一步。",
@@ -129,7 +130,6 @@ export const zh: HomeTranslations = {
     ],
   },
   footer: {
-    copyright: "Copyright 2026 Clouisle.",
     groups: [
       { title: "产品", links: ["工作版", "发布说明", "Windows", "学生", "报告"] },
       { title: "资源", links: ["帮助", "状态", "隐私", "使用条款", "安全", "信任中心"] },

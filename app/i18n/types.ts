@@ -5,6 +5,7 @@ export type HomeTranslations = {
     features: string;
     security: string;
     reports: string;
+    docs: string;
   };
   mobile: {
     download: string;
@@ -52,7 +53,6 @@ export type HomeTranslations = {
     }[];
   };
   footer: {
-    copyright: string;
     groups: {
       title: string;
       links: string[];
@@ -100,6 +100,53 @@ export type SecurityPageTranslations = {
   }[];
 };
 
+export type ReleaseIssue = {
+  slug: string;
+  date: string;
+  issueNumber: string;
+  version: string;
+  title: string;
+  description: string;
+  image: string;
+  greeting?: string;
+  message?: string[];
+  signature?: string;
+  heroImage?: string;
+  polaroidImage?: string;
+  gradient?: number;
+};
+
+export type ReleaseNotesTranslations = {
+  eyebrow: string;
+  wordmark: string;
+  tagline: string;
+  title: string;
+  category: string;
+  cadence: string;
+  date: string;
+  location: string;
+  issueLabel: string;
+  issueNumber: string;
+  versionLabel: string;
+  version: string;
+  flipLabel: string;
+  flippedLabel: string;
+  greeting: string;
+  message: string[];
+  signature: string;
+  heroImage: string;
+  polaroidImage: string;
+  gradient?: number;
+  experimentalMode?: "classic" | "transition" | "experimental";
+  transitionStart?: number;
+  pastIssues: string;
+  viewAll: string;
+  loadingAll: string;
+  archiveIssueCount: number;
+  issues: ReleaseIssue[];
+};
+
 export type Translations = HomeTranslations & {
   securityPage: SecurityPageTranslations;
+  releaseNotes: ReleaseNotesTranslations;
 };
