@@ -1,0 +1,87 @@
+{
+  "eyebrow": "Clouisle",
+  "wordmark": "周刊",
+  "tagline": "不加滤镜",
+  "title": "路线图笔记",
+  "category": "新功能",
+  "cadence": "每周更新",
+  "date": "2026 年 8 月 27 日 12:30 ET",
+  "location": "美国 · 布鲁克林",
+  "issueLabel": "期号",
+  "issueNumber": "039",
+  "versionLabel": "应用版本",
+  "version": "1.46.0",
+  "flipLabel": "翻转明信片阅读本期内容",
+  "flippedLabel": "明信片内容",
+  "greeting": "来自纽约布鲁克林的问候",
+  "message": [
+    "最近我一直在使用 Clouisle 的 Linear 连接，跟进工具团队正在交付的内容，也及时处理需要我关注的事项。",
+    "我每周开始时最常用的一条提示是：“把本周 Linear 中工具团队每个项目的状态、健康度和进展可视化成表格，按风险排序，并标记状态与实际 issue 活动不一致的项目。”",
+    "这样一来，我需要检查的事情会一目了然，也能快速了解整个团队现在走到哪一步。"
+  ],
+  "signature": "Rosey",
+  "heroImage": "/clouisle-assets/release-linear.png",
+  "polaroidImage": "/clouisle-assets/release-roadmap.png",
+  "gradient": 3,
+  "pastIssues": "往期内容",
+  "viewAll": "查看全部发布说明 +",
+  "loadingAll": "正在加载全部发布说明...",
+  "issues": [
+    {
+      "slug": "security-team-question",
+      "date": "2026 年 8 月 20 日",
+      "issueNumber": "第 038 期",
+      "version": "应用 v1.45.0",
+      "title": "路线图笔记",
+      "description": "记录下一版本正在推进的工作、决策，以及那些让体验更顺手的小细节。",
+      "image": "/clouisle-assets/release-roadmap.png",
+      "greeting": "来自安全团队的一封信",
+      "message": [
+        "安全团队一直在思考一个问题：怎样充分发挥 Clouisle AI 的能力，同时不交出数据的控制权？",
+        "你的聊天记录会留在自己的设备上。当 Clouisle 把相关上下文发送给模型服务商时，请求会在零数据留存的条件下处理，完成后不会继续保存。",
+        "在 Clouisle 里，历史记录始终属于你：需要时可以使用，也不会停留在第三方云端。"
+      ],
+      "signature": "Cory Hardman",
+      "heroImage": "/clouisle-assets/release-roadmap.png",
+      "polaroidImage": "/clouisle-assets/release-roadmap.png",
+      "gradient": 2
+    },
+    {
+      "slug": "linkedin-integration",
+      "date": "2026 年 8 月 13 日",
+      "issueNumber": "第 037 期",
+      "version": "应用 v1.44.0",
+      "title": "Clouisle 连接你的网络",
+      "description": "把团队已经在使用的工具带进一个专注的工作空间，让上下文在工作开始时就准备好。",
+      "image": "/clouisle-assets/release-linkedin.png",
+      "greeting": "来自波特兰的问候",
+      "message": [
+        "找到最合适的人选是我工作的核心，而最近 Clouisle 的 LinkedIn 连接已经成了我的得力助手。",
+        "我可以让 Clouisle 找出与团队成员有共同联系、又符合招聘要求的候选人。合适的人选会立刻浮现，让我把时间花在交流上，而不是搜索上。"
+      ],
+      "signature": "Jessi Sells",
+      "heroImage": "/clouisle-assets/release-linkedin.png",
+      "polaroidImage": "/clouisle-assets/release-linkedin.png",
+      "gradient": 1
+    },
+    {
+      "slug": "context-switching",
+      "date": "2026 年 8 月 6 日",
+      "issueNumber": "第 036 期",
+      "version": "应用 v1.43.1",
+      "title": "一滑切换不同上下文",
+      "description": "在不同工作空间之间切换，同时保留原来的位置、标签页和任务上下文。",
+      "image": "/clouisle-assets/release-profiles.png",
+      "greeting": "来自堪萨斯城的问候",
+      "message": [
+        "等待已久的功能终于来了。对于刚开始使用 Clouisle 的人来说，切换上下文现在简单多了。",
+        "Profiles 会把登录、工具、AI 和上下文留在各自该在的位置。我们补上的最后一块拼图，是让你能快速在它们之间移动。",
+        "试试看：创建一个新的 Profile，然后滑走。你的工作会停留在原来的位置。"
+      ],
+      "signature": "Connor",
+      "heroImage": "/clouisle-assets/release-profiles.png",
+      "polaroidImage": "/clouisle-assets/release-profiles.png",
+      "gradient": 4
+    }
+  ]
+}

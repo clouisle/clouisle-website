@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/fraunces/full.css";
+import "@fontsource-variable/instrument-sans/wdth.css";
+import "@fontsource-variable/noto-sans-sc/wght.css";
+import "@fontsource-variable/noto-serif-sc/wght.css";
+import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
