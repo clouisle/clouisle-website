@@ -4,7 +4,6 @@ export type HomeTranslations = {
   nav: {
     features: string;
     security: string;
-    reports: string;
     docs: string;
   };
   mobile: {

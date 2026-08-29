@@ -70,6 +70,8 @@ export default function PageShell({
       <SiteHeader
         t={t}
         homeHref={`/${lang}`}
+        releaseHref={`/${lang}/release-notes/latest`}
+        securityHref={`/${lang}/security`}
         localeSwitchHref={localeSwitchHref}
         menuOpen={menuOpen}
         onToggleMenu={() => setMenuOpen((open) => !open)}
@@ -80,7 +82,10 @@ export default function PageShell({
 
       {children}
 
-      <SiteFooter t={t} />
+      <SiteFooter
+        t={t}
+        lang={lang}
+      />
 
       {filmOpen && <FilmModal t={t} onClose={() => setFilmOpen(false)} />}
       {downloadNotice && <DownloadNotice t={t} onDismiss={() => setDownloadNotice(false)} />}

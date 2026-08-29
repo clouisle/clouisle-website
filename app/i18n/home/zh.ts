@@ -4,7 +4,6 @@ export const zh: HomeTranslations = {
   nav: {
     features: "新功能",
     security: "安全性",
-    reports: "报告功能",
     docs: "文档",
   },
   mobile: {

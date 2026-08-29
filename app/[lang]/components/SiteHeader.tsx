@@ -8,7 +8,6 @@ type SiteHeaderProps = {
   homeHref: string;
   releaseHref: string;
   securityHref: string;
-  reportsHref: string;
   localeSwitchHref: string;
   menuOpen: boolean;
   onToggleMenu: () => void;
@@ -22,7 +21,6 @@ export default function SiteHeader({
   homeHref,
   releaseHref,
   securityHref,
-  reportsHref,
   localeSwitchHref,
   menuOpen,
   onToggleMenu,
@@ -40,7 +38,6 @@ export default function SiteHeader({
         <nav className="desktop-links" aria-label="Main navigation">
           <Link href={releaseHref} onClick={onCloseMenu}>{t.nav.features}</Link>
           <Link href={securityHref} onClick={onCloseMenu}>{t.nav.security}</Link>
-          <Link href={reportsHref}>{t.nav.reports}</Link>
           <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
         </nav>
 
@@ -70,7 +67,6 @@ export default function SiteHeader({
         <div className="mobile-menu-links">
           <Link href={releaseHref} onClick={onCloseMenu}>{t.nav.features}</Link>
           <Link href={securityHref} onClick={onCloseMenu}>{t.nav.security}</Link>
-          <Link href={reportsHref} onClick={onCloseMenu}>{t.nav.reports}</Link>
           <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
         </div>
         <div className="mobile-menu-actions">

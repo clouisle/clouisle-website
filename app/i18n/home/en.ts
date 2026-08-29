@@ -4,7 +4,6 @@ export const en: HomeTranslations = {
   nav: {
     features: "What's New",
     security: "Security",
-    reports: "Introducing Reports",
     docs: "Docs",
   },
   mobile: {
