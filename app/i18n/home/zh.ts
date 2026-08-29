@@ -130,7 +130,7 @@ export const zh: HomeTranslations = {
   },
   footer: {
     groups: [
-      { title: "产品", links: ["工作版", "发布说明", "Windows", "学生", "报告"] },
+      { title: "产品", links: ["发布说明"] },
       { title: "资源", links: ["帮助", "状态", "隐私", "使用条款", "安全", "信任中心"] },
       { title: "组织", links: ["关于我们", "招聘", "通讯", "早期用户计划"] },
       { title: "联系", links: ["X", "LinkedIn", "Instagram"] },

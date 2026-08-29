@@ -123,7 +123,7 @@ export const en: HomeTranslations = {
   },
   footer: {
     groups: [
-      { title: "PRODUCT", links: ["FOR WORK", "RELEASE NOTES", "WINDOWS", "STUDENTS", "REPORTS"] },
+      { title: "PRODUCT", links: ["RELEASE NOTES"] },
       { title: "RESOURCES", links: ["HELP", "STATUS", "PRIVACY", "TERMS OF USE", "SECURITY", "TRUST CENTER"] },
       { title: "COMPANY", links: ["ABOUT US", "CAREERS", "NEWSLETTER", "EARLY BIRDS PROGRAM"] },
       { title: "CONNECT", links: ["X", "LINKEDIN", "INSTAGRAM"] },
