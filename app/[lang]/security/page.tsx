@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 export { generateStaticParams } from "../generateStaticParams";
@@ -32,26 +33,7 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
           {t.sections.map((section) => (
             <section id={section.id} key={section.id}>
               <h2>{section.title}</h2>
-              {section.blocks.map((block, index) => {
-                switch (block.type) {
-                  case "lead":
-                  case "p":
-                    return <p key={index} data-variant={block.type}>{block.text}</p>;
-                  case "strong":
-                    return (
-                      <p key={index} data-variant="strong-block">
-                        <strong>{block.text}</strong>
-                        {block.body && <><br />{block.body}</>}
-                      </p>
-                    );
-                  case "list":
-                    return (
-                      <ul key={index}>
-                        {block.items.map((item) => <li key={item}>{item}</li>)}
-                      </ul>
-                    );
-                }
-              })}
+              <ReactMarkdown>{section.content}</ReactMarkdown>
             </section>
           ))}
           <section className="security-faq" id="security-faq">

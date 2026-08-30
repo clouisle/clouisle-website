@@ -24,6 +24,7 @@ export default function PageShell({
 }) {
   const t = translations[lang];
   const pathname = usePathname();
+  const isAboutPage = pathname.endsWith("/about");
   const [menuOpen, setMenuOpen] = useState(false);
   const [filmOpen, setFilmOpen] = useState(false);
   const [downloadNotice, setDownloadNotice] = useState(false);
@@ -67,29 +68,33 @@ export default function PageShell({
 
   return (
     <main>
-      <SiteHeader
-        t={t}
-        homeHref={`/${lang}`}
-        releaseHref={`/${lang}/release-notes/latest`}
-        securityHref={`/${lang}/security`}
-        localeSwitchHref={localeSwitchHref}
-        menuOpen={menuOpen}
-        onToggleMenu={() => setMenuOpen((open) => !open)}
-        onCloseMenu={() => setMenuOpen(false)}
-        onDownload={showDownloadNotice}
-        onWatchTrailer={openTrailer}
-      />
+      {!isAboutPage && (
+        <SiteHeader
+          t={t}
+          homeHref={`/${lang}`}
+          releaseHref={`/${lang}/release-notes/latest`}
+          securityHref={`/${lang}/security`}
+          localeSwitchHref={localeSwitchHref}
+          menuOpen={menuOpen}
+          onToggleMenu={() => setMenuOpen((open) => !open)}
+          onCloseMenu={() => setMenuOpen(false)}
+          onDownload={showDownloadNotice}
+          onWatchTrailer={openTrailer}
+        />
+      )}
 
       {children}
 
-      <SiteFooter
-        t={t}
-        lang={lang}
-      />
+      {!isAboutPage && (
+        <SiteFooter
+          t={t}
+          lang={lang}
+        />
+      )}
 
       {filmOpen && <FilmModal t={t} onClose={() => setFilmOpen(false)} />}
       {downloadNotice && <DownloadNotice t={t} onDismiss={() => setDownloadNotice(false)} />}
-      <LocaleNotice lang={lang} t={t} />
+      {!isAboutPage && <LocaleNotice lang={lang} t={t} />}
     </main>
   );
 }

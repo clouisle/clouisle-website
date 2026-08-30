@@ -4,7 +4,7 @@ import { useState } from "react";
 
 type Faq = {
   question: string;
-  answer: string[];
+  answer: string;
 };
 
 function FaqItem({ faq, index }: { faq: Faq; index: number }) {
@@ -26,9 +26,7 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
       </button>
       <div id={panelId} role="region" aria-hidden={!open} className="security-faq-panel">
         <div className="security-faq-panel-inner">
-          {faq.answer.map((paragraph, paragraphIndex) => (
-            <p key={paragraphIndex}>{paragraph}</p>
-          ))}
+          <p>{faq.answer}</p>
         </div>
       </div>
     </div>

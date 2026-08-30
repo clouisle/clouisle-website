@@ -85,19 +85,27 @@ export type SecurityPageTranslations = {
   sections: {
     id: string;
     title: string;
-    blocks: (
-      | { type: "p"; text: string }
-      | { type: "lead"; text: string }
-      | { type: "strong"; text: string; body?: string }
-      | { type: "list"; items: string[] }
-    )[];
+    content: string;
   }[];
   faqTitle: string;
   faqs: {
     question: string;
-    answer: string[];
+    answer: string;
   }[];
 };
+
+export type PrivacyPageTranslations = {
+  title: string;
+  overviewTitle: string;
+  summary: string;
+  sections: {
+    id: string;
+    title: string;
+    content: string;
+  }[];
+};
+
+export type TermsPageTranslations = PrivacyPageTranslations;
 
 export type ReleaseIssue = {
   slug: string;
@@ -150,8 +158,86 @@ export type HelpPageTranslations = {
   chatPlaceholder: string;
 };
 
+export type AboutPageTranslations = {
+  loader: {
+    stages: string[];
+    skip: string;
+    loadingLabel: string;
+  };
+  eyebrow: string;
+  title: string;
+  intro: string;
+  location: string;
+  founded: string;
+  scrollLabel: string;
+  artIndex: string;
+  artCaption: string;
+  stamp: string;
+  corporate: {
+    values: string;
+    valuesContent: string[];
+    close: string;
+    newsletter: string;
+    social: string;
+    heading: {
+      before: string;
+      linkOne: string;
+      linkOneHref: string;
+      between: string;
+      linkTwo: string;
+      linkTwoHref: string;
+      after: string;
+    };
+    actions: {
+      label: string;
+      href: string;
+    }[];
+    copyright: string;
+    logoLabel: string;
+    ambient: {
+      monogramTop: string;
+      monogramBottom: string;
+      captionTop: string;
+      captionBottom: string;
+    };
+  };
+  manifesto: {
+    eyebrow: string;
+    title: string;
+    body: string;
+  };
+  principles: {
+    eyebrow: string;
+    title: string;
+    items: {
+      number: string;
+      title: string;
+      description: string;
+    }[];
+  };
+  journey: {
+    eyebrow: string;
+    title: string;
+    events: {
+      year: string;
+      title: string;
+      description: string;
+    }[];
+  };
+  openSource: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    action: string;
+  };
+  footerNote: string;
+};
+
 export type Translations = HomeTranslations & {
   securityPage: SecurityPageTranslations;
+  privacyPage: PrivacyPageTranslations;
+  termsPage: TermsPageTranslations;
   releaseNotes: ReleaseNotesTranslations;
   helpPage: HelpPageTranslations;
+  aboutPage: AboutPageTranslations;
 };
