@@ -10,6 +10,22 @@ import SecurityFaq from "./SecurityFaq";
 type SecurityPageProps = {
   params: Promise<{ lang: string }>;
 };
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: SecurityPageProps): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const t = translations[lang].securityPage;
+  return {
+    title: `${t.title} | Clouisle`,
+    alternates: {
+      languages: {
+        en: "/en/security",
+        "zh-CN": "/zh/security",
+      },
+    },
+  };
+}
 
 export default async function SecurityPage({ params }: SecurityPageProps) {
   const { lang } = await params;

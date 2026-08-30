@@ -7,6 +7,23 @@ import { hasLocale, translations } from "../../i18n/translations";
 type HelpPageProps = {
   params: Promise<{ lang: string }>;
 };
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: HelpPageProps): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const t = translations[lang].helpPage;
+  return {
+    title: `${t.title} | Clouisle`,
+    description: t.description,
+    alternates: {
+      languages: {
+        en: "/en/help",
+        "zh-CN": "/zh/help",
+      },
+    },
+  };
+}
 
 export default async function HelpPage({ params }: HelpPageProps) {
   const { lang } = await params;

@@ -6,8 +6,6 @@ import { translations, type Locale } from "../i18n/translations";
 import LocaleNotice from "./LocaleNotice";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import FilmModal from "./components/FilmModal";
-import DownloadNotice from "./components/DownloadNotice";
 
 /**
  * Shared page shell for every route under /[lang]: fixed pill header,
@@ -26,8 +24,6 @@ export default function PageShell({
   const pathname = usePathname();
   const isAboutPage = pathname.endsWith("/about");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [filmOpen, setFilmOpen] = useState(false);
-  const [downloadNotice, setDownloadNotice] = useState(false);
 
   const otherLocale: Locale = lang === "en" ? "zh" : "en";
   const restPath = pathname.replace(/^\/(?:en|zh)/, "") || "/";
@@ -36,7 +32,6 @@ export default function PageShell({
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setFilmOpen(false);
         setMenuOpen(false);
       }
     }
@@ -46,7 +41,7 @@ export default function PageShell({
   }, []);
 
   useEffect(() => {
-    if (!filmOpen && !menuOpen) return;
+    if (!menuOpen) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -54,17 +49,7 @@ export default function PageShell({
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [filmOpen, menuOpen]);
-
-  function showDownloadNotice() {
-    setDownloadNotice(true);
-    setMenuOpen(false);
-  }
-
-  function openTrailer() {
-    setFilmOpen(true);
-    setMenuOpen(false);
-  }
+  }, [menuOpen]);
 
   return (
     <main>
@@ -78,8 +63,6 @@ export default function PageShell({
           menuOpen={menuOpen}
           onToggleMenu={() => setMenuOpen((open) => !open)}
           onCloseMenu={() => setMenuOpen(false)}
-          onDownload={showDownloadNotice}
-          onWatchTrailer={openTrailer}
         />
       )}
 
@@ -92,8 +75,6 @@ export default function PageShell({
         />
       )}
 
-      {filmOpen && <FilmModal t={t} onClose={() => setFilmOpen(false)} />}
-      {downloadNotice && <DownloadNotice t={t} onDismiss={() => setDownloadNotice(false)} />}
       {!isAboutPage && <LocaleNotice lang={lang} t={t} />}
     </main>
   );

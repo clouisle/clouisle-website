@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
 
   const t = translations[rawLang].aboutPage;
   return {
-    title: `${t.eyebrow} | Clouisle`,
+    title: `${t.title} | Clouisle`,
     description: t.intro,
     alternates: {
       languages: {

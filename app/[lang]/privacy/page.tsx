@@ -8,6 +8,23 @@ import { hasLocale, translations } from "../../i18n/translations";
 type PrivacyPageProps = {
   params: Promise<{ lang: string }>;
 };
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: PrivacyPageProps): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const t = translations[lang].privacyPage;
+  return {
+    title: `${t.title} | Clouisle`,
+    description: t.summary,
+    alternates: {
+      languages: {
+        en: "/en/privacy",
+        "zh-CN": "/zh/privacy",
+      },
+    },
+  };
+}
 
 export default async function PrivacyPage({ params }: PrivacyPageProps) {
   const { lang } = await params;

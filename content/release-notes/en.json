@@ -1,5 +1,5 @@
 {
-  "eyebrow": "Dia",
+  "eyebrow": "Clouisle",
   "wordmark": "Weekly",
   "tagline": "Unfiltered",
   "title": "Notes from the roadmap",
@@ -15,7 +15,7 @@
   "flippedLabel": "Postcard message",
   "greeting": "Hello from Brooklyn, NY",
   "message": [
-    "Lately I’ve been using Dia’s Linear integration to stay on top of everything the Tools team is shipping and what needs my attention.",
+    "Lately I’ve been using Clouisle’s Linear integration to stay on top of everything the Tools team is shipping and what needs my attention.",
     "My go-to prompt at the top of the week is: “Visualize a table summarizing the status, health, and progress of every project in Linear on the Tools team this week, sorted by risk, and flag any whose status doesn’t match their actual issue activity.”",
     "This brings to the forefront everything I need to check up on, and gives me a great overview of where the team is at."
   ],
@@ -57,7 +57,7 @@
       "greeting": "Hello from Portland, OR",
       "message": [
         "Finding the best fit for our team is the heart of what I do, and lately Clouisle's LinkedIn integration has become my right hand.",
-        "I can ask Clouisle to pull the best candidates connected to someone at our company. The right names surface instantly, so I can spend my time on people, not searching."
+        "I can ask Clouisle to surface candidates who share a connection with someone at our company and match what we're looking for. The right names appear instantly, so I can spend my time on people, not searching."
       ],
       "signature": "Jessi Sells",
       "heroImage": "/clouisle-assets/release-linkedin.png",

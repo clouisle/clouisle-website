@@ -7,8 +7,7 @@ export const zh: HomeTranslations = {
     docs: "文档",
   },
   mobile: {
-    download: "下载 Dia",
-    watchTrailer: "观看预告片",
+    download: "联系我们",
   },
   hero: {
     tagline: "想得到的，做得到的，都在这里。",
@@ -132,8 +131,8 @@ export const zh: HomeTranslations = {
     groups: [
       { title: "产品", links: ["发布说明", "Clouisle", "Cue", "Clouisle Sandbox"] },
       { title: "资源", links: ["帮助", "状态", "隐私", "使用条款", "安全"] },
-      { title: "组织", links: ["关于我们", "招聘", "通讯", "早期用户计划"] },
-      { title: "联系", links: ["X", "LinkedIn", "Instagram"] },
+      { title: "组织", links: ["关于我们", "早期用户计划"] },
+      { title: "联系", links: ["邮箱", "GitHub"] },
     ],
   },
   film: {

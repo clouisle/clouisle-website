@@ -7,7 +7,7 @@ export const en: AboutPageTranslations = {
     loadingLabel: "Loading Clouisle",
   },
   eyebrow: "ABOUT CLOUISLE / 2026",
-  title: "We're building better ways to work with knowledge, tools, and AI.",
+  title: "Committed to exploring how humans and AI work together.",
   intro:
     "Clouisle is an open-source AI workspace for turning knowledge, decisions, and repeatable work into progress.",
   location: "Built in the open",
@@ -18,18 +18,18 @@ export const en: AboutPageTranslations = {
   stamp: "CL / 01",
   corporate: {
     values: "Company values",
-    valuesContent: ["Use technology to make life simpler", "Make the world better"],
+    valuesContent: ["Technology", "Make life simpler", "Make the world better"],
     close: "Close",
     newsletter: "Newsletter",
     social: "@clouisle",
     heading: {
-      before: "We're building better ways to work with ",
-      linkOne: "Clouisle",
-      linkOneHref: "https://github.com/clouisle/Clouisle",
+      before: "Committed to exploring ",
+      linkOne: "human–AI collaboration",
+      linkOneHref: "",
       between: " and ",
-      linkTwo: "Cue",
-      linkTwoHref: "https://github.com/clouisle/Cue",
-      after: ".",
+      linkTwo: "research",
+      linkTwoHref: "",
+      after: "",
     },
     actions: [
       { label: "Clouisle", href: "https://github.com/clouisle/Clouisle" },
@@ -46,14 +46,14 @@ export const en: AboutPageTranslations = {
     },
   },
   manifesto: {
-    eyebrow: "A QUIETLY AMBITIOUS IDEA",
-    title: "Software should make the next step feel obvious.",
+    eyebrow: "A QUIET BUT DETERMINED IDEA",
+    title: "Software should make the next step clear.",
     body:
       "The best tools do more than answer a question. They hold the context, take care of the handoffs, and leave people with more attention for the part only they can do. We are building Clouisle for that feeling: less searching, less switching, more meaningful momentum.",
   },
   principles: {
     eyebrow: "HOW WE WORK",
-    title: "Small principles. Real consequences.",
+    title: "Small principles. Real change.",
     items: [
       {
         number: "01",

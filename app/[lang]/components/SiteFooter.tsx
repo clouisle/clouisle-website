@@ -18,8 +18,9 @@ function FooterLink({ lang, label }: { lang: Locale; label: string }) {
   if (isPrivacy) return <Link href={`/${lang}/privacy`}>{label}</Link>;
   if (isTerms) return <Link href={`/${lang}/terms`}>{label}</Link>;
   if (isAbout) return <Link href={`/${lang}/about`}>{label}</Link>;
-  if (isSecurity) return <Link href={`/${lang}/security`}>{label}</Link>;
   if (normalized === "help" || label === "帮助") return <Link href={`/${lang}/help`}>{label}</Link>;
+  if (normalized === "mail" || label === "邮箱") return <a href="mailto:yunhai@yhnotes.com">{label}</a>;
+  if (normalized === "github") return <a href="https://github.com/clouisle" target="_blank" rel="noopener noreferrer">{label}</a>;
   if (normalized === "status" || label === "状态") return <a href="https://status.yhnotes.com" target="_blank" rel="noopener noreferrer">{label}</a>;
   if (normalized === "clouisle") return <a href="https://github.com/clouisle/Clouisle" target="_blank" rel="noopener noreferrer">{label}</a>;
   if (normalized === "cue") return <a href="https://github.com/clouisle/Cue" target="_blank" rel="noopener noreferrer">{label}</a>;

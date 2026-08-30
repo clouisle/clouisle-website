@@ -7,9 +7,9 @@ import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dia | A browser you won't dread opening",
+  title: "Clouisle",
   description:
-    "A local learning recreation of the Dia Browser marketing experience.",
+    "Clouisle is an open-source AI workspace for turning knowledge, decisions, and repeatable work into progress.",
 };
 
 // Root layout: shared chrome for every route. The dynamic `[lang]` segment is

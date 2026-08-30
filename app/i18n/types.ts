@@ -8,7 +8,6 @@ export type HomeTranslations = {
   };
   mobile: {
     download: string;
-    watchTrailer: string;
   };
   hero: {
     tagline: string;
@@ -154,6 +153,7 @@ export type ReleaseNotesTranslations = {
 };
 
 export type HelpPageTranslations = {
+  title: string;
   description: string;
   chatPlaceholder: string;
 };

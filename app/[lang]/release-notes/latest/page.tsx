@@ -9,8 +9,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   return {
-    title: `${translations[lang].releaseNotes.eyebrow} | ${translations[lang].releaseNotes.title}`,
-    description: translations[lang].releaseNotes.title,
+    title: `${translations[lang].releaseNotes.title} | ${translations[lang].releaseNotes.eyebrow}`,
+    description: translations[lang].releaseNotes.issues[0]?.description,
   };
 }
 

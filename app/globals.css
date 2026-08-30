@@ -174,10 +174,10 @@ img { display: block; max-width: 100%; }
 .final-plan-features li svg { margin-top: 1px; color: var(--muted); }
 
 .footer { position: relative; z-index: 1; width: 100%; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 20px; margin: 0 auto; padding: 70px 10px 38px; }
-.footer-brand { grid-column: 11; grid-row: 1; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-start; text-align: right; }
+.footer-brand { grid-column: 7 / span 5; grid-row: 1; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-start; text-align: right; }
 .footer-brand .wordmark { width: 100%; display: inline-flex; align-items: center; justify-content: flex-end; color: #000; }
 .footer-brand .clouisle-mark { width: 80px; height: 80px; }
-.footer-groups { grid-column: 2 / span 9; grid-row: 1; display: grid; grid-template-columns: 1.08fr 1.45fr 1.2fr .7fr; gap: 22px; min-width: 0; }
+.footer-groups { grid-column: 2 / span 5; grid-row: 1; display: grid; grid-template-columns: 1.08fr 1.45fr 1.2fr .7fr; gap: 22px; min-width: 0; }
 .footer-groups h3 { margin: 0 0 19px; font-family: var(--font-mono); font-size: 13px; font-weight: 400; line-height: 17px; letter-spacing: .1em; text-transform: uppercase; }
 .footer-groups ul { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .footer-groups a { display: block; width: max-content; margin: 0; color: var(--muted); font-family: var(--font-mono); font-size: 13px; line-height: 16px; letter-spacing: 1px; text-transform: uppercase; }
@@ -316,9 +316,10 @@ img { display: block; max-width: 100%; }
   .mobile-menu-links a:hover { color: var(--ink); }
   .mobile-menu-actions { display: grid; gap: 10px; }
   .button { height: 50px; border-radius: 20px; font-size: 16px; }
-  .button-dark { color: #fff; background: #000; }
+  .button-dark { display: flex; align-items: center; justify-content: center; color: #fff; background: #000;   }
   .button-soft { display: flex; align-items: center; justify-content: center; gap: 13px; background: #ececec; }
   .button-soft .play-icon { border-top-width: 5px; border-bottom-width: 5px; border-left-width: 8px; }
+  .mobile-menu-actions .lang-toggle { width: 100%; height: 50px; border-radius: 20px; font-size: 16px; }
   .hero { min-height: 100svh; }
   .hero-scream { inset: auto 0 96px; width: 100%; height: 54%; object-fit: contain; object-position: center; }
   .hero-content { padding-top: 112px; }

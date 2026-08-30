@@ -12,8 +12,6 @@ type SiteHeaderProps = {
   menuOpen: boolean;
   onToggleMenu: () => void;
   onCloseMenu: () => void;
-  onDownload: () => void;
-  onWatchTrailer: () => void;
 };
 
 export default function SiteHeader({
@@ -25,8 +23,6 @@ export default function SiteHeader({
   menuOpen,
   onToggleMenu,
   onCloseMenu,
-  onDownload,
-  onWatchTrailer,
 }: SiteHeaderProps) {
   return (
     <header className="site-header">
@@ -70,11 +66,8 @@ export default function SiteHeader({
           <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
         </div>
         <div className="mobile-menu-actions">
-          <button className="button button-dark" type="button" onClick={onDownload}>{t.mobile.download}</button>
-          <button className="button button-soft with-play" type="button" onClick={onWatchTrailer}>
-            <span className="play-icon" aria-hidden="true" />
-            {t.mobile.watchTrailer}
-          </button>
+          <a className="button button-dark" href="https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnJTjTbFSYWXmokJjGA3dLUf" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.mobile.download}</a>
+          <Link className="lang-toggle" href={localeSwitchHref} onClick={onCloseMenu}>{t.language.switchTo}</Link>
         </div>
       </nav>
     </header>

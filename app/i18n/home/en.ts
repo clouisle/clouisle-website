@@ -7,32 +7,31 @@ export const en: HomeTranslations = {
     docs: "Docs",
   },
   mobile: {
-    download: "Download Dia",
-    watchTrailer: "Watch the trailer video",
+    download: "Contact us",
   },
   hero: {
-    tagline: "Your company's brain and hands, finally in one place.",
+    tagline: "Think it. Do it. All in one place.",
     download: "Try Demo",
     trialNote: "100% open source & free to use.",
     watchScream: "Watch the scream",
   },
   reads: {
-    title: "Know you. Know how.",
+    title: "Know what you know\nknow how to do it.",
     cases: [
       {
-        title: "Start with a sentence. Get to the next step.",
+        title: "Start with a sentence. Give the work a next step.",
         description:
-          "Give an agent your goal. It understands the context, figures out what needs to happen, and uses the right tools to move the work forward.",
+          "Hand your goal to an agent. It understands your context, works out what really needs to happen, and calls on the right tools to keep the work moving.",
       },
       {
-        title: "Stop handing off the work that repeats.",
+        title: "Repetitive work, without the repeated handoffs.",
         description:
-          "Connect agents, tools, and approvals into one clear flow, so work moves from trigger to completion with every step traceable.",
+          "Thread agents, tools, and approval steps into one clear flow, so tasks move automatically from trigger to completion, traceable at every step.",
       },
       {
         title: "Find the answer without digging through everything.",
         description:
-          "Ask across your documents, systems, and business knowledge to find the right context when you need it.",
+          "Ask your documents, systems, and business knowledge directly, and surface the right context when you need it — so every answer is built on the right context.",
       },
     ],
   },
@@ -40,83 +39,90 @@ export const en: HomeTranslations = {
     title: "Built for how you actually work",
     features: [
       {
-        label: "Decks",
+        label: "Agents",
         title:
-          "Ask Dia for a deck and your scattered context becomes real slides -- headers, layout, and flow you can present without a redesign.",
+          "Tell Clouisle what you need. It reads your question, finds the relevant knowledge, calls the tools it needs, and brings back the result — not just an answer, but the work moved forward.",
       },
       {
-        label: "Live Work",
+        label: "Knowledge base",
         title:
-          "Dia pulls together the places where work is actually happening (like GitHub and Notion) in your tab bar. Click once and land directly in the right PR, spec, or draft.",
+          "Hand Clouisle the content scattered across documents, spreadsheets, and manuals, and it becomes answers you can ask for and cite anytime — no more remembering which folder the material lives in.",
       },
       {
-        label: "Better Meetings",
+        label: "Workflows",
         title:
-          "Every call starts with the right meeting page, agenda, notes, and related docs open, with a gentle countdown so you're on time. All you have to do is show up.",
+          "Sketch a process you've gotten right once, and Clouisle runs it automatically when needed — on a schedule, the moment a request arrives, or step by step after each key milestone.",
       },
       {
-        label: "Profiles",
+        label: "Tool connections",
         title:
-          "Create clean lines between work, freelance, and personal life, with separate tabs, logins, and AI. Context switch between them in just a swipe.",
+          "Connect the systems you already use, and Clouisle goes from knowing what to do to actually doing it — pulling data, handling files, and calling APIs within the same piece of work.",
       },
       {
-        label: "Splits",
+        label: "Models",
         title:
-          "See a meeting on one side and a doc on the other without juggling windows. Dia remembers your layout, so your favorite setup for recurring 1:1s or focus time is one click away.",
+          "Choose the best model for each task, and Clouisle manages models, parameters, and permissions in one place — no need to rebuild your whole setup just to switch a model.",
       },
       {
-        label: "Organized Tabs",
+        label: "Team collaboration",
         title:
-          "Keep your workspace tidy by grouping related tabs with appropriate naming, so you see Design Review or Q2 Planning instead of a long strip of unnamed pages.",
+          "Share agents, knowledge, and workflows with the whole team while keeping everyone's boundaries — who can use what, who can change what, and what happened, all clearly traceable.",
       },
     ],
-    inDia: "in Dia",
+    inDia: "in Clouisle",
   },
   privacy: {
-    title: "Privacy first with you in control",
+    title: "Data stays in your domain. Decisions stay with you.",
     description1:
-      "You control whether Dia remembers your preferences and which tools connect to your workflow. Your data is never sold or used to build ad profiles -- and with Sync, it's end-to-end encrypted.",
+      "Deploy Clouisle on your own servers, private cloud, or Kubernetes cluster, and decide where data is stored, which models are used, which tools are connected, and who can access them. Agents, knowledge bases, and workflows run inside infrastructure you control; whether to connect external models or services is entirely your call.",
     description2:
-      "Dia for Work adds the guardrails that your team needs, like SSO and admin tools, so your team can stay secure.",
-    learnMore: "Learn more about privacy in Dia",
+      "Clouisle gives teams the guardrails they need, like SSO, RBAC, API key management, and audit logs, so AI runs within your organization's permissions, network boundaries, and compliance requirements.",
+    learnMore: "Learn how Clouisle protects your data",
     toggles: ["Block trackers", "Personalize new chats", "Memory", "Block ads", "Share content data"],
     on: "On",
     off: "Off",
   },
   finalCta: {
-    title: "Ready for a better day?",
+    title: "Ready to go from idea to outcome?",
     featuresTitle: "Core capabilities",
     plans: [
       {
-        name: "Free",
-        description: "Start with the core Clouisle experience and move from idea to outcome.",
-        action: "Start for free",
+        name: "Community",
+        description: "For open-source enthusiasts, independent developers, and non-commercial projects.",
+        action: "Get started",
+        href: "https://docs.clouisle.asia/self-host",
         features: [
-          "Agents, knowledge bases, and workflows",
-          "Connect the tools you already use",
-          "Build your first AI workflow",
+          "All core features released in the public repository",
+          "A single workspace",
+          "Under the Clouisle open-source license",
         ],
       },
       {
-        name: "Plus",
-        description: "More room for deeper, everyday work with Clouisle.",
+        name: "Support",
+        description: "For teams that need professional support without the full Enterprise feature set.",
         action: "Contact us",
-        href: "https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnhxtmPEGTgMylxK4byYIrbh",
+        href: "https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnJTjTbFSYWXmokJjGA3dLUf",
         features: [
-          "Agents, knowledge, and workflows in one place",
-          "Model and parameter management",
-          "Built for frequent, focused work",
+          "Deployment and onboarding guidance",
+          "Usage consultation and troubleshooting",
+          "Professional support for your current capabilities",
         ],
       },
       {
-        name: "Custom",
-        description: "A Clouisle setup shaped around your team, permissions, and infrastructure.",
+        name: "Enterprise",
+        description: "For enterprises that need advanced security, compliance, governance, and dedicated support.",
         action: "Contact us",
-        href: "https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnhxtmPEGTgMylxK4byYIrbh",
+        href: "https://kcn74mk3dg4m.feishu.cn/share/base/form/shrcnJTjTbFSYWXmokJjGA3dLUf",
         features: [
-          "Self-hosted deployment",
-          "SSO, RBAC, API keys, and audit logs",
-          "Configured around your team workflows",
+          "Enterprise-grade scalable deployment",
+          "Commercial license",
+          "Dedicated enterprise features",
+          "Multiple workspaces and administration",
+          "SSO",
+          "SLA negotiated to your needs",
+          "Advanced security and controls",
+          "Updates and maintenance provided by Clouisle",
+          "Dedicated technical support",
         ],
       },
     ],
@@ -125,8 +131,8 @@ export const en: HomeTranslations = {
     groups: [
       { title: "PRODUCT", links: ["RELEASE NOTES", "CLOUISLE", "CUE", "CLOUISLE SANDBOX"] },
       { title: "RESOURCES", links: ["HELP", "STATUS", "PRIVACY", "TERMS OF USE", "SECURITY"] },
-      { title: "COMPANY", links: ["ABOUT US", "CAREERS", "NEWSLETTER", "EARLY BIRDS PROGRAM"] },
-      { title: "CONNECT", links: ["X", "LINKEDIN", "INSTAGRAM"] },
+      { title: "COMPANY", links: ["ABOUT US", "EARLY BIRDS PROGRAM"] },
+      { title: "CONNECT", links: ["MAIL", "GITHUB"] },
     ],
   },
   film: {

@@ -1,7 +1,7 @@
 import type { SecurityPageTranslations } from "../types";
 
 export const en: SecurityPageTranslations = {
-  title: "Teams and Security",
+  title: "Security",
   sections: [
     {
       id: "team-boundaries",
