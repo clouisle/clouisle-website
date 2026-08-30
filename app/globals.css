@@ -1647,9 +1647,9 @@ img { display: block; max-width: 100%; }
   .about-loader-center { animation-duration: .01ms !important; }
 }
 
-/* Reference-style About screen: one light viewport, a moving mark, and a
-   restrained ambient canvas. The longer site chrome is intentionally absent
-   on this route so the composition reads as a single company landing screen. */
+/* Reference-style About screen: one light viewport and a moving mark. The
+   longer site chrome is intentionally absent on this route so the composition
+   reads as a single company landing screen. */
 .about-page {
   --about-logo-size: 84px;
   --about-logo-top: clamp(96px, 17.7svh, 150px);
@@ -1661,16 +1661,6 @@ img { display: block; max-width: 100%; }
   background: #eeeee7;
 }
 
-.about-ambient-canvas {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
-}
-
 .about-loader {
   position: fixed;
   z-index: 160;
@@ -1680,8 +1670,6 @@ img { display: block; max-width: 100%; }
   background: #eeeee7;
   isolation: isolate;
 }
-
-.about-loader .about-ambient-canvas { z-index: 0; }
 
 .about-loader-status {
   position: absolute;

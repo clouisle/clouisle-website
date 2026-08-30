@@ -12,10 +12,6 @@ type AboutExperienceProps = {
 
 type LoaderPhase = "loading" | "exit" | "done";
 
-type AmbientCanvasProps = {
-  copy: AboutPageTranslations["corporate"]["ambient"];
-};
-
 function CompanyEmblem() {
   const emblemRef = useRef<HTMLImageElement>(null);
   const spinAnimationRef = useRef<Animation | null>(null);
@@ -211,106 +207,6 @@ function LoaderLogo() {
   );
 }
 
-function AmbientCanvas({ copy }: AmbientCanvasProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvasNode = canvasRef.current;
-    if (!canvasNode) return;
-    const canvas: HTMLCanvasElement = canvasNode;
-    const contextNode = canvas.getContext("2d");
-    if (!contextNode) return;
-    const context: CanvasRenderingContext2D = contextNode;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let width = 0;
-    let height = 0;
-    let frame = 0;
-
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = rect.width;
-      height = rect.height;
-      canvas.width = Math.max(1, Math.round(width * dpr));
-      canvas.height = Math.max(1, Math.round(height * dpr));
-      context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function drawGlobe(x: number, y: number, w: number, h: number, color: string) {
-      context.save();
-      context.strokeStyle = color;
-      context.lineWidth = 1;
-      context.beginPath();
-      context.ellipse(x, y, w / 2, h / 2, 0, 0, Math.PI * 2);
-      context.stroke();
-      context.beginPath();
-      context.ellipse(x, y, w / 4, h / 2, 0, 0, Math.PI * 2);
-      context.ellipse(x, y, w / 2.9, h / 2, 0, 0, Math.PI * 2);
-      context.moveTo(x - w / 2, y);
-      context.lineTo(x + w / 2, y);
-      context.stroke();
-      context.restore();
-    }
-
-    function draw(now: number) {
-      const color = "rgba(27,27,27,.62)";
-      const muted = "rgba(27,27,27,.45)";
-      const drift = reducedMotion ? 0 : Math.sin(now / 1700) * 4;
-      const baseline = Math.max(24, height - 32);
-
-      context.clearRect(0, 0, width, height);
-      drawGlobe(width * 0.023 + drift, baseline, 32, 18, color);
-
-      context.save();
-      context.fillStyle = muted;
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.font = "11px Georgia, serif";
-      context.fillText(copy.monogramTop, width * 0.245, baseline - 5 + drift * 0.2);
-      context.fillText(copy.monogramBottom, width * 0.245, baseline + 7 + drift * 0.2);
-      context.restore();
-
-      context.save();
-      context.strokeStyle = color;
-      context.lineWidth = 1;
-      context.beginPath();
-      context.arc(width * 0.458, baseline, 9, 0, Math.PI * 2);
-      context.arc(width * 0.458, baseline, 5, 0, Math.PI * 2);
-      context.moveTo(width * 0.458 - 9, baseline);
-      context.lineTo(width * 0.458 + 9, baseline);
-      context.stroke();
-      context.restore();
-
-      context.save();
-      context.fillStyle = muted;
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.font = "7px 'IBM Plex Mono', monospace";
-      context.fillText(copy.captionTop, width * 0.68, baseline - 4);
-      context.fillText(copy.captionBottom, width * 0.68, baseline + 6);
-      context.restore();
-
-      context.save();
-      context.fillStyle = color;
-      context.fillRect(width - 74, baseline - 6, 3, 12);
-      context.restore();
-
-      if (!reducedMotion) frame = window.requestAnimationFrame(draw);
-    }
-
-    resize();
-    draw(0);
-    window.addEventListener("resize", resize);
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener("resize", resize);
-    };
-  }, [copy]);
-
-  return <canvas ref={canvasRef} className="about-ambient-canvas" aria-hidden="true" />;
-}
-
 export default function AboutExperience({ lang, t }: AboutExperienceProps) {
   const [phase, setPhase] = useState<LoaderPhase>("loading");
   const [valuesOpen, setValuesOpen] = useState(false);
@@ -380,7 +276,6 @@ export default function AboutExperience({ lang, t }: AboutExperienceProps) {
     <div className="about-page" data-loader-phase={phase}>
       {phase !== "done" && (
         <div className={`about-loader about-loader-${phase}`} role="status" aria-live="polite">
-          <AmbientCanvas copy={t.corporate.ambient} />
           <button
             className="about-loader-skip"
             type="button"
