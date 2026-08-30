@@ -400,8 +400,6 @@ export default function AboutExperience({ lang, t }: AboutExperienceProps) {
         className="about-corporate"
         aria-labelledby="about-corporate-title"
       >
-        <AmbientCanvas copy={t.corporate.ambient} />
-
         <div className="about-corporate-inner">
           <header className="about-corporate-header">
             <Link className="about-corporate-logo-link" href={`/${lang}`} aria-label={t.corporate.logoLabel}>
