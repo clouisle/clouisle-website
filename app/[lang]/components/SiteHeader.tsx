@@ -17,6 +17,7 @@ type SiteHeaderProps = {
 };
 
 const githubRepoHref = "https://github.com/clouisle/Clouisle";
+const appVersion = "V0.3.0";
 
 export default function SiteHeader({
   t,
@@ -41,7 +42,9 @@ export default function SiteHeader({
           <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
           <a className="github-nav-link" href={githubRepoHref} target="_blank" rel="noopener noreferrer" aria-label="GitHub" onClick={onCloseMenu}>
             <GitHubIcon />
+            <span className="github-nav-version">{appVersion}</span>
           </a>
+
         </nav>
 
         <Link
@@ -73,6 +76,7 @@ export default function SiteHeader({
           <a href="https://docs.clouisle.asia" target="_blank" rel="noopener noreferrer" onClick={onCloseMenu}>{t.nav.docs}</a>
           <a className="github-nav-link" href={githubRepoHref} target="_blank" rel="noopener noreferrer" aria-label="GitHub" onClick={onCloseMenu}>
             <GitHubIcon />
+            <span className="github-nav-version">{appVersion}</span>
           </a>
         </div>
         <div className="mobile-menu-actions">
