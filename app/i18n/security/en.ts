@@ -74,7 +74,7 @@ Visibility turns security into a shared practice. When change can be understood,
   faqs: [
     {
       question: "How does Clouisle separate resources between teams?",
-      answer: "Clouisle uses the team as the resource boundary. Agents, Workflows, Knowledge Bases, model authorizations, tools, and Skills are created in a team context, and the active team determines which resources the workspace can query or create.",
+      answer: "Clouisle uses the team as the resource boundary. Agents, Workflows, Knowledge Bases, model authorizations, tools, and Skills are created in a team context, and the active team determines which resources you can query or create.",
     },
     {
       question: "Who can see conversations and team data?",

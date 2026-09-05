@@ -82,101 +82,51 @@ export const en: HomeTranslations = {
     on: "On",
     off: "Off",
   },
-  workflowLoop: {
-    eyebrow: "The Complete Closed Loop",
-    title: "From information to action, entirely within your boundaries.",
-    description:
-      "Once data is protected within your perimeter, Clouisle connects perception, decision-making, and execution into an unbroken, auditable working loop.",
-    steps: [
-      {
-        step: "01",
-        title: "Ingest",
-        subtitle: "Unify fragmented knowledge",
-        description:
-          "Bring documents, spreadsheets, manuals, and internal system data into a secure workspace without leaking context to third parties.",
-        tag: "Knowledge Base",
-      },
-      {
-        step: "02",
-        title: "Understand",
-        subtitle: "Index with semantic precision",
-        description:
-          "Embed and index information in your local vector database so agents can retrieve verbatim citations and verifiable source grounding.",
-        tag: "Hybrid Search",
-      },
-      {
-        step: "03",
-        title: "Reason",
-        subtitle: "Choose the right models",
-        description:
-          "Route tasks dynamically across self-hosted open-source weights or authorized external endpoints, keeping model permissions unified.",
-        tag: "Model Governance",
-      },
-      {
-        step: "04",
-        title: "Execute",
-        subtitle: "Autonomous agent execution",
-        description:
-          "Autonomous agents break goals into actionable steps, invoke authorized tools, and drive progress forward rather than stopping at conversational advice.",
-        tag: "AI Agents",
-      },
-      {
-        step: "05",
-        title: "Connect",
-        subtitle: "Bridge live enterprise systems",
-        description:
-          "Integrate internal REST APIs, databases, Slack, Git, and custom webhooks so AI interactions turn directly into production business actions.",
-        tag: "Tool Connections",
-      },
-      {
-        step: "06",
-        title: "Collaborate",
-        subtitle: "Keep human judgment in the loop",
-        description:
-          "Enforce granular approval checkpoints and role-based permissions (RBAC) before high-impact changes are applied to production systems.",
-        tag: "Human-in-the-Loop",
-      },
-      {
-        step: "07",
-        title: "Audit",
-        subtitle: "End-to-end traceability",
-        description:
-          "Every prompt, retrieved chunk, model inference, tool execution, and approval decision is immutably logged for governance and auditability.",
-        tag: "Audit Logs",
-      },
-    ],
-    closing: "Clouisle keeps the full operational loop visible, controllable, and completely yours.",
-  },
   faq: {
     eyebrow: "Frequently Asked Questions",
     title: "Everything you need to know about Clouisle",
     description:
-      "Clear answers regarding deployment models, data privacy, architecture, and team governance.",
+      "From product scope and deployment architecture to models, knowledge, collaboration, and commercial support, see how Clouisle fits different teams.",
     items: [
       {
-        question: "How does Clouisle ensure that data never leaves our domain?",
+        question: "What is Clouisle, and what problems does it solve?",
         answer:
-          "Clouisle is fully self-hosted. You deploy it directly on your own hardware, virtual machines, or Kubernetes clusters. Vector databases, file storage, metadata, and task execution run inside your network perimeter. No telemetry or query data is sent to external servers unless you explicitly configure an external model endpoint.",
+          "Clouisle is an open-source AI platform for teams that brings agents, knowledge bases, models, tool connections, and workflows together. It is for individual developers, growing teams, and enterprises that want to put AI into real business work, reduce repetitive operations, and keep control of their data and deployment boundaries.",
       },
       {
-        question: "Can Clouisle run completely air-gapped without internet access?",
+        question: "How can Clouisle be deployed, and does it scale natively across nodes?",
         answer:
-          "Yes. When paired with self-hosted LLMs (via Ollama, vLLM, or local OpenAI-compatible runtimes) and local embedding models, Clouisle runs entirely offline in air-gapped or private cloud environments with zero external network dependencies.",
+          "Clouisle can run on your own servers, in a local data center, private cloud, or Kubernetes cluster, and can expand compute and execution capacity across multi-node environments as traffic, task volume, and model-service load grow. High availability, node count, storage, and GPU planning should be evaluated against your existing infrastructure and business scale.",
       },
       {
-        question: "Which model providers and architectures are supported?",
+        question: "Can sensitive data stay entirely inside a private or air-gapped network?",
         answer:
-          "Clouisle supports all standard model interfaces: local open-source models (Llama 3, DeepSeek, Qwen, Mistral) via Ollama/vLLM, private cloud endpoints, and commercial APIs (OpenAI, Anthropic, Gemini, Azure OpenAI). You can assign different models and token quotas to specific teams and workflows.",
+          "Yes. With local models, embedding models, and a local vector database, Clouisle can run without a public internet connection in private or air-gapped environments. Requests leave your network boundary only when you explicitly configure an external model or API.",
       },
       {
-        question: "What enterprise security and access controls are included?",
+        question: "Which models, gateways, and runtimes are supported?",
         answer:
-          "Clouisle provides enterprise-grade Single Sign-On (OIDC/SAML/OAuth2), Role-Based Access Control (RBAC) with granular workspace permissions, API key rotation, encrypted secret storage, and complete audit logging for every agent action and database query.",
+          "Clouisle supports local open-source models and services that expose standard interfaces, including DeepSeek, Qwen, Llama, and Mistral through Ollama, vLLM, or other OpenAI-compatible gateways. It can also connect to commercial APIs such as OpenAI, Anthropic, Gemini, and Azure OpenAI. Models and token quotas can be assigned by team, agent, and workflow.",
       },
       {
-        question: "Is Clouisle really 100% open source and free for commercial use?",
+        question: "What can the knowledge base handle, and are answers traceable?",
         answer:
-          "Yes. The core platform is released under the GNU General Public License v3.0 (GPL-3.0). You can deploy, customize, and operate Clouisle internally within your company without licensing fees.",
+          "Bring documents, spreadsheets, manuals, meeting records, and internal system material into the knowledge base. Vector and full-text search provide citable, traceable context for answers. Supported formats and synchronization methods can be configured around your existing sources and deployment plan.",
+      },
+      {
+        question: "How do agents, workflows, and existing business systems work together?",
+        answer:
+          "Agents understand goals, plan steps, retrieve knowledge, and call tools; workflows turn defined processes into repeatable steps. Clouisle can also connect to internal REST APIs, databases, code repositories, files, and business systems, and join existing automation through Webhooks.",
+      },
+      {
+        question: "How are team permissions managed, and can individual work coexist with collaboration?",
+        answer:
+          "Yes. Clouisle uses the team as the single resource boundary, with member roles, RBAC, SSO, API keys, secret management, and audit logs. Personal conversations, knowledge, and drafts stay in an individual scope by default and can be shared with a team when ready; agents and workflows can use dedicated automation identities.",
+      },
+      {
+        question: "Can the open-source edition be used commercially, and what support is available without a dedicated AI or DevOps team?",
+        answer:
+          "The Clouisle core platform is released under GPL-3.0. Teams may download, deploy, customize, and use it internally in commercial environments while complying with the license. You can start with the Community edition, choose Support for deployment and onboarding guidance plus troubleshooting, or contact Clouisle to evaluate an Enterprise plan for higher security, compliance, scale, or SLA requirements.",
       },
     ],
   },
@@ -193,7 +143,7 @@ export const en: HomeTranslations = {
         secondaryHref: "https://github.com/clouisle/Clouisle",
         features: [
           "All core features released in the public repository",
-          "A single workspace",
+          "A single team",
           "Under the Clouisle open-source license",
         ],
       },
@@ -217,7 +167,7 @@ export const en: HomeTranslations = {
           "Enterprise-grade scalable deployment",
           "Commercial license",
           "Dedicated enterprise features",
-          "Multiple workspaces and administration",
+          "Multiple teams and administration",
           "SSO",
           "SLA negotiated to your needs",
           "Advanced security and controls",

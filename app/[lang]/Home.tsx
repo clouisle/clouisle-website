@@ -8,7 +8,6 @@ import UseCasesSection from "./components/UseCasesSection";
 import FeaturesSection from "./components/FeaturesSection";
 import PrivacySection from "./components/PrivacySection";
 import PlansSection from "./components/PlansSection";
-import WorkflowLoopSection from "./components/WorkflowLoopSection";
 import FaqSection from "./components/FaqSection";
 
 export default function Home({ lang }: { lang: Locale }) {
@@ -22,7 +21,6 @@ export default function Home({ lang }: { lang: Locale }) {
       <UseCasesSection t={t} />
       <FeaturesSection t={t} />
       <PrivacySection t={t} />
-      <WorkflowLoopSection t={t} />
       <PlansSection t={t} />
       <FaqSection t={t} />
       {productVideoOpen ? <ProductVideoModal t={t} onClose={() => setProductVideoOpen(false)} /> : null}

@@ -6,7 +6,7 @@ export { generateStaticParams } from "../generateStaticParams";
 
 import { hasLocale, translations } from "../../i18n/translations";
 import SecurityToc from "./SecurityToc";
-import SecurityFaq from "./SecurityFaq";
+import FaqAccordion from "../components/FaqAccordion";
 import { assetUrl, pageSeoMetadata, localizedPageMetadata } from "../../seo";
 type SecurityPageProps = {
   params: Promise<{ lang: string }>;
@@ -47,8 +47,8 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
           ))}
           <section className="security-faq" id="security-faq">
             <h2>{t.faqTitle}</h2>
-            <div className="security-faq-list">
-              <SecurityFaq faqs={t.faqs} />
+            <div className="faq-accordion-list">
+              <FaqAccordion faqs={t.faqs} />
             </div>
           </section>
 

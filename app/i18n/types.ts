@@ -39,19 +39,6 @@ export type HomeTranslations = {
     on: string;
     off: string;
   };
-  workflowLoop: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    steps: {
-      step: string;
-      title: string;
-      subtitle: string;
-      description: string;
-      tag: string;
-    }[];
-    closing: string;
-  };
   faq: {
     eyebrow: string;
     title: string;

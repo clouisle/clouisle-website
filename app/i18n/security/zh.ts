@@ -73,7 +73,7 @@ export const zh: SecurityPageTranslations = {
   faqs: [
     {
       question: "Clouisle 如何隔离不同团队的资源？",
-      answer: "Clouisle 以团队作为资源边界。Agent、工作流、知识库、模型授权、工具和 Skills 都在团队上下文中创建与使用，工作台依据当前团队决定可以查询和创建哪些资源。",
+      answer: "Clouisle 以团队作为资源边界。Agent、工作流、知识库、模型授权、工具和 Skills 都在团队上下文中创建与使用，系统依据当前团队决定可以查询和创建哪些资源。",
     },
     {
       question: "普通成员能看到哪些会话和数据？",
