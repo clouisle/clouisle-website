@@ -23,5 +23,11 @@ export default async function AboutPage({ params }: AboutPageProps) {
   if (!hasLocale(rawLang)) notFound();
 
   const lang: Locale = rawLang;
-  return <AboutExperience lang={lang} t={translations[lang].aboutPage} />;
+  return (
+    <AboutExperience
+      lang={lang}
+      t={translations[lang].aboutPage}
+      localeSwitchLabel={translations[lang].language.switchTo}
+    />
+  );
 }

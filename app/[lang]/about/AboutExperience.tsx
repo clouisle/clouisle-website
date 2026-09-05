@@ -9,6 +9,7 @@ import { assetUrl } from "../../seo";
 type AboutExperienceProps = {
   lang: Locale;
   t: AboutPageTranslations;
+  localeSwitchLabel: string;
 };
 
 type LoaderPhase = "loading" | "exit" | "done";
@@ -97,7 +98,7 @@ function CompanyEmblem() {
         alt=""
         aria-hidden="true"
         width={100}
-        unoptimized
+        height={100}
       />
     </span>
   );
@@ -208,12 +209,60 @@ function LoaderLogo() {
   );
 }
 
-export default function AboutExperience({ lang, t }: AboutExperienceProps) {
+export default function AboutExperience({ lang, t, localeSwitchLabel }: AboutExperienceProps) {
   const [phase, setPhase] = useState<LoaderPhase>("loading");
   const [valuesOpen, setValuesOpen] = useState(false);
   const [valuesClosing, setValuesClosing] = useState(false);
   const valuesTriggerRef = useRef<HTMLButtonElement>(null);
   const valuesCloseRef = useRef<HTMLButtonElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const titleTextRef = useRef<HTMLSpanElement>(null);
+  type UnderlineLine = { left: number; top: number; width: number; duration: number; delay: number; reverseDelay: number };
+  const [underlineLines, setUnderlineLines] = useState<UnderlineLine[]>([]);
+
+  useEffect(() => {
+    function updateLines() {
+      const heading = headingRef.current;
+      const text = titleTextRef.current;
+      if (!heading || !text) return;
+      const headingRect = heading.getBoundingClientRect();
+      const clientRects = Array.from(text.getClientRects());
+      if (!clientRects.length) return;
+
+      const totalWidth = clientRects.reduce((sum, r) => sum + r.width, 0) || 1;
+      const totalDuration = 0.58;
+      const durations = clientRects.map((r) =>
+        Math.max(0.16, totalDuration * (r.width / totalWidth)),
+      );
+
+      let accumDelay = 0;
+      const lines: UnderlineLine[] = clientRects.map((r, i) => {
+        const duration = durations[i];
+        const delay = accumDelay;
+        accumDelay += duration;
+
+        let reverseDelay = 0;
+        for (let j = i + 1; j < clientRects.length; j++) {
+          reverseDelay += durations[j];
+        }
+
+        return {
+          left: r.left - headingRect.left,
+          top: r.bottom - headingRect.top,
+          width: r.width,
+          duration,
+          delay,
+          reverseDelay,
+        };
+      });
+
+      setUnderlineLines(lines);
+    }
+
+    updateLines();
+    window.addEventListener("resize", updateLines);
+    return () => window.removeEventListener("resize", updateLines);
+  }, [lang, phase]);
 
   useEffect(() => {
     if (phase === "done" && !valuesOpen) return;
@@ -296,6 +345,13 @@ export default function AboutExperience({ lang, t }: AboutExperienceProps) {
         className="about-corporate"
         aria-labelledby="about-corporate-title"
       >
+        <Link
+          className="lang-toggle about-language-toggle"
+          href={`/${lang === "en" ? "zh" : "en"}/about`}
+          aria-label="Switch language"
+        >
+          {localeSwitchLabel}
+        </Link>
         <div className="about-corporate-inner">
           <header className="about-corporate-header">
             <Link className="about-corporate-logo-link" href={`/${lang}`} aria-label={t.corporate.logoLabel}>
@@ -306,24 +362,42 @@ export default function AboutExperience({ lang, t }: AboutExperienceProps) {
           </header>
 
           <div className="about-corporate-main">
-            <h1 id="about-corporate-title">
-              {t.corporate.heading.before}
-              {t.corporate.heading.linkOneHref ? (
-                <a href={t.corporate.heading.linkOneHref} target="_blank" rel="noopener noreferrer">
-                  {t.corporate.heading.linkOne}
-                </a>
-              ) : (
-                t.corporate.heading.linkOne
-              )}
-              {t.corporate.heading.between}
-              {t.corporate.heading.linkTwoHref ? (
-                <a href={t.corporate.heading.linkTwoHref} target="_blank" rel="noopener noreferrer">
-                  {t.corporate.heading.linkTwo}
-                </a>
-              ) : (
-                t.corporate.heading.linkTwo
-              )}
-              {t.corporate.heading.after}
+            <h1 id="about-corporate-title" ref={headingRef}>
+              <span ref={titleTextRef} className="about-corporate-title-text">
+                {t.corporate.heading.before}
+                {t.corporate.heading.linkOneHref ? (
+                  <a href={t.corporate.heading.linkOneHref} target="_blank" rel="noopener noreferrer">
+                    {t.corporate.heading.linkOne}
+                  </a>
+                ) : (
+                  t.corporate.heading.linkOne
+                )}
+                {t.corporate.heading.between}
+                {t.corporate.heading.linkTwoHref ? (
+                  <a href={t.corporate.heading.linkTwoHref} target="_blank" rel="noopener noreferrer">
+                    {t.corporate.heading.linkTwo}
+                  </a>
+                ) : (
+                  t.corporate.heading.linkTwo
+                )}
+                {t.corporate.heading.after}
+              </span>
+              <span className="about-corporate-underline-container" aria-hidden="true">
+                {underlineLines.map((line, idx) => (
+                  <span
+                    key={idx}
+                    className="about-corporate-underline-line"
+                    style={{
+                      left: `${line.left}px`,
+                      top: `${line.top}px`,
+                      width: `${line.width}px`,
+                      "--line-duration": `${line.duration}s`,
+                      "--line-delay": `${line.delay}s`,
+                      "--reverse-line-delay": `${line.reverseDelay}s`,
+                    } as React.CSSProperties}
+                  />
+                ))}
+              </span>
             </h1>
 
             <ul className="about-corporate-actions">
