@@ -36,13 +36,13 @@ export function proxy(request: NextRequest) {
   if (pathname === "/") {
     const url = request.nextUrl.clone();
     url.pathname = `/${DEFAULT_LOCALE}`;
-    return NextResponse.rewrite(url);
+    return NextResponse.redirect(url, 308);
   }
 
   const locale = detectLocale(request);
   const url = request.nextUrl.clone();
   url.pathname = `/${locale}${pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {

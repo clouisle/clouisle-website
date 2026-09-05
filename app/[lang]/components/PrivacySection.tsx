@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import type { Translations } from "../../i18n/translations";
+import { assetUrl } from "../../seo";
 
 export default function PrivacySection({ t }: { t: Translations }) {
   return (
@@ -49,9 +51,10 @@ export default function PrivacySection({ t }: { t: Translations }) {
         <p>{t.privacy.description1}</p>
         <p>{t.privacy.description2}</p>
         <a className="privacy-link" href="#top">{t.privacy.learnMore} <span aria-hidden="true">&rarr;</span></a>
-        <img
+        <Image
           className="privacy-footer-mark"
-          src="/clouisle-assets/clouisle-light.svg"
+          src={assetUrl("clouisle-light.svg")}
+          unoptimized
           alt=""
           aria-hidden="true"
           width={80}

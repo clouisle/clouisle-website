@@ -1,15 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Translations } from "../../i18n/translations";
+import { assetUrl } from "../../seo";
 
-const caseImages = [
-  "/clouisle-assets/reads-1.png",
-  "/clouisle-assets/reads-2.png",
-  "/clouisle-assets/reads-3.png",
+const useCaseImages = [
+  assetUrl("case-agents.png"),
+  assetUrl("case-workflows.png"),
+  assetUrl("case-knowledge.png"),
 ];
 
-export default function ReadsSection({ t }: { t: Translations }) {
+export default function UseCasesSection({ t }: { t: Translations }) {
   const [activeCase, setActiveCase] = useState(0);
   const caseProjectRefs = useRef<Array<HTMLElement | null>>([]);
   const pendingCaseRef = useRef<number | null>(null);
@@ -81,14 +83,14 @@ export default function ReadsSection({ t }: { t: Translations }) {
   }
 
   return (
-    <section className="reads-section" id="reports">
+    <section className="use-cases-section" id="reports">
       <div className="section-intro">
-        <h2>{t.reads.title}</h2>
+        <h2>{t.useCases.title}</h2>
       </div>
       <div className="read-tabs-shell">
         <div className="case-picker">
-          <nav className="case-picker-sticky" aria-label="Dia use cases">
-            {t.reads.cases.map((item, index) => (
+          <nav className="case-picker-sticky" aria-label="Clouisle use cases">
+            {t.useCases.cases.map((item, index) => (
               <button
                 className={`case-picker-button ${activeCase === index ? "is-active" : ""}`}
                 key={index + 1}
@@ -109,7 +111,7 @@ export default function ReadsSection({ t }: { t: Translations }) {
         </div>
 
         <div className="case-project-list">
-          {t.reads.cases.map((_, index) => (
+          {t.useCases.cases.map((_, index) => (
             <article
               className="case-project"
               data-case-index={index}
@@ -119,7 +121,7 @@ export default function ReadsSection({ t }: { t: Translations }) {
               }}
             >
               <div className="case-project-frame">
-                <img src={caseImages[index]} alt={t.alt.diaInterface} />
+                <Image src={useCaseImages[index]} alt={`${t.useCases.cases[index].title} — Clouisle`} width={1217} height={808} loading="lazy" unoptimized sizes="(min-width: 851px) 66vw, 100vw" />
               </div>
             </article>
           ))}
@@ -127,9 +129,9 @@ export default function ReadsSection({ t }: { t: Translations }) {
       </div>
 
       <div className="mobile-case-list">
-        {t.reads.cases.map((item, index) => (
+        {t.useCases.cases.map((item, index) => (
           <article className="mobile-case" key={index + 1}>
-            <img src={caseImages[index]} alt={t.alt.diaInterface} />
+            <Image src={useCaseImages[index]} alt={`${item.title} — Clouisle`} width={1217} height={808} loading="lazy" unoptimized sizes="100vw" />
             <span>{String(index + 1).padStart(2, "0")}</span>
             <h3>{item.title}</h3>
             <p>{item.description}</p>

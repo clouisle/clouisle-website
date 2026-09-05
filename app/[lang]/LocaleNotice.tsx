@@ -25,7 +25,9 @@ export default function LocaleNotice({ lang, t }: { lang: Locale; t: Translation
     const suggested = detectBrowserLocale();
     if (!suggested || suggested === lang) return;
     if (window.localStorage.getItem(DISMISS_KEY)) return;
-    setVisible(true);
+
+    const timer = window.setTimeout(() => setVisible(true), 0);
+    return () => window.clearTimeout(timer);
   }, [lang]);
 
   function dismiss() {

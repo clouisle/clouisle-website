@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { AboutPageTranslations, Locale } from "../../i18n/types";
+import { assetUrl } from "../../seo";
 
 type AboutExperienceProps = {
   lang: Locale;
@@ -92,11 +93,11 @@ function CompanyEmblem() {
       <Image
         ref={emblemRef}
         className="about-company-emblem-svg"
-        src="/clouisle-assets/clouisle-mark.svg"
+        src={assetUrl("clouisle-mark.svg")}
         alt=""
         aria-hidden="true"
         width={100}
-        height={100}
+        unoptimized
       />
     </span>
   );

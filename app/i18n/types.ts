@@ -13,22 +13,22 @@ export type HomeTranslations = {
     tagline: string;
     download: string;
     trialNote: string;
-    watchScream: string;
+    watchVideo: string;
   };
-  reads: {
+  useCases: {
     title: string;
     cases: {
       title: string;
       description: string;
     }[];
   };
-  work: {
+  features: {
     title: string;
-    features: {
+    items: {
       label: string;
       title: string;
     }[];
-    inDia: string;
+    inClouisle: string;
   };
   privacy: {
     title: string;
@@ -39,14 +39,38 @@ export type HomeTranslations = {
     on: string;
     off: string;
   };
-  finalCta: {
+  workflowLoop: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    steps: {
+      step: string;
+      title: string;
+      subtitle: string;
+      description: string;
+      tag: string;
+    }[];
+    closing: string;
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: {
+      question: string;
+      answer: string;
+    }[];
+  };
+  plans: {
     title: string;
     featuresTitle: string;
-    plans: {
+    items: {
       name: string;
       description: string;
       action: string;
       href?: string;
+      secondaryAction?: string;
+      secondaryHref?: string;
       features: string[];
     }[];
   };
@@ -56,14 +80,10 @@ export type HomeTranslations = {
       links: string[];
     }[];
   };
-  film: {
+  productVideo: {
     close: string;
     label: string;
-    screamLabel: string;
-  };
-  downloadNotice: {
-    text: string;
-    dismiss: string;
+    videoLabel: string;
   };
   notice: {
     message: string;
@@ -71,8 +91,7 @@ export type HomeTranslations = {
     close: string;
   };
   alt: {
-    diaInterface: string;
-    featureInDia: string;
+    clouisleInterface: string;
   };
   language: {
     switchTo: string;
@@ -81,6 +100,7 @@ export type HomeTranslations = {
 
 export type SecurityPageTranslations = {
   title: string;
+  description: string;
   sections: {
     id: string;
     title: string;

@@ -1,9 +1,11 @@
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 export { generateStaticParams } from "../generateStaticParams";
 
 import { hasLocale, translations } from "../../i18n/translations";
+import { assetUrl, pageSeoMetadata, localizedPageMetadata } from "../../seo";
 
 type TermsPageProps = {
   params: Promise<{ lang: string }>;
@@ -13,17 +15,8 @@ import type { Metadata } from "next";
 export async function generateMetadata({ params }: TermsPageProps): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const t = translations[lang].termsPage;
-  return {
-    title: `${t.title} | Clouisle`,
-    description: t.summary,
-    alternates: {
-      languages: {
-        en: "/en/terms",
-        "zh-CN": "/zh/terms",
-      },
-    },
-  };
+  const seo = pageSeoMetadata[lang].terms;
+  return localizedPageMetadata(lang, seo.title, seo.description, "/terms", seo.keywords);
 }
 
 export default async function TermsPage({ params }: TermsPageProps) {
@@ -40,7 +33,7 @@ export default async function TermsPage({ params }: TermsPageProps) {
     <div className="terms-page" data-locale={lang}>
       <header className="terms-header">
         <Link className="terms-brand" href={`/${lang}`} aria-label="Clouisle">
-          <img className="terms-brand-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" aria-hidden="true" />
+          <Image className="terms-brand-mark" src={assetUrl("clouisle-mark.svg")} alt="" aria-hidden="true" width={30} height={30} unoptimized />
           <span className="terms-brand-name">Clouisle</span>
         </Link>
         <h1>{t.title}</h1>

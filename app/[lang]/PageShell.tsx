@@ -52,7 +52,7 @@ export default function PageShell({
   }, [menuOpen]);
 
   return (
-    <main>
+    <main className="page-shell">
       {!isAboutPage && (
         <SiteHeader
           t={t}

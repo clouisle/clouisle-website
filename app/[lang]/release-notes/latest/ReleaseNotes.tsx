@@ -1,8 +1,10 @@
 "use client";
+import Image from "next/image";
 
 import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import Link from "next/link";
-import type { Locale, ReleaseIssue, Translations } from "../../../i18n/translations";
+import type { Locale, Translations } from "../../../i18n/translations";
+import { assetUrl } from "../../../seo";
 import ReleaseBackground from "./ReleaseBackground";
 
 type ReleaseNotesProps = {
@@ -23,12 +25,10 @@ const restingTilt: Tilt = { x: 0, y: 0, sheenX: 0, sheenY: 0, sheenOpacity: 0 };
 export default function ReleaseNotes({ lang, t }: ReleaseNotesProps) {
   const [flipped, setFlipped] = useState(false);
   const [tilt, setTilt] = useState(restingTilt);
-  const [showAllIssues, setShowAllIssues] = useState(false);
-  const [archiveIssues, setArchiveIssues] = useState<ReleaseIssue[]>([]);
-  const [isLoadingIssues, setIsLoadingIssues] = useState(false);
   const sceneRef = useRef<HTMLDivElement>(null);
   const currentFlipRef = useRef(false);
   const manualFlipRef = useRef(false);
+
 
   useEffect(() => {
     if (!sceneRef.current) return;
@@ -81,25 +81,10 @@ export default function ReleaseNotes({ lang, t }: ReleaseNotesProps) {
     "--postcard-sheen-opacity": tilt.sheenOpacity,
   } as CSSProperties;
 
-  const visibleIssues = showAllIssues ? [...t.issues, ...archiveIssues] : t.issues.slice(0, 3);
-
-  async function loadAllIssues() {
-    setIsLoadingIssues(true);
-    try {
-      const response = await fetch("/api/release-notes");
-      if (!response.ok) throw new Error("Could not load release notes");
-      const { releaseNotes } = await response.json() as { releaseNotes: ReleaseIssue[] };
-      setArchiveIssues(releaseNotes);
-      setShowAllIssues(true);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoadingIssues(false);
-    }
-  }
+  const visibleIssues = t.issues;
 
   return (
-    <main className="release-page">
+    <div className="release-page">
       <ReleaseBackground
         gradient={t.gradient}
         mode={t.experimentalMode ?? "transition"}
@@ -115,23 +100,23 @@ export default function ReleaseNotes({ lang, t }: ReleaseNotesProps) {
             onPointerMove={handlePointerMove}
             onPointerLeave={() => setTilt(restingTilt)}
           >
-            <img className="postcard-blank" src="/clouisle-assets/release-postcard/card-blank.png" alt="" aria-hidden="true" />
+            <Image className="postcard-blank" src={assetUrl("release-postcard/card-blank.png")} alt="" aria-hidden="true" width={1600} height={1920} unoptimized />
             <div className={`postcard-card ${flipped ? "is-flipped" : ""}`} data-flipped={flipped}>
               <div className="postcard-inner">
                 <div className="postcard-blank-layer" aria-hidden="true">
-                  <img src="/clouisle-assets/release-postcard/card-blank.png" alt="" draggable="false" />
+                  <Image src={assetUrl("release-postcard/card-blank.png")} alt="" draggable="false" width={1600} height={1920} unoptimized />
                 </div>
                 <div className="postcard-face postcard-front" aria-hidden={flipped}>
-                  <img src={t.heroImage} alt="" draggable="false" />
+                  <Image src={t.heroImage} alt={t.title} draggable="false" fill unoptimized sizes="(min-width: 600px) 86vw, 100vw" />
                   <span className="postcard-sheen" aria-hidden="true" />
                 </div>
                 <div className="postcard-paperclip-layer" aria-hidden="true">
-                  <img src="/clouisle-assets/release-postcard/paperclip.png" alt="" draggable="false" />
+                  <Image src={assetUrl("release-postcard/paperclip.png")} alt="" draggable="false" width={1600} height={1920} unoptimized />
                 </div>
                 <div className="postcard-face postcard-back" aria-hidden={!flipped}>
-                  <img className="postcard-paper" src="/clouisle-assets/release-postcard/postcard-back.png" alt="" aria-hidden="true" />
-                  <img className="postcard-stamp" src="/clouisle-assets/release-postcard/stamp.png" alt="" aria-hidden="true" />
-                  <img className="postcard-postmark" src="/clouisle-assets/release-postcard/postmark.png" alt="" aria-hidden="true" />
+                  <Image className="postcard-paper" src={assetUrl("release-postcard/postcard-back.png")} alt="" aria-hidden="true" width={1580} height={996} unoptimized />
+                  <Image className="postcard-stamp" src={assetUrl("release-postcard/stamp.png")} alt="" aria-hidden="true" width={451} height={554} unoptimized />
+                  <Image className="postcard-postmark" src={assetUrl("release-postcard/postmark.png")} alt="" aria-hidden="true" width={674} height={370} unoptimized />
                   <div className="postcard-copy" data-long-message="true">
                     <p className="postcard-greeting">{t.greeting}</p>
                     <div className="postcard-message">
@@ -142,9 +127,9 @@ export default function ReleaseNotes({ lang, t }: ReleaseNotesProps) {
                 </div>
                 <div className="postcard-polaroid-layer" aria-hidden="true">
                   <div className="postcard-polaroid">
-                    <img className="postcard-polaroid-frame" src="/clouisle-assets/release-postcard/polaroid.png" alt="" draggable="false" />
+                    <Image className="postcard-polaroid-frame" src={assetUrl("release-postcard/polaroid.png")} alt="" draggable="false" width={1608} height={1823} unoptimized />
                     <div className="postcard-polaroid-photo">
-                      <img src={t.polaroidImage} alt="" draggable="false" />
+                      <Image src={t.polaroidImage} alt="" draggable="false" fill unoptimized sizes="30vw" />
                     </div>
                   </div>
                 </div>
@@ -165,28 +150,20 @@ export default function ReleaseNotes({ lang, t }: ReleaseNotesProps) {
         </div>
       </article>
 
-      <section className="release-issues" id="past-issues">
-        <h2>{t.pastIssues}</h2>
-        <div className="release-issue-grid">
-          {visibleIssues.map((issue) => (
-            <Link className="release-issue-card" href={`/${lang}/release-notes/${issue.slug}`} key={issue.issueNumber}>
-              <div className="release-issue-meta"><span>{issue.date}</span><i aria-hidden="true" /><span>{issue.issueNumber}</span><i aria-hidden="true" /><span>{issue.version}</span></div>
-              <p>{issue.title}</p>
-              <div className="release-issue-image"><img src={issue.image} alt={issue.title} loading="lazy" /></div>
-            </Link>
-          ))}
-        </div>
-        {!showAllIssues && t.archiveIssueCount > 0 && (
-          <button
-            className="release-view-all"
-            type="button"
-            disabled={isLoadingIssues}
-            onClick={loadAllIssues}
-          >
-            {isLoadingIssues ? t.loadingAll : t.viewAll}
-          </button>
-        )}
-      </section>
-    </main>
+      {t.issues.length > 0 && (
+        <section className="release-issues" id="past-issues">
+          <h2>{t.pastIssues}</h2>
+          <div className="release-issue-grid">
+            {visibleIssues.map((issue) => (
+              <Link className="release-issue-card" href={`/${lang}/release-notes/${issue.slug}`} key={issue.issueNumber}>
+                <div className="release-issue-meta"><span>{issue.date}</span><i aria-hidden="true" /><span>{issue.issueNumber}</span><i aria-hidden="true" /><span>{issue.version}</span></div>
+                <p>{issue.title}</p>
+                <div className="release-issue-image"><Image src={issue.image} alt={issue.title} loading="lazy" unoptimized width={1217} height={808} sizes="(min-width: 800px) 30vw, 100vw" /></div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
   );
 }

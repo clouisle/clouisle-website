@@ -2,6 +2,8 @@ import type { SecurityPageTranslations } from "../types";
 
 export const en: SecurityPageTranslations = {
   title: "Security",
+  description:
+    "Learn how Clouisle protects team boundaries, permissions, authentication, automation identities, and auditability.",
   sections: [
     {
       id: "team-boundaries",

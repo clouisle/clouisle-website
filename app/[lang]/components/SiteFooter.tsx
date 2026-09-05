@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Locale, Translations } from "../../i18n/translations";
+import { assetUrl } from "../../seo";
 
 type SiteFooterProps = {
   t: Translations;
@@ -9,7 +11,6 @@ type SiteFooterProps = {
 function FooterLink({ lang, label }: { lang: Locale; label: string }) {
   const normalized = label.toLowerCase();
   const isReleaseNotes = normalized.includes("release") || label.includes("发布");
-  const isSecurity = normalized === "security" || label === "安全性" || label === "安全";
   const isPrivacy = normalized === "privacy" || label === "隐私";
   const isTerms = normalized === "terms of use" || label === "使用条款";
   const isAbout = normalized === "about us" || label === "关于我们";
@@ -60,7 +61,7 @@ export default function SiteFooter({ t, lang }: SiteFooterProps) {
     <footer className="footer">
       <div className="footer-brand">
         <a className="wordmark" href="#top" aria-label="Clouisle">
-          <img className="clouisle-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" />
+        <Image className="clouisle-mark" src={assetUrl("clouisle-mark.svg")} alt="" width={30} height={30} unoptimized />
         </a>
       </div>
       <FooterGroups t={t} lang={lang} className="footer-groups" />

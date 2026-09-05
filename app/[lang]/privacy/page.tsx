@@ -1,9 +1,11 @@
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 export { generateStaticParams } from "../generateStaticParams";
 
 import { hasLocale, translations } from "../../i18n/translations";
+import { assetUrl, pageSeoMetadata, localizedPageMetadata } from "../../seo";
 
 type PrivacyPageProps = {
   params: Promise<{ lang: string }>;
@@ -13,17 +15,8 @@ import type { Metadata } from "next";
 export async function generateMetadata({ params }: PrivacyPageProps): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const t = translations[lang].privacyPage;
-  return {
-    title: `${t.title} | Clouisle`,
-    description: t.summary,
-    alternates: {
-      languages: {
-        en: "/en/privacy",
-        "zh-CN": "/zh/privacy",
-      },
-    },
-  };
+  const seo = pageSeoMetadata[lang].privacy;
+  return localizedPageMetadata(lang, seo.title, seo.description, "/privacy", seo.keywords);
 }
 
 export default async function PrivacyPage({ params }: PrivacyPageProps) {
@@ -40,7 +33,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
     <div className="privacy-page" data-locale={lang}>
       <header className="privacy-header">
         <Link className="privacy-brand" href={`/${lang}`} aria-label="Clouisle">
-          <img className="privacy-brand-mark" src="/clouisle-assets/clouisle-mark.svg" alt="" aria-hidden="true" />
+          <Image className="privacy-brand-mark" src={assetUrl("clouisle-mark.svg")} alt="" aria-hidden="true" width={30} height={30} unoptimized />
           <span className="privacy-brand-name">Clouisle</span>
         </Link>
         <h1>{t.title}</h1>

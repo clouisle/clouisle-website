@@ -2,6 +2,7 @@ import type { SecurityPageTranslations } from "../types";
 
 export const zh: SecurityPageTranslations = {
   title: "安全",
+  description: "了解 Clouisle 如何保护团队边界、权限、身份认证、自动化身份与审计能力。",
   sections: [
     {
       id: "team-boundaries",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, translations, type Locale } from "../../i18n/translations";
+import { pageSeoMetadata, localizedPageMetadata } from "../../seo";
 import AboutExperience from "./AboutExperience";
 
 export { generateStaticParams } from "../generateStaticParams";
@@ -13,17 +14,8 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
   const { lang: rawLang } = await params;
   if (!hasLocale(rawLang)) return {};
 
-  const t = translations[rawLang].aboutPage;
-  return {
-    title: `${t.title} | Clouisle`,
-    description: t.intro,
-    alternates: {
-      languages: {
-        en: "/en/about",
-        "zh-CN": "/zh/about",
-      },
-    },
-  };
+  const seo = pageSeoMetadata[rawLang].about;
+  return localizedPageMetadata(rawLang, seo.title, seo.description, "/about", seo.keywords);
 }
 
 export default async function AboutPage({ params }: AboutPageProps) {

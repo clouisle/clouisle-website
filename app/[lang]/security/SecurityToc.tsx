@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type TocItem = {
   id: string;
@@ -16,9 +16,10 @@ export default function SecurityToc({
   label: string;
   faqTitle?: string;
 }) {
-  const items = faqTitle
-    ? [...sections, { id: "security-faq", title: faqTitle }]
-    : sections;
+  const items = useMemo(
+    () => faqTitle ? [...sections, { id: "security-faq", title: faqTitle }] : sections,
+    [sections, faqTitle],
+  );
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
 
   useEffect(() => {
@@ -44,8 +45,7 @@ export default function SecurityToc({
     );
 
     targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
-  }, [sections, faqTitle]);
+  }, [items]);
 
   return (
     <nav className="security-toc" aria-label={label}>
