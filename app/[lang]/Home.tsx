@@ -17,7 +17,7 @@ export default function Home({ lang }: { lang: Locale }) {
 
   return (
     <>
-      <Hero t={t} onWatchVideo={openProductVideo} />
+      <Hero t={t} lang={lang} onWatchVideo={openProductVideo} />
       <UseCasesSection t={t} />
       <FeaturesSection t={t} />
       <PrivacySection t={t} />

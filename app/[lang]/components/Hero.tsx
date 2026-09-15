@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import type { Translations } from "../../i18n/translations";
+import type { Locale, Translations } from "../../i18n/translations";
 
 import { assetUrl } from "../../seo";
 import { ArrowRightIcon } from "./icons";
@@ -9,17 +9,23 @@ import SideRays from "./SideRays";
 
 type HeroProps = {
   t: Translations;
+  lang?: Locale;
   onWatchVideo: () => void;
 };
 
-export default function Hero({ t, onWatchVideo }: HeroProps) {
+export default function Hero({ t, lang = "en", onWatchVideo }: HeroProps) {
+  const headingAriaLabel =
+    lang === "zh"
+      ? "Clouisle 开源 AI 工作空间｜私有化部署智能体与工作流"
+      : "Clouisle - Open-Source AI Workspace for Private Deployment";
   return (
     <section className="hero" id="top">
       <SideRays className="hero-rays" />
       <Image className="hero-image" src={assetUrl("demo.png")} alt="Clouisle product workspace" width={3122} height={1920} priority unoptimized sizes="50vw" />
       <div className="hero-content">
-        <h1 aria-label="Clouisle">
+        <h1 aria-label={headingAriaLabel}>
           <GlyphWord text="Clouisle" />
+          <span className="sr-only">{headingAriaLabel}</span>
         </h1>
         <p className="hero-tagline">{t.hero.tagline}</p>
         <a

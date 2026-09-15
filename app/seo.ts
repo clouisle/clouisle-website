@@ -223,8 +223,13 @@ export function localizedPageMetadata(
   description: string,
   path: string,
   keywords?: string[],
+  image?: { url: string; alt?: string },
 ): Metadata {
   const absoluteTitle = `${title} | Clouisle`;
+  const site = siteMetadata[lang];
+  const ogImageUrl = image?.url ?? site.ogImage;
+  const ogImageAlt = image?.alt ?? site.imageAlt;
+
   return {
     title: { absolute: absoluteTitle },
     description,
@@ -233,10 +238,24 @@ export function localizedPageMetadata(
     openGraph: {
       title: absoluteTitle,
       description,
+      siteName: "Clouisle",
+      locale: site.ogLocale,
+      type: "website",
+      url: absoluteUrl(localizedPath(lang, path)),
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
+        },
+      ],
     },
     twitter: {
+      card: "summary_large_image",
       title: absoluteTitle,
       description,
+      images: [ogImageUrl],
     },
   };
 }

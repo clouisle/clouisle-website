@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, translations, type Locale } from "../../../i18n/translations";
 import ReleaseNotes from "./ReleaseNotes";
-import { compactDescription, localizedPageMetadata } from "../../../seo";
+import { assetUrl, compactDescription, localizedPageMetadata, SITE_URL } from "../../../seo";
 
 export { generateStaticParams } from "../../generateStaticParams";
 
@@ -20,5 +20,34 @@ export default async function ReleaseNotesPage({ params }: { params: Promise<{ l
   const { lang: rawLang } = await params;
   if (!hasLocale(rawLang)) notFound();
   const lang: Locale = rawLang;
-  return <ReleaseNotes lang={lang} t={translations[lang].releaseNotes} />;
+  const t = translations[lang].releaseNotes;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: t.title,
+    description: t.message.join(" "),
+    image: t.heroImage,
+    url: `${SITE_URL}/${lang}/release-notes/latest`,
+    publisher: {
+      "@type": "Organization",
+      name: "Clouisle",
+      url: SITE_URL,
+      logo: assetUrl("clouisle-mark.svg"),
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Clouisle Release Notes",
+      url: `${SITE_URL}/${lang}/release-notes/latest`,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <ReleaseNotes lang={lang} t={t} />
+    </>
+  );
 }

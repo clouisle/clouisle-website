@@ -1,2 +1,14 @@
 /_next/static/*
   Cache-Control: public,max-age=2592000,immutable
+
+/*.svg
+  Cache-Control: public,max-age=86400,stale-while-revalidate=604800
+
+/robots.txt
+  Cache-Control: public,max-age=86400
+
+/sitemap.xml
+  Cache-Control: public,max-age=86400
+
+/llms.txt
+  Cache-Control: public,max-age=86400,stale-while-revalidate=604800

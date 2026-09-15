@@ -1,0 +1,23 @@
+# Clouisle
+
+> Open-Source, Self-Hosted AI Workspace for Agents, Knowledge Bases, and Automated Workflows.
+
+Clouisle is an open-source, private-cloud AI workspace designed to keep data in infrastructure you control (zero mandatory third-party data forwarding / "data stays in domain"). It unites multi-agent orchestration, enterprise document retrieval, model management, tool connections, and end-to-end workflows into a single cohesive platform.
+
+## Core Capabilities
+
+- **AI Agents**: Autonomous and human-in-the-loop agents that understand business context, plan tasks, call internal tools, and drive work to completion.
+- **Enterprise Knowledge Base**: Multimodal document parsing, hybrid retrieval, and precise permission boundaries to ground agent answers in verifiable facts.
+- **Workflow Automation**: Visual and code-level DAG orchestration threading models, tools, agents, and human approvals into reproducible business processes.
+- **Model Governance & Access Control**: Centralized routing across open-source (Ollama, vLLM) and commercial model APIs with fine-grained team-level RBAC.
+- **Data Sovereignty & Security**: 100% self-hosted deployment on Docker or Kubernetes, network-isolated environments, SSO, and verifiable audit logs.
+- **Open Source**: Licensed under GNU General Public License v3.0 (GPL-3.0).
+
+## Official Links
+
+- Website: https://clouisle.asia
+- GitHub Repository: https://github.com/clouisle/Clouisle
+- Security & Compliance: https://clouisle.asia/en/security
+- Documentation & Help: https://clouisle.asia/en/help
+- Release Notes & Changelog: https://clouisle.asia/en/release-notes/latest
+- License: https://www.gnu.org/licenses/gpl-3.0.html
