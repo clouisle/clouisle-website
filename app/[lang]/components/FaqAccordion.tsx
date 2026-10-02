@@ -1,20 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type Faq = {
   question: string;
   answer: string;
+  links?: { label: string; href: string }[];
 };
 
-export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
+export default function FaqAccordion({ faqs, idPrefix = "faq-accordion-panel" }: { faqs: Faq[]; idPrefix?: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <>
       {faqs.map((faq, index) => {
         const isOpen = openIndex === index;
-        const panelId = `faq-accordion-panel-${index}`;
+        const panelId = `${idPrefix}-${index}`;
 
         return (
           <div className="faq-accordion-item" data-open={isOpen} key={faq.question}>
@@ -29,9 +31,27 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
               </svg>
               <span>{faq.question}</span>
             </button>
-            <div id={panelId} role="region" aria-hidden={!isOpen} className="faq-accordion-panel">
+            <div id={panelId} role="region" aria-hidden={!isOpen} inert={!isOpen} className="faq-accordion-panel">
               <div className="faq-accordion-panel-inner">
                 <p>{faq.answer}</p>
+                {faq.links?.length ? (
+                  <ul className="faq-accordion-links">
+                    {faq.links.map((link) => {
+                      const external = /^(https?:|mailto:)/.test(link.href);
+                      return (
+                        <li key={link.href + link.label}>
+                          {external ? (
+                            <a href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                              {link.label}<span aria-hidden="true"> ↗</span>
+                            </a>
+                          ) : (
+                            <Link href={link.href}>{link.label}<span aria-hidden="true"> →</span></Link>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : null}
               </div>
             </div>
           </div>

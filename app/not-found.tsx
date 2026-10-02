@@ -51,7 +51,7 @@ export default function NotFound() {
           返回首页 (中文)
         </Link>
         <Link
-          href="/en/release-notes/latest"
+          href="/en/release-notes"
           style={{
             padding: "12px 24px",
             background: "transparent",

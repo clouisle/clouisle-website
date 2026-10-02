@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
+import ChromaText from "../components/ChromaText";
 import { notFound } from "next/navigation";
 export { generateStaticParams } from "../generateStaticParams";
 
@@ -32,7 +33,7 @@ export default async function SecurityPage({ params }: SecurityPageProps) {
           <Image className="security-brand-mark" src={assetUrl("clouisle-mark.svg")} alt="" aria-hidden="true" width={30} height={30} unoptimized />
           <span className="security-brand-name">Clouisle</span>
         </Link>
-        <h1>{t.title}</h1>
+        <h1><ChromaText>{t.title}</ChromaText></h1>
       </header>
 
       <div className="security-body">

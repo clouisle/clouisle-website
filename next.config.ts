@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/:lang(en|zh)/release-notes/latest",
+        destination: "/:lang/release-notes",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

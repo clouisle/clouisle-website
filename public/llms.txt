@@ -19,5 +19,5 @@ Clouisle is an open-source, private-cloud AI workspace designed to keep data in 
 - GitHub Repository: https://github.com/clouisle/Clouisle
 - Security & Compliance: https://clouisle.asia/en/security
 - Documentation & Help: https://clouisle.asia/en/help
-- Release Notes & Changelog: https://clouisle.asia/en/release-notes/latest
+- Release Notes & Changelog: https://clouisle.asia/en/release-notes
 - License: https://www.gnu.org/licenses/gpl-3.0.html

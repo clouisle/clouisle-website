@@ -113,56 +113,89 @@ export type PrivacyPageTranslations = {
 
 export type TermsPageTranslations = PrivacyPageTranslations;
 
-export type ReleaseIssue = {
+export type ReleaseHeading = { id: string; title: string };
+
+/** One release, loaded from `content/release-notes/<lang>/<slug>.md`. */
+export type ReleaseArticle = {
+  /** File name without extension. */
   slug: string;
-  date: string;
+  /** ISO date (YYYY-MM-DD); formatted per locale at render time. */
+  isoDate: string;
   issueNumber: string;
+  /** Semantic version without the leading "v", e.g. "0.2.9". */
   version: string;
+  tag: string;
   title: string;
-  description: string;
-  image: string;
-  greeting?: string;
-  message?: string[];
-  signature?: string;
-  heroImage?: string;
-  polaroidImage?: string;
-  gradient?: number;
+  summary: string;
+  cover: string;
+  gradient: number;
+  /** Markdown body (frontmatter removed). */
+  body: string;
+  /** `##` headings of the body, used for the article outline. */
+  headings: ReleaseHeading[];
 };
 
+/** UI labels for the release notes pages; articles are loaded separately on the server. */
 export type ReleaseNotesTranslations = {
-  eyebrow: string;
-  wordmark: string;
-  tagline: string;
   title: string;
-  category: string;
-  cadence: string;
-  date: string;
-  location: string;
+  intro: string;
+  seoDescription: string;
+  timelineLabel: string;
+  latestBadge: string;
+  readMore: string;
+  backToList: string;
+  outlineTitle: string;
+  /** Contains an `{n}` placeholder for the issue number. */
   issueLabel: string;
-  issueNumber: string;
-  versionLabel: string;
-  version: string;
-  flipLabel: string;
-  flippedLabel: string;
-  greeting: string;
-  message: string[];
+  newer: string;
+  older: string;
+  byline: string;
   signature: string;
-  heroImage: string;
-  polaroidImage: string;
-  gradient?: number;
-  experimentalMode?: "classic" | "transition" | "experimental";
-  transitionStart?: number;
-  pastIssues: string;
-  viewAll: string;
-  loadingAll: string;
-  archiveIssueCount: number;
-  issues: ReleaseIssue[];
+  endNote: string;
+  gradient: number;
+};
+
+export type HelpLink = {
+  label: string;
+  href: string;
 };
 
 export type HelpPageTranslations = {
   title: string;
   description: string;
-  chatPlaceholder: string;
+  jump: { label: string; start: string; faq: string; support: string };
+  start: {
+    eyebrow: string;
+    title: string;
+    linkLabel: string;
+    items: { title: string; description: string; href: string }[];
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    groups: {
+      id: string;
+      title: string;
+      items: { question: string; answer: string; links?: HelpLink[] }[];
+    }[];
+  };
+  support: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    routes: {
+      tag: string;
+      title: string;
+      description: string;
+      action: string;
+      href: string;
+      primary?: boolean;
+    }[];
+    checklistTitle: string;
+    checklist: string[];
+    checklistNote: string;
+  };
 };
 
 export type AboutPageTranslations = {

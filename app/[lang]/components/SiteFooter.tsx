@@ -14,11 +14,13 @@ function FooterLink({ lang, label }: { lang: Locale; label: string }) {
   const isPrivacy = normalized === "privacy" || label === "隐私";
   const isTerms = normalized === "terms of use" || label === "使用条款";
   const isAbout = normalized === "about us" || label === "关于我们";
+  const isSecurity = normalized === "security" || label === "安全";
 
-  if (isReleaseNotes) return <Link href={`/${lang}/release-notes/latest`}>{label}</Link>;
+  if (isReleaseNotes) return <Link href={`/${lang}/release-notes`}>{label}</Link>;
   if (isPrivacy) return <Link href={`/${lang}/privacy`}>{label}</Link>;
   if (isTerms) return <Link href={`/${lang}/terms`}>{label}</Link>;
   if (isAbout) return <Link href={`/${lang}/about`}>{label}</Link>;
+  if (isSecurity) return <Link href={`/${lang}/security`}>{label}</Link>;
   if (normalized === "help" || label === "帮助") return <Link href={`/${lang}/help`}>{label}</Link>;
   if (normalized === "mail" || label === "邮箱") return <a href="mailto:yunhai@yhnotes.com">{label}</a>;
   if (normalized === "github") return <a href="https://github.com/clouisle" target="_blank" rel="noopener noreferrer">{label}</a>;

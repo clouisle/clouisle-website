@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { locales, translations, type Locale } from "./i18n/translations";
+import { locales, type Locale } from "./i18n/translations";
+import { getReleaseArticles } from "./i18n/release/articles";
 import { absoluteUrl, localizedPath } from "./seo";
 
-const staticPaths = ["", "/about", "/help", "/privacy", "/terms", "/security", "/release-notes/latest"];
+const staticPaths = ["", "/about", "/help", "/privacy", "/terms", "/security", "/release-notes"];
 
 function sitemapAlternates(path: string) {
   return {
@@ -17,7 +18,7 @@ function sitemapAlternates(path: string) {
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     ...staticPaths,
-    ...translations.en.releaseNotes.issues.map((issue) => `/release-notes/${issue.slug}`),
+    ...getReleaseArticles("en").map((article) => `/release-notes/${article.slug}`),
   ];
 
   return locales.flatMap((lang: Locale) =>

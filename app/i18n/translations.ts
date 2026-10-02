@@ -14,7 +14,7 @@ import { en as aboutEn } from "./about/en";
 import { zh as aboutZh } from "./about/zh";
 import type { Locale, Translations } from "./types";
 
-export type { Locale, ReleaseIssue, Translations } from "./types";
+export type { Locale, ReleaseArticle, Translations } from "./types";
 
 export const locales = ["en", "zh"] as const;
 

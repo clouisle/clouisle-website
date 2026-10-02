@@ -57,7 +57,7 @@ export default function PageShell({
         <SiteHeader
           t={t}
           homeHref={`/${lang}`}
-          releaseHref={`/${lang}/release-notes/latest`}
+          releaseHref={`/${lang}/release-notes`}
           securityHref={`/${lang}/security`}
           localeSwitchHref={localeSwitchHref}
           menuOpen={menuOpen}

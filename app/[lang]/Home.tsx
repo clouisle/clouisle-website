@@ -20,7 +20,7 @@ export default function Home({ lang }: { lang: Locale }) {
       <Hero t={t} lang={lang} onWatchVideo={openProductVideo} />
       <UseCasesSection t={t} />
       <FeaturesSection t={t} />
-      <PrivacySection t={t} />
+      <PrivacySection t={t} lang={lang} />
       <PlansSection t={t} />
       <FaqSection t={t} />
       {productVideoOpen ? <ProductVideoModal t={t} onClose={() => setProductVideoOpen(false)} /> : null}
