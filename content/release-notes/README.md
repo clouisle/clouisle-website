@@ -6,11 +6,15 @@ Each release is one Markdown file per language. Add a release by adding two file
 content/release-notes/
   en/v0-3-0.md
   zh/v0-3-0.md
+  sources.ts        # bundles the Markdown; picks up new files automatically
   en.json, zh.json   # UI labels for the pages (not articles)
 ```
 
-The file name is the URL slug (`/release-notes/v0-3-0`). Files are read and rendered to static HTML at build time by
-`app/i18n/release/articles.ts`; nothing from the Markdown ships to the client.
+The file name is the URL slug (`/release-notes/v0-3-0`). Files are bundled into the server build by
+`sources.ts` (`import.meta.glob` with `raw-loader`, configured in `next.config.ts`) and parsed by
+`app/i18n/release/articles.ts`; nothing from the Markdown ships to the client. They are bundled rather
+than read from disk because the site is deployed to Cloudflare Workers, whose runtime has no `content/`
+directory — a request-time render has to find the article in the bundle.
 
 ## Frontmatter
 

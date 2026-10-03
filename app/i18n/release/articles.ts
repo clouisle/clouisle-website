@@ -1,9 +1,6 @@
 import "server-only";
-import fs from "node:fs";
-import path from "node:path";
 import type { Locale, ReleaseArticle, ReleaseHeading } from "../types";
-
-const CONTENT_DIR = path.join(process.cwd(), "content", "release-notes");
+import { RELEASE_SOURCES } from "../../../content/release-notes/sources";
 
 /** Stable, CJK-friendly anchor id for a heading. Shared by the outline and the renderer. */
 export function headingId(text: string) {
@@ -45,13 +42,13 @@ function parseFrontmatter(raw: string, file: string) {
   return { data, body: match[2].trim() };
 }
 
-function parseArticle(lang: Locale, file: string): ReleaseArticle {
-  const { data, body } = parseFrontmatter(fs.readFileSync(path.join(CONTENT_DIR, lang, file), "utf8"), `${lang}/${file}`);
+function parseArticle(lang: Locale, slug: string, markdown: string): ReleaseArticle {
+  const { data, body } = parseFrontmatter(markdown, `${lang}/${slug}.md`);
   for (const key of ["title", "summary", "date", "issue", "version", "tag", "cover"]) {
-    if (!data[key]) throw new Error(`Release note ${lang}/${file} is missing "${key}"`);
+    if (!data[key]) throw new Error(`Release note ${lang}/${slug}.md is missing "${key}"`);
   }
   return {
-    slug: file.replace(/\.md$/, ""),
+    slug,
     isoDate: data.date,
     issueNumber: String(data.issue).padStart(3, "0"),
     version: data.version,
@@ -65,11 +62,9 @@ function parseArticle(lang: Locale, file: string): ReleaseArticle {
   };
 }
 
-/** All releases for a locale, newest first. Reads Markdown from disk, so call it only at build time. */
+/** All releases for a locale, newest first. Pure, so it is safe to call while rendering. */
 export function getReleaseArticles(lang: Locale): ReleaseArticle[] {
-  return fs
-    .readdirSync(path.join(CONTENT_DIR, lang))
-    .filter((file) => file.endsWith(".md"))
-    .map((file) => parseArticle(lang, file))
+  return Object.entries(RELEASE_SOURCES[lang])
+    .map(([slug, markdown]) => parseArticle(lang, slug, markdown))
     .sort((a, b) => b.isoDate.localeCompare(a.isoDate) || Number(b.issueNumber) - Number(a.issueNumber));
 }

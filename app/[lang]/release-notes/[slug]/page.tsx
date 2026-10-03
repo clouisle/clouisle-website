@@ -13,8 +13,9 @@ import { formatFullDate, formatIssue } from "../format";
 
 type PageProps = { params: Promise<{ lang: string; slug: string }> };
 
-// Articles are read from disk at build time, so unknown slugs must 404 instead of rendering on demand.
-export const dynamicParams = false;
+// Articles are bundled, so a slug that was not prerendered can still render on demand;
+// the page 404s itself for slugs that do not exist. Without this, the Cloudflare cache
+// (which does not persist prerendered HTML) would answer every article with a 404.
 
 export async function generateStaticParams() {
   return locales.flatMap((lang) =>
