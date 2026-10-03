@@ -1,6 +1,7 @@
 import type { Translations } from "../../i18n/translations";
 import Image from "next/image";
 import { assetUrl } from "../../seo";
+import ChromaText from "./ChromaText";
 
 type ProductFeatureMedia = {
   className: string;
@@ -23,7 +24,7 @@ export default function FeaturesSection({ t }: { t: Translations }) {
   return (
     <section className="features-section" id="features">
       <div className="section-intro features-intro">
-        <h2>{t.features.title}</h2>
+        <h2><ChromaText>{t.features.title}</ChromaText></h2>
       </div>
 
       <div className="feature-grid">
