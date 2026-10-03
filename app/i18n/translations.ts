@@ -12,17 +12,14 @@ import { en as helpEn } from "./help/en";
 import { zh as helpZh } from "./help/zh";
 import { en as aboutEn } from "./about/en";
 import { zh as aboutZh } from "./about/zh";
+import { en as notFoundEn } from "./not-found/en";
+import { zh as notFoundZh } from "./not-found/zh";
 import type { Locale, Translations } from "./types";
 
 export type { Locale, ReleaseArticle, Translations } from "./types";
-
-export const locales = ["en", "zh"] as const;
-
-export function hasLocale(locale: string): locale is Locale {
-  return (locales as readonly string[]).includes(locale);
-}
+export { locales, hasLocale } from "./locale";
 
 export const translations: Record<Locale, Translations> = {
-  en: { ...homeEn, securityPage: securityEn, privacyPage: privacyEn, termsPage: termsEn, releaseNotes: releaseEn, helpPage: helpEn, aboutPage: aboutEn },
-  zh: { ...homeZh, securityPage: securityZh, privacyPage: privacyZh, termsPage: termsZh, releaseNotes: releaseZh, helpPage: helpZh, aboutPage: aboutZh },
+  en: { ...homeEn, securityPage: securityEn, privacyPage: privacyEn, termsPage: termsEn, releaseNotes: releaseEn, helpPage: helpEn, aboutPage: aboutEn, notFoundPage: notFoundEn },
+  zh: { ...homeZh, securityPage: securityZh, privacyPage: privacyZh, termsPage: termsZh, releaseNotes: releaseZh, helpPage: helpZh, aboutPage: aboutZh, notFoundPage: notFoundZh },
 };

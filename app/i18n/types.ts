@@ -273,6 +273,14 @@ export type AboutPageTranslations = {
   footerNote: string;
 };
 
+export type NotFoundPageTranslations = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  backHome: string;
+  help: string;
+};
+
 export type Translations = HomeTranslations & {
   securityPage: SecurityPageTranslations;
   privacyPage: PrivacyPageTranslations;
@@ -280,4 +288,5 @@ export type Translations = HomeTranslations & {
   releaseNotes: ReleaseNotesTranslations;
   helpPage: HelpPageTranslations;
   aboutPage: AboutPageTranslations;
+  notFoundPage: NotFoundPageTranslations;
 };

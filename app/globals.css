@@ -304,6 +304,28 @@ img { display: block; max-width: 100%; }
   [data-reveal] > [data-reveal-item] { opacity: 1; transform: none; transition: none; }
 }
 
+/* 404 (app/[lang]/not-found.tsx) */
+.nf-page { width: 100%; max-width: 1040px; margin: 0 auto; padding: 168px 20px 150px; display: grid; place-items: start center; }
+.nf-panel { width: 100%; max-width: 760px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 66px 56px 62px; border: 1px dashed rgba(0,0,0,.28); border-radius: 12px; }
+.nf-brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 40px; color: var(--ink); }
+.nf-brand-mark { width: 34px; height: 34px; display: block; }
+.nf-brand-name { font-family: var(--font-display); font-size: 30px; font-weight: 500; letter-spacing: -.04em; font-optical-sizing: auto; }
+.nf-eyebrow { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
+.nf-page h1 { margin: 20px 0 0; font-family: var(--font-display); font-size: clamp(34px, 5vw, 58px); font-weight: 500; letter-spacing: -.03em; line-height: 1.14; font-optical-sizing: auto; }
+.nf-description { max-width: 520px; margin: 22px 0 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+.nf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
+.nf-primary, .nf-link { height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 26px; border-radius: 14px; font-size: 16px; transition: background .2s ease, color .2s ease, transform .18s ease, opacity .18s ease; }
+.nf-primary { min-width: 190px; border: 1px solid var(--black); color: #fff; background: var(--black); font-weight: 600; }
+.nf-primary:hover { opacity: .86; transform: scale(.98); }
+.nf-link { border: 1px solid rgba(0,0,0,.14); color: rgba(0,0,0,.72); }
+.nf-link:hover { color: var(--ink); background: rgba(0,0,0,.04); }
+
+@media (max-width: 799px) {
+  .nf-page { padding: 128px 16px 92px; }
+  .nf-panel { padding: 44px 22px 40px; }
+  .nf-actions { margin-top: 32px; }
+}
+
 @media (min-width: 800px) {
   .hero h1 { font-size: 96px; }
   .case-project-frame { border-radius: 24px; }

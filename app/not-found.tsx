@@ -1,69 +1,66 @@
-import Link from "next/link";
+import "@fontsource-variable/fraunces/full.css";
+import "@fontsource-variable/instrument-sans/wdth.css";
+import "@fontsource-variable/noto-sans-sc/wght.css";
+import "@fontsource-variable/noto-serif-sc/wght.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "./globals.css";
 
-export default function NotFound() {
+import Image from "next/image";
+import Link from "next/link";
+import { cookies, headers } from "next/headers";
+import PageShell from "./[lang]/PageShell";
+import ChromaText from "./[lang]/components/ChromaText";
+import { detectLocale, LOCALE_COOKIE } from "./i18n/locale";
+import { translations } from "./i18n/translations";
+import { assetUrl } from "./seo";
+
+/**
+ * The 404 page.
+ *
+ * It has to live at the app root: proxy.ts sends every path into a locale, and Next renders
+ * the root not-found boundary for URLs no route matches — a nested one under /[lang] is
+ * never reached. The route also has no root layout to inherit from, so the fonts, global
+ * stylesheet and page chrome are pulled in here explicitly. The language follows the same
+ * rule proxy.ts uses to route the request.
+ */
+export default async function NotFound() {
+  const [cookieStore, requestHeaders] = await Promise.all([cookies(), headers()]);
+  const lang = detectLocale(
+    cookieStore.get(LOCALE_COOKIE)?.value,
+    requestHeaders.get("accept-language"),
+  );
+  const t = translations[lang].notFoundPage;
+  const nav = translations[lang].nav;
+
   return (
-    <div style={{
-      minHeight: "100svh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      background: "#0a0a0a",
-      color: "#ffffff",
-      fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-      padding: "24px",
-      textAlign: "center",
-    }}>
-      <h1 style={{ fontSize: "72px", fontWeight: 700, margin: 0, letterSpacing: "-0.04em" }}>
-        404
-      </h1>
-      <p style={{ fontSize: "20px", color: "rgba(255, 255, 255, 0.7)", margin: "16px 0 32px", maxWidth: "480px" }}>
-        The page you are looking for could not be found. / 抱歉，您访问的页面不存在。
-      </p>
-      <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center" }}>
-        <Link
-          href="/en"
-          style={{
-            padding: "12px 24px",
-            background: "#ffffff",
-            color: "#000000",
-            borderRadius: "10px",
-            fontWeight: 600,
-            textDecoration: "none",
-            fontSize: "15px",
-          }}
-        >
-          Return Home (EN)
-        </Link>
-        <Link
-          href="/zh"
-          style={{
-            padding: "12px 24px",
-            background: "rgba(255, 255, 255, 0.12)",
-            color: "#ffffff",
-            borderRadius: "10px",
-            fontWeight: 600,
-            textDecoration: "none",
-            fontSize: "15px",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-          }}
-        >
-          返回首页 (中文)
-        </Link>
-        <Link
-          href="/en/release-notes"
-          style={{
-            padding: "12px 24px",
-            background: "transparent",
-            color: "rgba(255, 255, 255, 0.7)",
-            borderRadius: "10px",
-            textDecoration: "underline",
-            fontSize: "15px",
-          }}
-        >
-          Release Notes
-        </Link>
+    <PageShell lang={lang}>
+      <div className="nf-page">
+        <div className="nf-panel">
+          <Link className="nf-brand" href={`/${lang}`} aria-label="Clouisle">
+            <Image
+              className="nf-brand-mark"
+              src={assetUrl("clouisle-mark.svg")}
+              alt=""
+              aria-hidden="true"
+              width={34}
+              height={34}
+              unoptimized
+            />
+            <span className="nf-brand-name">Clouisle</span>
+          </Link>
+
+          <span className="nf-eyebrow">{t.eyebrow}</span>
+          <h1><ChromaText>{t.title}</ChromaText></h1>
+          <p className="nf-description">{t.description}</p>
+
+          <div className="nf-actions">
+            <Link className="nf-primary" href={`/${lang}`}>{t.backHome}</Link>
+            <Link className="nf-link" href={`/${lang}/release-notes`}>{nav.features}</Link>
+            <Link className="nf-link" href={`/${lang}/help`}>{t.help}</Link>
+            <Link className="nf-link" href={`/${lang}/security`}>{nav.security}</Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </PageShell>
   );
 }
