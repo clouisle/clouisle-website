@@ -3,6 +3,7 @@
 import type { Translations } from "../../i18n/translations";
 import ChromaText from "./ChromaText";
 import FaqAccordion from "./FaqAccordion";
+import Reveal from "./Reveal";
 
 export default function FaqSection({ t }: { t: Translations }) {
   const data = t.faq;
@@ -15,9 +16,9 @@ export default function FaqSection({ t }: { t: Translations }) {
         <p className="faq-description">{data.description}</p>
       </div>
 
-      <div className="faq-accordion-list">
+      <Reveal className="faq-accordion-list">
         <FaqAccordion faqs={data.items} />
-      </div>
+      </Reveal>
     </section>
   );
 }
