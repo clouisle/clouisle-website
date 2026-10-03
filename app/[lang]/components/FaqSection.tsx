@@ -1,6 +1,7 @@
 "use client";
 
 import type { Translations } from "../../i18n/translations";
+import ChromaText from "./ChromaText";
 import FaqAccordion from "./FaqAccordion";
 
 export default function FaqSection({ t }: { t: Translations }) {
@@ -10,7 +11,7 @@ export default function FaqSection({ t }: { t: Translations }) {
     <section className="faq-section" id="faq" aria-labelledby="faq-title">
       <div className="faq-header">
         <span className="faq-eyebrow">{data.eyebrow}</span>
-        <h2 id="faq-title" className="faq-title">{data.title}</h2>
+        <h2 id="faq-title" className="faq-title"><ChromaText>{data.title}</ChromaText></h2>
         <p className="faq-description">{data.description}</p>
       </div>
 
