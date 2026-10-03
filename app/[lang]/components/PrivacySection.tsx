@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import type { Translations } from "../../i18n/translations";
 import { assetUrl } from "../../seo";
+import Reveal from "./Reveal";
 
 export default function PrivacySection({ t, lang }: { t: Translations; lang: "en" | "zh" }) {
   return (
@@ -46,11 +47,13 @@ export default function PrivacySection({ t, lang }: { t: Translations; lang: "en
             fill="black"
           />
         </svg>
-        <h2>{t.privacy.title}</h2>
-        <PrivacyToggles t={t} />
-        <p>{t.privacy.description1}</p>
-        <p>{t.privacy.description2}</p>
-        <a className="privacy-link" href={`/${lang}/security`}>{t.privacy.learnMore} <span aria-hidden="true">&rarr;</span></a>
+        <Reveal className="privacy-copy">
+          <h2>{t.privacy.title}</h2>
+          <PrivacyToggles t={t} />
+          <p>{t.privacy.description1}</p>
+          <p>{t.privacy.description2}</p>
+          <a className="privacy-link" href={`/${lang}/security`}>{t.privacy.learnMore} <span aria-hidden="true">&rarr;</span></a>
+        </Reveal>
         <Image
           className="privacy-footer-mark"
           src={assetUrl("clouisle-light.svg")}

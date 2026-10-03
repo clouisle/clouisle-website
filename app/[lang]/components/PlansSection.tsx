@@ -2,6 +2,7 @@
 
 import type { Translations } from "../../i18n/translations";
 import ChromaText from "./ChromaText";
+import Reveal from "./Reveal";
 
 export default function PlansSection({ t }: { t: Translations }) {
   return (
@@ -10,7 +11,7 @@ export default function PlansSection({ t }: { t: Translations }) {
         <h2>
           <ChromaText>{t.plans.title}</ChromaText>
         </h2>
-        <div className="pricing-plan-grid">
+        <Reveal className="pricing-plan-grid">
           {t.plans.items.map((plan) => (
             <article className="pricing-plan-card" key={plan.name}>
               <h3>{plan.name}</h3>
@@ -45,7 +46,7 @@ export default function PlansSection({ t }: { t: Translations }) {
               ) : null}
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Translations } from "../../i18n/translations";
 import Image from "next/image";
 import { assetUrl } from "../../seo";
 import ChromaText from "./ChromaText";
+import Reveal from "./Reveal";
 
 type ProductFeatureMedia = {
   className: string;
@@ -27,7 +28,7 @@ export default function FeaturesSection({ t }: { t: Translations }) {
         <h2><ChromaText>{t.features.title}</ChromaText></h2>
       </div>
 
-      <div className="feature-grid">
+      <Reveal className="feature-grid">
         {t.features.items.map((feature, index) => (
           <article className={`feature-card ${productFeatureMedia[index].className}`} key={feature.label}>
             <div className="tile-copy">
@@ -46,7 +47,7 @@ export default function FeaturesSection({ t }: { t: Translations }) {
             </div>
           </article>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
