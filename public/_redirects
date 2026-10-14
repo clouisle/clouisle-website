@@ -1,9 +1,0 @@
-/about /en/about/ 302
-/help /en/help/ 302
-/privacy /en/privacy/ 302
-/terms /en/terms/ 302
-/security /en/security/ 302
-/release-notes /en/release-notes/ 302
-/release-notes/* /en/release-notes/:splat/ 302
-/en/release-notes/latest* /en/release-notes/ 301
-/zh/release-notes/latest* /zh/release-notes/ 301

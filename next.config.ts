@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: "/:lang(en|zh)/release-notes/latest",
+        destination: "/:lang/release-notes",
+        permanent: true,
+      },
+    ];
+  },
   turbopack: {
     // Release Markdown is bundled as a string (see content/release-notes/sources.ts): the
     // Cloudflare Workers runtime has no content/ directory to read at request time.
@@ -14,7 +21,6 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -24,4 +30,6 @@ const nextConfig: NextConfig = {
     ],
   },
 };
+
+import("@opennextjs/cloudflare").then((module) => module.initOpenNextCloudflareForDev());
 export default nextConfig;

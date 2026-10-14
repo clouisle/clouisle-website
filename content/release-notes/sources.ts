@@ -1,7 +1,9 @@
 /**
  * Every release Markdown file, bundled as a string.
  *
- * Markdown is bundled so Next.js can render every release article during the static build.
+ * The site runs on Cloudflare Workers, whose runtime has no `content/` directory, so the
+ * Markdown has to be part of the bundle: a request-time render (cold start, cache miss,
+ * revalidation) must find the article in the module graph, not on a filesystem.
  *
  * Files are matched by glob, so publishing a release needs nothing but the two `.md` files.
  */
