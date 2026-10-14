@@ -13,9 +13,8 @@ import { formatFullDate, formatIssue } from "../format";
 
 type PageProps = { params: Promise<{ lang: string; slug: string }> };
 
-// Articles are bundled, so a slug that was not prerendered can still render on demand;
-// the page 404s itself for slugs that do not exist. Without this, the Cloudflare cache
-// (which does not persist prerendered HTML) would answer every article with a 404.
+// Static export only emits pages returned here; all unknown article slugs become 404s.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return locales.flatMap((lang) =>

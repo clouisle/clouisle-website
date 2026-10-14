@@ -3,6 +3,8 @@ import { locales, type Locale } from "./i18n/translations";
 import { getReleaseArticles } from "./i18n/release/articles";
 import { absoluteUrl, localizedPath } from "./seo";
 
+export const dynamic = "force-static";
+
 const staticPaths = ["", "/about", "/help", "/privacy", "/terms", "/security", "/release-notes"];
 
 function sitemapAlternates(path: string) {

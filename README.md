@@ -1,52 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clouisle Landing
+
+A bilingual Next.js 16 static site deployed as Cloudflare Workers Static Assets. `next build` prerenders all pages into `out/`; production requests are served as static assets without executing application code on a Worker.
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-## Deploy to Cloudflare Workers
-
-This project uses `@opennextjs/cloudflare` to deploy the Next.js app as a Cloudflare Worker.
-
 ```bash
 npm install
-npm run preview
+npm run dev
 ```
 
-`npm run preview` builds the OpenNext bundle and runs it through Wrangler locally. After authenticating Wrangler with `npx wrangler login`, deploy with:
+## Build and Preview
 
 ```bash
-npm run deploy
+npm run build       # generates the static site in out/
+npm run preview     # serves the static export locally with Wrangler
 ```
 
-The Worker name and runtime settings are defined in `wrangler.jsonc`. Use `npm run cf-typegen` when adding Cloudflare bindings to server-side code.
+## Deploy to Cloudflare Workers Static Assets
+
+### Automatic deployment on push
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` deploys every push to `main` (and can also be started manually). Add these repository secrets under **Settings → Secrets and variables → Actions**:
+
+- `CLOUDFLARE_API_TOKEN` — token with permission to deploy Workers and edit Workers Scripts.
+- `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account ID that owns the `clouisle-web` Worker.
+
+Once these secrets are configured, pushing to `main` runs `npm ci` and `npm run deploy` automatically. Without the secrets, the workflow will fail at the deploy step. For a local manual deploy, authenticate Wrangler with `npx wrangler login`, then run:
+
+```bash
+npm run deploy      # build + wrangler deploy
+```
+
+All pages, including every localized release article, are prerendered at build time. Add release Markdown in both `content/release-notes/en/` and `content/release-notes/zh/`, then rebuild and deploy. Request-time APIs, server actions, ISR and dynamic routes are intentionally unsupported; see the Next.js static export guide before adding server-dependent features.

@@ -1,3 +1,5 @@
+"use client";
+
 import "@fontsource-variable/fraunces/full.css";
 import "@fontsource-variable/instrument-sans/wdth.css";
 import "@fontsource-variable/noto-sans-sc/wght.css";
@@ -5,30 +7,36 @@ import "@fontsource-variable/noto-serif-sc/wght.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { cookies, headers } from "next/headers";
 import PageShell from "./[lang]/PageShell";
 import ChromaText from "./[lang]/components/ChromaText";
-import { detectLocale, LOCALE_COOKIE } from "./i18n/locale";
 import { translations } from "./i18n/translations";
 import { assetUrl } from "./seo";
 
 /**
  * The 404 page.
  *
- * It has to live at the app root: proxy.ts sends every path into a locale, and Next renders
- * the root not-found boundary for URLs no route matches — a nested one under /[lang] is
- * never reached. The route also has no root layout to inherit from, so the fonts, global
- * stylesheet and page chrome are pulled in here explicitly. The language follows the same
- * rule proxy.ts uses to route the request.
+ * Static, bilingual-neutral 404 page. The root boundary has no root layout, so fonts,
+ * global styles and page chrome are imported explicitly.
  */
-export default async function NotFound() {
-  const [cookieStore, requestHeaders] = await Promise.all([cookies(), headers()]);
-  const lang = detectLocale(
-    cookieStore.get(LOCALE_COOKIE)?.value,
-    requestHeaders.get("accept-language"),
-  );
+export default function NotFound() {
+  const [lang, setLang] = useState<"en" | "zh">("en");
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const cookieLocale = document.cookie
+        .split(";")
+        .map((part) => part.trim())
+        .find((part) => part.startsWith("NEXT_LOCALE="))
+        ?.split("=")[1];
+      setLang(cookieLocale === "zh" || cookieLocale === "en"
+        ? cookieLocale
+        : navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en");
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
   const t = translations[lang].notFoundPage;
   const nav = translations[lang].nav;
 
